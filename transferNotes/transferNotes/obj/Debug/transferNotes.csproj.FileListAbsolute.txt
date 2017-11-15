@@ -1,0 +1,9 @@
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\transferNotes.dll
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\transferNotes.pdb
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\obj\Debug\transferNotes.csprojResolveAssemblyReference.cache
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\obj\Debug\transferNotes.dll
+c:\users\josiah\documents\visual studio 2015\Projects\transferNotes\transferNotes\obj\Debug\transferNotes.pdb
