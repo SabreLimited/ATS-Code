@@ -441,25 +441,41 @@ namespace ATSExtensions
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
                                 myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                                //get ATSCONFIG
+                                var atsConfigQ = new QueryExpression("sabre_atsconfig");
+                                atsConfigQ.ColumnSet = new ColumnSet("sabre_name", "sabre_placementprefix");
+                                EntityCollection configResults = service.RetrieveMultiple(atsConfigQ);
+                                if (configResults.Entities.Count() > 0)
+                                {
+                                    if (configResults[0].Contains("sabre_placementprefix"))
+                                    {
+                                        accountName = (string)configResults[0]["sabre_placementprefix"] + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                    }
+                                }
+                                else
+                                {
+                                    accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                }
                             }
                             else if (entity.Contains("sabre_candidateid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatenextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatefixednumbersize"]));
                                 myEntity.Attributes["sabre_candidatenextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else if (entity.Contains("sabre_positionid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_jobordernextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_joborderfixednumbersize"]));
                                 myEntity.Attributes["sabre_jobordernextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else
                             {
                                 throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
                             }
                             //generate id from there
-                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             //update id counter
                             if (pluginContext.Depth <= 1)
                             {
@@ -708,24 +724,39 @@ namespace ATSExtensions
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
                                 myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                                //get ATSCONFIG
+                                var atsConfigQ = new QueryExpression("sabre_atsconfig");
+                                atsConfigQ.ColumnSet = new ColumnSet("sabre_name", "sabre_placementprefix");
+                                EntityCollection configResults = service.RetrieveMultiple(atsConfigQ);
+                                if (configResults.Entities.Count() > 0)
+                                {
+                                    if (configResults[0].Contains("sabre_placementprefix"))
+                                    {
+                                        accountName = Convert.ToString(configResults[0]["sabre_placementprefix"]) + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                    }
+                                }
+                                else {
+                                    accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                }
                             }
                             else if (entity.Contains("sabre_candidateid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatenextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatefixednumbersize"]));
                                 myEntity.Attributes["sabre_candidatenextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else if (entity.Contains("sabre_positionid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_jobordernextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_joborderfixednumbersize"]));
                                 myEntity.Attributes["sabre_jobordernextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else {
                                 throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
                             }
                             //generate id from there
-                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             //update id counter
                             if (pluginContext.Depth <= 1)
                             {
