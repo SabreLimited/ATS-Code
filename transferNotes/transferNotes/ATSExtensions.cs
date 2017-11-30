@@ -72,7 +72,10 @@ namespace ATSExtensions
                                             myEntity.Attributes.TryGetValue("filename", out tempRec);
                                             copyMyEntity.Attributes["filename"] = tempRec;
                                             copyMyEntity.Attributes["objectid"] = new EntityReference("sabre_placement", tempGuid);
-                                            service.Create(copyMyEntity);//debugging time
+                                            if (pluginContext.Depth <= 1)
+                                            {
+                                                service.Create(copyMyEntity);//debugging time
+                                            }
                                             //throw new InvalidPluginExecutionException("created");
                                         }
                                     }
@@ -94,7 +97,7 @@ namespace ATSExtensions
             var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             var service = factory.CreateOrganizationService(pluginContext.UserId);
 
-            getCandidatesToTest(service);
+            getCandidatesToTest(service, pluginContext);
 
             Entity myEntity = new Entity();
             myEntity.LogicalName = "sabre_dailyupdatetrigger";
@@ -103,7 +106,7 @@ namespace ATSExtensions
 
         }
 
-        public void getCandidatesToTest(IOrganizationService service)
+        public void getCandidatesToTest(IOrganizationService service, IPluginExecutionContext pluginContext)
         {
             var candidateQuery = new QueryExpression("sabre_candidate");
             candidateQuery.Criteria.AddCondition("sabre_workingstatus", ConditionOperator.Equal, 837770002);
@@ -179,7 +182,10 @@ namespace ATSExtensions
                                 candidateQueryTemp.Criteria.AddCondition("sabre_candidateid", ConditionOperator.Equal, myEntity.Id);
                                 if (service.RetrieveMultiple(candidateQueryTemp).Entities.Count > 0)
                                 {
-                                    service.Update(myEntity);
+                                    if (pluginContext.Depth <= 1)
+                                    {
+                                        service.Update(myEntity);
+                                    }
                                 }
                                 //throw new InvalidPluginExecutionException("Updating" + candRef + "xxx");
 
@@ -195,7 +201,10 @@ namespace ATSExtensions
                             candidateQueryTemp.Criteria.AddCondition("sabre_candidateid", ConditionOperator.Equal, myEntity.Id);
                             if (service.RetrieveMultiple(candidateQueryTemp).Entities.Count > 0)
                             {
-                                service.Update(myEntity);
+                                if (pluginContext.Depth <= 1)
+                                {
+                                    service.Update(myEntity);
+                                }
                             }
                             //throw new InvalidPluginExecutionException("Updating" + candRef + "xxx");
 
@@ -223,13 +232,13 @@ namespace ATSExtensions
             var entityEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
             //if date is postdue, consider making candidate available
             if (preEndDate != entityEndDate && entityEndDate < DateTime.Now && entityEndDate.Year > 2000 && !entity.Contains("sabre_candidate")) {
-                updateRelatedCandidates(service, preImage);
+                updateRelatedCandidates(service, preImage, pluginContext);
             } else if (preEndDate != entityEndDate && entityEndDate < DateTime.Now && entityEndDate.Year > 2000 && entity.Contains("sabre_candidate")) {
-                updateRelatedCandidates(service, entity);
+                updateRelatedCandidates(service, entity, pluginContext);
             }
         }
 
-        public void updateRelatedCandidates(IOrganizationService service, Entity entity) {
+        public void updateRelatedCandidates(IOrganizationService service, Entity entity, IPluginExecutionContext pluginContext) {
             var tempField = new Object();
 
             entity.Attributes.TryGetValue("sabre_candidate", out tempField);
@@ -278,7 +287,10 @@ namespace ATSExtensions
                                             candidateQueryTemp.Criteria.AddCondition("sabre_candidateid", ConditionOperator.Equal, myEntity.Id);
                                             if (service.RetrieveMultiple(candidateQueryTemp).Entities.Count > 0)
                                             {
-                                                service.Update(myEntity);
+                                                if (pluginContext.Depth <= 1)
+                                                {
+                                                    service.Update(myEntity);
+                                                }
                                             }
                                         }
                                     }
@@ -302,6 +314,8 @@ namespace ATSExtensions
 
     public class onCreateAccount : IPlugin
     {
+        public Dictionary<string, string> setupVariables;
+
         public void Execute(IServiceProvider serviceProvider)
         {
             var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -309,78 +323,209 @@ namespace ATSExtensions
             var service = factory.CreateOrganizationService(pluginContext.UserId);
 
             var entity = (Entity)pluginContext.PostEntityImages["PostUpdateImage"];
-            if (entity.Contains("sabre_clientstatus")) {
+            if (entity.Contains("accountid"))
+            {
+                initAccountSetupVars();
+            }
+            else if (entity.Contains("sabre_candidateid")) {
+                initCandidateSetupVars();
+            }
+            else if (entity.Contains("sabre_placementid")) {
+                initPlacementSetupVars();
+            }
+            else if (entity.Contains("sabre_positionid")) {
+                initJobOrderSetupVars();
+            }
+            else
+            {
+                throw new InvalidPluginExecutionException("ERROR TYPE NOT IDENTIFIED");
+            }
+            //account-specific verification. If either of these cases are true do not validate
+            if (entity.Contains("accountid") && !entity.Contains("sabre_clientstatus"))
+            {
+                return;
+            }
+            else if (entity.Contains("accountid") && entity.Contains("sabre_clientstatus"))
+            {
                 var clientStatus = (OptionSetValue)entity["sabre_clientstatus"];
-                if (clientStatus.Value == 837770001 || clientStatus.Value == 837770002) {
-                    if (entity.Contains("owningbusinessunit")) {
-                        var owningBU = (EntityReference)entity["owningbusinessunit"];
-                        var accountName = "";
-                        //Retrieve Payroll 1 from Business Unit
-                        var payrollID1 = "";
-                        var BUQuery = new QueryExpression("businessunit");
-                        BUQuery.ColumnSet = new ColumnSet("sabre_payroll", "businessunitid");
-                        BUQuery.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, owningBU.Id);
-                        var BURecord = service.Retrieve("businessunit", owningBU.Id, BUQuery.ColumnSet);
-                        if (BURecord != null) {
-                            payrollID1 = BURecord.Contains("sabre_payroll") ? Convert.ToString(BURecord["sabre_payroll"]) : default(string);
-                        }
+                if (!(clientStatus.Value == 837770001 || clientStatus.Value == 837770002))
+                {
+                    return;
+                }
+            }
 
-                        //End Retrieve Payroll 1 from Business Unit
-                        //generate potential account name
-                        if (entity.Contains("name"))
+            if (entity.Contains("owningbusinessunit")) {
+                var owningBU = (EntityReference)entity["owningbusinessunit"];
+                var accountName = "";
+                //Retrieve Payroll 1 from Business Unit
+                var payrollID1 = "";
+                var BUQuery = new QueryExpression("businessunit");
+                BUQuery.ColumnSet = new ColumnSet("sabre_payroll", "businessunitid");
+                BUQuery.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, owningBU.Id);
+                var BURecord = service.Retrieve("businessunit", owningBU.Id, BUQuery.ColumnSet);
+                if (BURecord != null) {
+                    payrollID1 = BURecord.Contains("sabre_payroll") ? Convert.ToString(BURecord["sabre_payroll"]) : default(string);
+                }
+
+                //End Retrieve Payroll 1 from Business Unit
+                //generate potential account name
+                if (entity.Contains("accountid")) {
+                    if (entity.Contains(setupVariables["mainField"]))
+                    {
+                        accountName = Convert.ToString(entity[setupVariables["mainField"]]);
+                        var containerQuery = new QueryExpression("sabre_idcontainer");
+                        containerQuery.ColumnSet = new ColumnSet("sabre_idcontainerid", "sabre_accountfixed", "sabre_accountnextnumber");
+                        EntityCollection results = service.RetrieveMultiple(containerQuery);
+                        if (results.Entities.Count() > 0)
                         {
-                            accountName = Convert.ToString(entity["name"]);
-                            if (accountName.Length >= 7)
+                            if (results[0].Contains("sabre_accountfixed")) {
+                                int nextNumber = 0;
+                                int fixedSize = 0;
+                                var myEntity = new Entity("sabre_idcontainer");
+                                myEntity.Id = (Guid)results[0]["sabre_idcontainerid"];
+                                myEntity.LogicalName = "sabre_idcontainer";
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_accountnextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_accountfixed"]));
+                                myEntity.Attributes["sabre_accountnextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + "-" + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                //update id counter
+                                if (pluginContext.Depth <= 1)
+                                {
+                                    service.Update(myEntity);
+                                }
+                            }
+                        }
+                            /*if (accountName.Length >= 7)//commented out as Rob does not like this style of ID.
                             {
-                                accountName = payrollID1 + accountName.Substring(0, 7);
+                                var accountNameTemp = accountName.Substring(0, 7);
+                                if (accountNameTemp.Contains(" ")) {
+                                    accountNameTemp.Replace(" ", String.Empty);
+                                    int i = 0;
+                                    while (accountNameTemp.Length < 7 && 7 + i + 1 <= accountName.Length)
+                                    {
+                                        accountNameTemp = accountNameTemp + accountName.Substring(7 + i, 1);
+                                        i++;
+                                        accountNameTemp.Replace(" ", String.Empty);
+                                    }
+                                }
+                                accountName = payrollID1 + "-" + accountNameTemp;
+
                             }
                             else {
-                                accountName = payrollID1 + accountName.Substring(0, accountName.Length);
-                            }
-                        }
-                        //end generate potential account name
-                
-                        if (accountName != null && accountName != "") {
-                            //Check if possible Customer Name is in use
-                            var accountQuery = new QueryExpression("account");
-                            accountQuery.ColumnSet = new ColumnSet("name", "accountid");
-                            accountQuery.Criteria.AddCondition("accountnumber", ConditionOperator.Equal, accountName);
-                            if (entity.Contains("accountid")) {
-                                accountQuery.Criteria.AddCondition("accountid", ConditionOperator.NotEqual, (Guid)entity["accountid"]);
-                            }
-
-                                EntityCollection results = service.RetrieveMultiple(accountQuery);
-                                if (results.Entities.Count() > 0)
+                                accountName = accountName.Substring(0, accountName.Length);
+                                if (accountName.Contains(" "))
                                 {
-                                    //if yes then set editableName to true
-                                    var myEntity = new Entity("account");
-                                    myEntity.Attributes["sabre_editablename"] = true;
-                                    myEntity.LogicalName = "account";
-                                    myEntity.Attributes["accountnumber"] = "";
-                                    if (entity.Contains("accountid"))
-                                    {
-                                        myEntity.Id = (Guid)entity["accountid"];
-                                        service.Update(myEntity);
-                                    }
+                                    accountName.Replace(" ", String.Empty);
                                 }
-                                else
-                                {
-                                    var myEntity = new Entity("account");
-                                    myEntity.Attributes["accountnumber"] = accountName;
-                                    myEntity.Attributes["sabre_editablename"] = false;
-                                    myEntity.LogicalName = "account";
-                                    if (entity.Contains("accountid"))
-                                    {
-                                        myEntity.Id = (Guid)entity["accountid"];
-                                        service.Update(myEntity);
-                                    }
-                                }
-                    
-                    
-                                //End Check if possible Customer Name is in use
-                        }
-
+                                accountName = payrollID1 + "-" + accountName.Substring(0, accountName.Length);
+                            }*/
                     }
+                }
+                else if (entity.Contains("sabre_candidateid") || entity.Contains("sabre_placementid") || entity.Contains("sabre_positionid"))
+                {
+                    //get sabre_idcontainer
+                    var containerQuery = new QueryExpression("sabre_idcontainer");
+                    containerQuery.ColumnSet = new ColumnSet("sabre_idcontainerid", "sabre_candidatefixednumbersize", "sabre_candidatenextnumber", "sabre_joborderfixednumbersize", "sabre_jobordernextnumber", "sabre_placementfixednumbersize", "sabre_placementnextnumber");
+                    EntityCollection results = service.RetrieveMultiple(containerQuery);
+                    if (results.Entities.Count() > 0)
+                    {
+                        if (results[0].Contains("sabre_candidatefixednumbersize") && results[0].Contains("sabre_placementfixednumbersize") && results[0].Contains("sabre_joborderfixednumbersize") && results[0].Contains("sabre_jobordernextnumber") && results[0].Contains("sabre_candidatenextnumber") && results[0].Contains("sabre_placementnextnumber"))
+                        {
+                            int nextNumber = 0;
+                            int fixedSize = 0;
+                            var myEntity = new Entity("sabre_idcontainer");
+                            myEntity.Id = (Guid)results[0]["sabre_idcontainerid"];
+                            myEntity.LogicalName = "sabre_idcontainer";
+                            if (entity.Contains("sabre_placementid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
+                                myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else if (entity.Contains("sabre_candidateid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatenextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatefixednumbersize"]));
+                                myEntity.Attributes["sabre_candidatenextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else if (entity.Contains("sabre_positionid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_jobordernextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_joborderfixednumbersize"]));
+                                myEntity.Attributes["sabre_jobordernextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else
+                            {
+                                throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
+                            }
+                            //generate id from there
+                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                            //update id counter
+                            if (pluginContext.Depth <= 1)
+                            {
+                                service.Update(myEntity);
+                            }
+
+                        }
+                    }
+                }
+                //end generate potential account name
+
+                if (accountName != null && accountName != "") {
+                    //Check if possible Customer Name is in use
+                    var accountQuery = new QueryExpression(setupVariables["type"]);
+                    if (setupVariables["mainField"] == "ZZZZZZZZZZZ")
+                    {
+                        accountQuery.ColumnSet = new ColumnSet(setupVariables["type"] + "id");
+                    }
+                    else
+                    {
+                        accountQuery.ColumnSet = new ColumnSet(setupVariables["mainField"], setupVariables["type"] + "id");
+                    }
+                    accountQuery.Criteria.AddCondition(setupVariables["mainIdField"], ConditionOperator.Equal, accountName);
+                    if (entity.Contains(setupVariables["type"] + "id")) {
+                        accountQuery.Criteria.AddCondition(setupVariables["type"] + "id", ConditionOperator.NotEqual, (Guid)entity[setupVariables["type"] + "id"]);
+                    }
+
+                        EntityCollection results = service.RetrieveMultiple(accountQuery);
+                        if (results.Entities.Count() > 0)
+                        {
+                            //if yes then set editableName to true
+                            var myEntity = new Entity(setupVariables["type"]);
+                            myEntity.Attributes["sabre_editablename"] = true;
+                            myEntity.LogicalName = setupVariables["type"];
+                            myEntity.Attributes[setupVariables["mainIdField"]] = "";
+                            if (entity.Contains(setupVariables["type"] + "id"))
+                            {
+                                myEntity.Id = (Guid)entity[setupVariables["type"] + "id"];
+                                if (pluginContext.Depth <= 1)
+                                {
+                                    service.Update(myEntity);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            var myEntity = new Entity(setupVariables["type"]);
+                            myEntity.Attributes[setupVariables["mainIdField"]] = accountName;
+                            myEntity.Attributes["sabre_editablename"] = false;
+                            myEntity.LogicalName = setupVariables["type"];
+                            if (entity.Contains(setupVariables["type"] + "id"))
+                            {
+                                myEntity.Id = (Guid)entity[setupVariables["type"] + "id"];
+                                if (pluginContext.Depth <= 1)
+                                {
+
+                                    service.Update(myEntity);
+                                }
+                            }
+                        }
+                    
+                    
+                        //End Check if possible Customer Name is in use
+                }
+
+            }
 
             //Check if possible Customer Name is in use
 
@@ -388,8 +533,36 @@ namespace ATSExtensions
             //Payroll1.Val + first7charsCustomerName = possibleCustomerName
             //if yes then set editableName to true
             //if no then set Customer Name
-                }
-            }
+
+        }
+
+        public void initAccountSetupVars()
+        {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "account";
+            setupVariables["mainIdField"] = "accountnumber";
+            setupVariables["mainField"] = "name";
+        }
+        //untested
+        public void initCandidateSetupVars() {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_candidate";
+            setupVariables["mainIdField"] = "sabre_candidatenumber";
+            setupVariables["mainField"] = "sabre_name";
+        }
+        //untested
+        public void initPlacementSetupVars() {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_placement";
+            setupVariables["mainIdField"] = "sabre_name";
+            setupVariables["mainField"] = "ZZZZZZZZZZZ"; //does not exist
+        }
+        //untested
+        public void initJobOrderSetupVars() {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_position";
+            setupVariables["mainIdField"] = "sabre_name";
+            setupVariables["mainField"] = "sabre_positiontitle";
         }
     }
 
@@ -403,96 +576,221 @@ namespace ATSExtensions
             var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             var service = factory.CreateOrganizationService(pluginContext.UserId);
 
-            initAccountSetupVars();
 
             var entity = (Entity)pluginContext.PostEntityImages["PostUpdateImage"];
-            if (entity.Contains("sabre_clientstatus")) {
+
+            if (entity.Contains("accountid"))
+            {
+                initAccountSetupVars();
+            }
+            else if (entity.Contains("sabre_candidateid"))
+            {
+                initCandidateSetupVars();
+            }
+            else if (entity.Contains("sabre_placementid"))
+            {
+                initPlacementSetupVars();
+            }
+            else if (entity.Contains("sabre_positionid"))
+            {
+                initJobOrderSetupVars();
+            }
+            else
+            {
+                throw new InvalidPluginExecutionException("ERROR TYPE NOT IDENTIFIED");
+            }
+
+            if (entity.Contains("accountid") && !entity.Contains("sabre_clientstatus")) {
+                return;
+            }
+            else if (entity.Contains("accountid") && entity.Contains("sabre_clientstatus")) {
                 var clientStatus = (OptionSetValue)entity["sabre_clientstatus"];
-                if (clientStatus.Value == 837770001 || clientStatus.Value == 837770002) {
+                if (!(clientStatus.Value == 837770001 || clientStatus.Value == 837770002)){
+                    return;
+                }
+            }
 
-                    if (entity.Contains("owningbusinessunit"))
+            if (entity.Contains("owningbusinessunit"))
+            {
+                var owningBU = (EntityReference)entity["owningbusinessunit"];
+                var accountName = "";
+                //Retrieve Payroll 1 from Business Unit
+                var payrollID1 = "";
+                var BUQuery = new QueryExpression("businessunit");
+                BUQuery.ColumnSet = new ColumnSet("sabre_payroll", "businessunitid");
+                BUQuery.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, owningBU.Id);
+                var BURecord = service.Retrieve("businessunit", owningBU.Id, BUQuery.ColumnSet);
+                if (BURecord != null)
+                {
+                    payrollID1 = BURecord.Contains("sabre_payroll") ? Convert.ToString(BURecord["sabre_payroll"]) : default(string);
+                }
+                //End Retrieve Payroll 1 from Business Unit
+                //generate potential account name
+                if (entity.Contains("accountid")) {
+                    if (entity.Contains(setupVariables["mainIdField"]))
                     {
-                        var owningBU = (EntityReference)entity["owningbusinessunit"];
-                        var accountName = "";
-                        //Retrieve Payroll 1 from Business Unit
-                        var payrollID1 = "";
-                        var BUQuery = new QueryExpression("businessunit");
-                        BUQuery.ColumnSet = new ColumnSet("sabre_payroll", "businessunitid");
-                        BUQuery.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, owningBU.Id);
-                        var BURecord = service.Retrieve("businessunit", owningBU.Id, BUQuery.ColumnSet);
-                        if (BURecord != null)
+                        accountName = Convert.ToString(entity[setupVariables["mainIdField"]]);
+                    }
+                    else if (entity.Contains(setupVariables["mainField"]))
+                    {
+                        accountName = Convert.ToString(entity[setupVariables["mainField"]]);
+                        var containerQuery = new QueryExpression("sabre_idcontainer");
+                        containerQuery.ColumnSet = new ColumnSet("sabre_idcontainerid", "sabre_accountfixed", "sabre_accountnextnumber");
+                        EntityCollection results = service.RetrieveMultiple(containerQuery);
+                        if (results.Entities.Count() > 0)
                         {
-                            payrollID1 = BURecord.Contains("sabre_payroll") ? Convert.ToString(BURecord["sabre_payroll"]) : default(string);
-                        }
-                        //End Retrieve Payroll 1 from Business Unit
-                        //generate potential account name
-                        if (entity.Contains("accountnumber"))
-                        {
-                            accountName = Convert.ToString(entity["accountnumber"]);
-                        }
-                        else if (entity.Contains("name"))
-                        {
-                            accountName = Convert.ToString(entity["name"]);
-                            if (accountName.Length >= 7)
+                            if (results[0].Contains("sabre_accountfixed"))
                             {
-                                accountName = payrollID1 + accountName.Substring(0, 7);
-                            }
-                            else
-                            {
-                                accountName = payrollID1 + accountName.Substring(0, accountName.Length);
-                            }
-                        }
-
-                        //end generate potential account name
-                        if (accountName != null && accountName != "")
-                        {
-                            //Check if possible Customer Name is in use
-                            var accountQuery = new QueryExpression("account");
-                            accountQuery.ColumnSet = new ColumnSet("name", "accountid");
-                            accountQuery.Criteria.AddCondition("accountnumber", ConditionOperator.Equal, accountName);
-                            accountQuery.Criteria.AddCondition("accountnumber", ConditionOperator.NotEqual, "");
-                            if (entity.Contains("accountid"))
-                            {
-                                accountQuery.Criteria.AddCondition("accountid", ConditionOperator.NotEqual, (Guid)entity["accountid"]);
-                            }
-
-                            EntityCollection results = service.RetrieveMultiple(accountQuery);
-                            if (results.Entities.Count() > 0)
-                            {
-                                //if yes then set editableName to true
-                                var myEntity = new Entity("account");
-                                myEntity.Attributes["sabre_editablename"] = true;
-                                myEntity.LogicalName = "account";
-                                myEntity.Attributes["accountnumber"] = "";
-                                if (entity.Contains("accountid"))
+                                int nextNumber = 0;
+                                int fixedSize = 0;
+                                var myEntity = new Entity("sabre_idcontainer");
+                                myEntity.Id = (Guid)results[0]["sabre_idcontainerid"];
+                                myEntity.LogicalName = "sabre_idcontainer";
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_accountnextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_accountfixed"]));
+                                myEntity.Attributes["sabre_accountnextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + "-" + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                //update id counter
+                                if (pluginContext.Depth <= 1)
                                 {
-                                    if (pluginContext.Depth <= 1) { 
-                                        myEntity.Id = (Guid)entity["accountid"];
-                                        service.Update(myEntity);
-                                    }
+                                    service.Update(myEntity);
                                 }
                             }
-                            else
+                        }
+                        /*accountName = Convert.ToString(entity[setupVariables["mainField"]]);
+                        if (accountName.Length >= 7)
+                        {
+                            var accountNameTemp = accountName.Substring(0, 7);
+                            if (accountNameTemp.Contains(" "))
                             {
-                                var myEntity = new Entity("account");
-                                myEntity.Attributes["accountnumber"] = accountName;
-                                myEntity.Attributes["sabre_editablename"] = false;
-                                myEntity.LogicalName = "account";
-                                if (entity.Contains("accountid"))
+                                accountNameTemp.Replace(" ", String.Empty);
+                                int i = 0;
+                                while (accountNameTemp.Length < 7 && 7 + i + 1 <= accountName.Length)
                                 {
-                                    if (pluginContext.Depth <= 1)
-                                    {
-                                        myEntity.Id = (Guid)entity["accountid"];
-                                        service.Update(myEntity);
-                                    }
+                                    accountNameTemp = accountNameTemp + accountName.Substring(7 + i, 1);
+                                    i++;
+                                    accountNameTemp.Replace(" ", String.Empty);
                                 }
                             }
+                            accountName = payrollID1 + "-" + accountNameTemp;
 
-                            //End Check if possible Customer Name is in use
                         }
-
+                        else
+                        {
+                            accountName = accountName.Substring(0, accountName.Length);
+                            if (accountName.Contains(" "))
+                            {
+                                accountName.Replace(" ", String.Empty);
+                            }
+                            accountName = payrollID1 + "-" + accountName.Substring(0, accountName.Length);
+                        }*/
                     }
                 }
+                else if(entity.Contains("sabre_candidateid") || entity.Contains("sabre_placementid") || entity.Contains("sabre_positionid")) {
+                    if (entity.Contains(setupVariables["mainIdField"]) && Convert.ToString(entity[setupVariables["mainIdField"]]) != "" && Convert.ToString(entity[setupVariables["mainIdField"]]) != null)
+                    {
+                        return;
+                    }
+                    //get sabre_idcontainer
+                    var containerQuery = new QueryExpression("sabre_idcontainer");
+                    containerQuery.ColumnSet = new ColumnSet("sabre_idcontainerid", "sabre_candidatefixednumbersize", "sabre_candidatenextnumber", "sabre_joborderfixednumbersize", "sabre_jobordernextnumber", "sabre_placementfixednumbersize", "sabre_placementnextnumber");
+                    EntityCollection results = service.RetrieveMultiple(containerQuery);
+                    if (results.Entities.Count() > 0) {
+                        if (results[0].Contains("sabre_candidatefixednumbersize") && results[0].Contains("sabre_placementfixednumbersize") && results[0].Contains("sabre_joborderfixednumbersize") && results[0].Contains("sabre_jobordernextnumber") && results[0].Contains("sabre_candidatenextnumber") && results[0].Contains("sabre_placementnextnumber"))
+                        {
+                            int nextNumber = 0;
+                            int fixedSize = 0;
+                            var myEntity = new Entity("sabre_idcontainer");
+                            myEntity.Id = (Guid)results[0]["sabre_idcontainerid"];
+                            myEntity.LogicalName = "sabre_idcontainer";
+                            if (entity.Contains("sabre_placementid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
+                                myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else if (entity.Contains("sabre_candidateid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatenextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatefixednumbersize"]));
+                                myEntity.Attributes["sabre_candidatenextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else if (entity.Contains("sabre_positionid"))
+                            {
+                                nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_jobordernextnumber"]));
+                                fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_joborderfixednumbersize"]));
+                                myEntity.Attributes["sabre_jobordernextnumber"] = (nextNumber + 1).ToString();
+                            }
+                            else {
+                                throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
+                            }
+                            //generate id from there
+                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                            //update id counter
+                            if (pluginContext.Depth <= 1)
+                            {
+                                service.Update(myEntity);
+                            }
+
+                        }
+                    }
+                }
+
+                //end generate potential account name
+                if (accountName != null && accountName != "")
+                {
+                    //Check if possible Customer Name is in use
+                    var accountQuery = new QueryExpression(setupVariables["type"]);
+                    if (setupVariables["mainField"] == "ZZZZZZZZZ")
+                    {
+                        accountQuery.ColumnSet = new ColumnSet(setupVariables["type"] + "id");
+                    }
+                    else
+                    {
+                        accountQuery.ColumnSet = new ColumnSet(setupVariables["mainField"], setupVariables["type"] + "id");
+                    }
+                    accountQuery.Criteria.AddCondition(setupVariables["mainIdField"], ConditionOperator.Equal, accountName);
+                    accountQuery.Criteria.AddCondition(setupVariables["mainIdField"], ConditionOperator.NotEqual, "");
+                    if (entity.Contains(setupVariables["type"] + "id"))
+                    {
+                        accountQuery.Criteria.AddCondition(setupVariables["type"] + "id", ConditionOperator.NotEqual, (Guid)entity[setupVariables["type"] + "id"]);
+                    }
+
+                    EntityCollection results = service.RetrieveMultiple(accountQuery);
+                    if (results.Entities.Count() > 0)
+                    {
+                        //if yes then set editableName to true
+                        var myEntity = new Entity(setupVariables["type"]);
+                        myEntity.Attributes["sabre_editablename"] = true;
+                        myEntity.LogicalName = setupVariables["type"];
+                        myEntity.Attributes[setupVariables["mainIdField"]] = "";
+                        if (entity.Contains(setupVariables["type"] + "id"))
+                        {
+                            if (pluginContext.Depth <= 1) { 
+                                myEntity.Id = (Guid)entity[setupVariables["type"] + "id"];
+                                service.Update(myEntity);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var myEntity = new Entity(setupVariables["type"]);
+                        myEntity.Attributes[setupVariables["mainIdField"]] = accountName;
+                        myEntity.Attributes["sabre_editablename"] = false;
+                        myEntity.LogicalName = setupVariables["type"];
+                        if (entity.Contains(setupVariables["type"] + "id"))
+                        {
+                            if (pluginContext.Depth <= 1)
+                            {
+                                myEntity.Id = (Guid)entity[setupVariables["type"] + "id"];
+                                service.Update(myEntity);
+                            }
+                        }
+                    }
+
+                    //End Check if possible Customer Name is in use
+                }
+
             }
             //Check if possible Customer Name is in use
 
@@ -503,9 +801,34 @@ namespace ATSExtensions
         }
 
         public void initAccountSetupVars() {
+            setupVariables = new Dictionary<string, string>();
             setupVariables["type"] = "account";
             setupVariables["mainIdField"] = "accountnumber";
             setupVariables["mainField"] = "name";
+        }
+        //untested
+        public void initCandidateSetupVars()
+        {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_candidate";
+            setupVariables["mainIdField"] = "sabre_candidatenumber";
+            setupVariables["mainField"] = "sabre_name";
+        }
+        //untested
+        public void initPlacementSetupVars()
+        {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_placement";
+            setupVariables["mainIdField"] = "sabre_name";
+            setupVariables["mainField"] = "ZZZZZZZZZ"; //does not exist
+        }
+        //untested
+        public void initJobOrderSetupVars()
+        {
+            setupVariables = new Dictionary<string, string>();
+            setupVariables["type"] = "sabre_position";
+            setupVariables["mainIdField"] = "sabre_name";
+            setupVariables["mainField"] = "sabre_positiontitle";
         }
     }
 }
