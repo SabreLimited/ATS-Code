@@ -441,6 +441,21 @@ namespace ATSExtensions
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
                                 myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                                //get ATSCONFIG
+                                var atsConfigQ = new QueryExpression("sabre_atsconfig");
+                                atsConfigQ.ColumnSet = new ColumnSet("sabre_name", "sabre_placementprefix");
+                                EntityCollection configResults = service.RetrieveMultiple(atsConfigQ);
+                                if (configResults.Entities.Count() > 0)
+                                {
+                                    if (configResults[0].Contains("sabre_placementprefix"))
+                                    {
+                                        accountName = (string)configResults[0]["sabre_placementprefix"] + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                    }
+                                }
+                                else
+                                {
+                                    accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                } 
                             }
                             else if (entity.Contains("sabre_candidateid"))
                             {
@@ -459,7 +474,7 @@ namespace ATSExtensions
                                 throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
                             }
                             //generate id from there
-                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                            //accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             //update id counter
                             if (pluginContext.Depth <= 1)
                             {
@@ -657,33 +672,7 @@ namespace ATSExtensions
                                 }
                             }
                         }
-                        /*accountName = Convert.ToString(entity[setupVariables["mainField"]]);
-                        if (accountName.Length >= 7)
-                        {
-                            var accountNameTemp = accountName.Substring(0, 7);
-                            if (accountNameTemp.Contains(" "))
-                            {
-                                accountNameTemp.Replace(" ", String.Empty);
-                                int i = 0;
-                                while (accountNameTemp.Length < 7 && 7 + i + 1 <= accountName.Length)
-                                {
-                                    accountNameTemp = accountNameTemp + accountName.Substring(7 + i, 1);
-                                    i++;
-                                    accountNameTemp.Replace(" ", String.Empty);
-                                }
-                            }
-                            accountName = payrollID1 + "-" + accountNameTemp;
-
-                        }
-                        else
-                        {
-                            accountName = accountName.Substring(0, accountName.Length);
-                            if (accountName.Contains(" "))
-                            {
-                                accountName.Replace(" ", String.Empty);
-                            }
-                            accountName = payrollID1 + "-" + accountName.Substring(0, accountName.Length);
-                        }*/
+                        
                     }
                 }
                 else if(entity.Contains("sabre_candidateid") || entity.Contains("sabre_placementid") || entity.Contains("sabre_positionid")) {
@@ -708,24 +697,40 @@ namespace ATSExtensions
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementnextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_placementfixednumbersize"]));
                                 myEntity.Attributes["sabre_placementnextnumber"] = (nextNumber + 1).ToString();
+                                //get ATSCONFIG
+                                var atsConfigQ = new QueryExpression("sabre_atsconfig");
+                                atsConfigQ.ColumnSet = new ColumnSet("sabre_name", "sabre_placementprefix");
+                                EntityCollection configResults = service.RetrieveMultiple(atsConfigQ);
+                                if (configResults.Entities.Count() > 0)
+                                {
+                                    if (configResults[0].Contains("sabre_placementprefix"))
+                                    {
+                                        accountName = Convert.ToString(configResults[0]["sabre_placementprefix"]) + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                    }
+                                }
+                                else {
+                                    accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                                }
                             }
                             else if (entity.Contains("sabre_candidateid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatenextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_candidatefixednumbersize"]));
                                 myEntity.Attributes["sabre_candidatenextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else if (entity.Contains("sabre_positionid"))
                             {
                                 nextNumber = Convert.ToInt32(Convert.ToString(results[0]["sabre_jobordernextnumber"]));
                                 fixedSize = Convert.ToInt32(Convert.ToString(results[0]["sabre_joborderfixednumbersize"]));
                                 myEntity.Attributes["sabre_jobordernextnumber"] = (nextNumber + 1).ToString();
+                                accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             }
                             else {
                                 throw new InvalidPluginExecutionException("Error, unable to retrieve next number and fixed size for record type");
                             }
                             //generate id from there
-                            accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
+                            //accountName = payrollID1 + nextNumber.ToString().PadLeft(fixedSize, '0');
                             //update id counter
                             if (pluginContext.Depth <= 1)
                             {
@@ -806,7 +811,6 @@ namespace ATSExtensions
             setupVariables["mainIdField"] = "accountnumber";
             setupVariables["mainField"] = "name";
         }
-        //untested
         public void initCandidateSetupVars()
         {
             setupVariables = new Dictionary<string, string>();
@@ -814,7 +818,6 @@ namespace ATSExtensions
             setupVariables["mainIdField"] = "sabre_candidatenumber";
             setupVariables["mainField"] = "sabre_name";
         }
-        //untested
         public void initPlacementSetupVars()
         {
             setupVariables = new Dictionary<string, string>();
@@ -822,7 +825,6 @@ namespace ATSExtensions
             setupVariables["mainIdField"] = "sabre_name";
             setupVariables["mainField"] = "ZZZZZZZZZ"; //does not exist
         }
-        //untested
         public void initJobOrderSetupVars()
         {
             setupVariables = new Dictionary<string, string>();
@@ -831,4 +833,275 @@ namespace ATSExtensions
             setupVariables["mainField"] = "sabre_positiontitle";
         }
     }
+
+    public class onUpdateCandidateBirthDate : IPlugin
+    {
+        public void Execute(IServiceProvider serviceProvider)
+        {
+            var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(pluginContext.UserId);
+            var preImage = (Entity)pluginContext.PreEntityImages["PreUpdateImage"];
+            var entity = (Entity)pluginContext.InputParameters["Target"];
+
+            string type = "";
+
+            if (preImage.Contains("sabre_candidateid")) //record is a candidate
+            {
+                type = "sabre_candidate";
+            }
+            else if (preImage.Contains("sabre_placementid")) //record is a placement
+            {
+                type = "sabre_placement";
+            }
+            if ((entity.Contains("sabre_dateofbirth") || entity.Contains("sabre_startdate")) && type == "sabre_candidate")
+            {
+                //determine if new dob or new startdate is causing an error
+                var myEntity = new Entity("sabre_candidate");
+                myEntity.Id = (Guid)preImage["sabre_candidateid"];
+                myEntity.LogicalName = "sabre_candidate";
+                if (entity.Contains("sabre_dateofbirth") && entity.Contains("sabre_startdate"))
+                {
+                    var candDOB = entity.Contains("sabre_dateofbirth") ? Convert.ToDateTime(entity["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = entity.Contains("sabre_startdate") ? Convert.ToDateTime(entity["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    { //clearing Dob or std
+
+                    }
+                    else if (candDOB >= candStartDate)
+                    { //this would be invalid
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_startdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_dateofbirth"))
+                {
+                    var candDOB = entity.Contains("sabre_dateofbirth") ? Convert.ToDateTime(entity["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = preImage.Contains("sabre_startdate") ? Convert.ToDateTime(preImage["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    {
+                    }
+                    else if (candDOB >= candStartDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_dateofbirth"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_startdate"))
+                {
+                    var candDOB = preImage.Contains("sabre_dateofbirth") ? Convert.ToDateTime(preImage["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = entity.Contains("sabre_startdate") ? Convert.ToDateTime(entity["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    {
+                    }
+                    else if (candDOB >= candStartDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_startdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+            }
+            else if ((entity.Contains("sabre_actualstartdate") || entity.Contains("sabre_enddate")) && type == "sabre_placement")
+            {
+                var myEntity = new Entity("sabre_placement");
+                myEntity.Id = (Guid)preImage["sabre_placementid"];
+                myEntity.LogicalName = "sabre_placement";
+                if (entity.Contains("sabre_actualstartdate") && entity.Contains("sabre_enddate"))
+                {
+                    var placStartDate = entity.Contains("sabre_actualstartdate") ? Convert.ToDateTime(entity["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    { //clearing Dob or std
+
+                    }
+                    else if (placStartDate >= placEndDate)
+                    { //this would be invalid
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_enddate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_actualstartdate"))
+                {
+                    var placStartDate = entity.Contains("sabre_actualstartdate") ? Convert.ToDateTime(entity["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = preImage.Contains("sabre_enddate") ? Convert.ToDateTime(preImage["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    {
+                    }
+                    else if (placStartDate >= placEndDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_actualstartdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_enddate"))
+                {
+                    var placStartDate = preImage.Contains("sabre_actualstartdate") ? Convert.ToDateTime(preImage["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    {
+                    }
+                    else if (placStartDate >= placEndDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_enddate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public class onCreateCandidateBirthDate : IPlugin
+    {
+        public void Execute(IServiceProvider serviceProvider)
+        {
+            ///throw new InvalidPluginExecutionException("WTFXXX");
+            var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(pluginContext.UserId);
+            var entity = (Entity)pluginContext.PostEntityImages["PostUpdateImage"];
+
+            string type = "";
+
+            if (entity.Contains("sabre_candidateid")) //record is a candidate
+            {
+                type = "sabre_candidate";
+            }
+            else if (entity.Contains("sabre_placementid")) //record is a placement
+            {
+                type = "sabre_placement";
+            }
+
+            if ((entity.Contains("sabre_dateofbirth") || entity.Contains("sabre_startdate")) && type == "sabre_candidate")
+            {
+                //determine if new dob or new startdate is causing an error
+                var myEntity = new Entity("sabre_candidate");
+                myEntity.Id = (Guid)entity["sabre_candidateid"];
+                myEntity.LogicalName = "sabre_candidate";
+
+                if (entity.Contains("sabre_dateofbirth") && entity.Contains("sabre_startdate"))
+                {
+                    var candDOB = entity.Contains("sabre_dateofbirth") ? Convert.ToDateTime(entity["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = entity.Contains("sabre_startdate") ? Convert.ToDateTime(entity["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    { //clearing Dob or std
+
+                    }
+                    else if (candDOB >= candStartDate)
+                    { //this would be invalid
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_startdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_dateofbirth"))
+                {
+                    var candDOB = entity.Contains("sabre_dateofbirth") ? Convert.ToDateTime(entity["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = entity.Contains("sabre_startdate") ? Convert.ToDateTime(entity["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    {
+                    }
+                    else if (candDOB >= candStartDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_dateofbirth"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_startdate"))
+                {
+                    var candDOB = entity.Contains("sabre_dateofbirth") ? Convert.ToDateTime(entity["sabre_dateofbirth"]) : default(DateTime);
+                    var candStartDate = entity.Contains("sabre_startdate") ? Convert.ToDateTime(entity["sabre_startdate"]) : default(DateTime);
+                    if (candDOB.Year < 1900 || candStartDate.Year < 1900)
+                    {
+                    }
+                    else if (candDOB >= candStartDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_startdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+            }
+            else if ((entity.Contains("sabre_actualstartdate") || entity.Contains("sabre_enddate")) && type == "sabre_placement")
+            {
+                var myEntity = new Entity("sabre_placement");
+                myEntity.Id = (Guid)entity["sabre_placementid"];
+                myEntity.LogicalName = "sabre_placement";
+                if (entity.Contains("sabre_actualstartdate") && entity.Contains("sabre_enddate"))
+                {
+                    var placStartDate = entity.Contains("sabre_actualstartdate") ? Convert.ToDateTime(entity["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    { //clearing Dob or std
+
+                    }
+                    else if (placStartDate >= placEndDate)
+                    { //this would be invalid
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_enddate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_actualstartdate"))
+                {
+                    var placStartDate = entity.Contains("sabre_actualstartdate") ? Convert.ToDateTime(entity["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    {
+                    }
+                    else if (placStartDate >= placEndDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_actualstartdate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+                else if (entity.Contains("sabre_enddate"))
+                {
+                    var placStartDate = entity.Contains("sabre_actualstartdate") ? Convert.ToDateTime(entity["sabre_actualstartdate"]) : default(DateTime);
+                    var placEndDate = entity.Contains("sabre_enddate") ? Convert.ToDateTime(entity["sabre_enddate"]) : default(DateTime);
+                    if (placStartDate.Year < 1900 || placEndDate.Year < 1900)
+                    {
+                    }
+                    else if (placStartDate >= placEndDate)
+                    {
+                        if (pluginContext.Depth <= 1)
+                        {
+                            myEntity.Attributes["sabre_enddate"] = null;
+                            service.Update(myEntity);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
