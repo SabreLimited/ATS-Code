@@ -7,6 +7,8 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
 using Microsoft.Xrm.Sdk.Query;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace ATSExtensions
 {
@@ -102,7 +104,10 @@ namespace ATSExtensions
             Entity myEntity = new Entity();
             myEntity.LogicalName = "sabre_dailyupdatetrigger";
             myEntity.Attributes["sabre_name"] = System.DateTime.Now.ToString();
-            service.Create(myEntity);
+            if (pluginContext.Depth <= 1)
+            {
+                service.Create(myEntity);
+            }
 
         }
 
@@ -1104,4 +1109,73 @@ namespace ATSExtensions
         }
     }
 
+    public class onUpdateSIN : IPlugin
+    {
+        public void Execute(IServiceProvider serviceProvider) {
+            var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(pluginContext.UserId);
+            var entity = (Entity)pluginContext.InputParameters["Target"];
+            if (entity.Contains("sabre_sin")) {
+                string enteredSIN = entity.Contains("sabre_sin") ? Convert.ToString(entity["sabre_sin"]) : default(string);
+                if (enteredSIN != "") {
+                    try {
+                        using (Aes myAes = Aes.Create()) {
+                            string encryptedString = AESEncryptString(enteredSIN, "1nsuff3r4BL3!", "A1BBCF497");
+                            if (pluginContext.Depth <= 1)
+                            {
+                                var myEntity = new Entity("sabre_candidate");
+                                myEntity.Id = (Guid)entity["sabre_candidateid"];
+                                myEntity.LogicalName = "sabre_candidate";
+                                myEntity.Attributes["sabre_sin"] = encryptedString;
+                                service.Update(myEntity);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        throw new InvalidPluginExecutionException("::" + e.Message +"::");
+                    }
+                }
+
+            }
+        }
+
+        private string AESEncryptString(string clearText, string passText, string saltText)
+        {
+            byte[] clearBytes = Encoding.UTF8.GetBytes(clearText);
+            byte[] passBytes = Encoding.UTF8.GetBytes(passText);
+            byte[] saltBytes = Encoding.UTF8.GetBytes(saltText);
+
+            return Convert.ToBase64String(AESEncryptBytes(clearBytes, passBytes, saltBytes));
+        }
+
+        private byte[] AESEncryptBytes(byte[] clearBytes, byte[] passBytes, byte[] saltBytes)
+        {
+            byte[] encryptedBytes = null;
+
+            // create a key from the password and salt, use 32K iterations – see note
+            var key = new Rfc2898DeriveBytes(passBytes, saltBytes, 32768);
+
+            // create an AES object
+            using (Aes aes = new AesManaged())
+            {
+                // set the key size to 256
+                aes.KeySize = 256;
+                aes.Key = key.GetBytes(aes.KeySize / 8);
+                aes.IV = key.GetBytes(aes.BlockSize / 8);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    encryptedBytes = ms.ToArray();
+                }
+            }
+            return encryptedBytes;
+        }
+
+    }
 }
