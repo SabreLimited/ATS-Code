@@ -114,7 +114,7 @@ namespace ATSExtensions
         public void getCandidatesToTest(IOrganizationService service, IPluginExecutionContext pluginContext)
         {
             var candidateQuery = new QueryExpression("sabre_candidate");
-            candidateQuery.Criteria.AddCondition("sabre_workingstatus", ConditionOperator.Equal, 837770002);
+            candidateQuery.Criteria.AddCondition("sabre_workingstatus", ConditionOperator.Equal, 837770002);//On Assignment only
             candidateQuery.ColumnSet = new ColumnSet("sabre_candidateid", "sabre_firstsname");
             if (service.RetrieveMultiple(candidateQuery).Entities.Count > 0)
             {
