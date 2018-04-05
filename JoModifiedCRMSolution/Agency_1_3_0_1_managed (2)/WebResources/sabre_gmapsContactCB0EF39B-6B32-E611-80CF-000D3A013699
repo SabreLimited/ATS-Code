@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+	<script>
+		function setMapLocation(){
+			var totalSrc = "https://www.google.com/maps/embed/v1/place?key=AIzaSyARUvWuiGSI58kwY_6pRom6iNZpSD-I52c&q=";
+			if(window.parent.Xrm.Page.getControl("address1_composite") != null){
+				totalSrc = totalSrc + window.parent.Xrm.Page.getAttribute("address1_composite").getValue();
+			}
+			if(totalSrc == "https://www.google.com/maps/embed/v1/place?key=AIzaSyARUvWuiGSI58kwY_6pRom6iNZpSD-I52c&q="){
+			}
+			else if (totalSrc == "https://www.google.com/maps/embed/v1/place?key=AIzaSyARUvWuiGSI58kwY_6pRom6iNZpSD-I52c&q=null"){
+			}
+			else{
+				document.getElementById("frame").src = totalSrc;
+			}
+		}
+	</script>
+	<body onload="javascript: setMapLocation();">
+
+		<iframe id="frame" width=100% height=100% frameborder="0" src="about:blank"></iframe>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+/*
+ * Copyright (C) Microsoft Corporation.  All rights reserved.
+ *
+ * wijmo.lineargauge.custom.less
+ *
+ */
+.crm-wijmo-linear-gauge.wj-lineargauge {
+  -ms-content-zooming: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  height: 25px;
+  max-height: 25px;
+  overflow: visible;
+  font-size: 12.5px;
+}
+.crm-wijmo-linear-gauge.wj-lineargauge .wj-face path {
+  fill: #DADADA;
+  stroke-width: 0px;
+}
+.phone .crm-wijmo-linear-gauge.wj-lineargauge {
+  width: 100%;
+  padding-top: 9px;
+}
+.tablet .crm-wijmo-linear-gauge.wj-lineargauge.readmode {
+  padding-bottom: 8px;
+}
+.tablet .crm-wijmo-linear-gauge.wj-lineargauge,
+.phone .crm-wijmo-linear-gauge.wj-lineargauge {
+  width: 100%;
+}
+.hittargetlgauge {
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  float: left;
+  margin-bottom: -12px;
+  -ms-content-zooming: none;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.tablet .hittargetlgauge {
+  height: 45px;
+}
+.wj-control.wj-gauge[disabled] {
+  opacity: 1.0;
+  background-color: initial;
+}

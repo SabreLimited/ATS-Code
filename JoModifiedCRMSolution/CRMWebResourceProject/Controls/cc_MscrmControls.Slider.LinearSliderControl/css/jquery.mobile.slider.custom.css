@@ -1,0 +1,124 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+/* slider div readonly and disabled - different for phones and tablets */
+.phone .crm-jqm-slider-readonly.ui-slider,
+.phone .crm-jqm-slider-disabled.ui-slider {
+  padding-bottom: 18px;
+}
+.phone .crm-jqm-slider.ui-slider {
+  padding-bottom: 12px;
+}
+.phone .crm-jqm-slider.ui-slider .ui-slider-bg::after {
+  background-color: #CCCCCC;
+}
+.tablet .crm-jqm-slider-readonly.ui-slider,
+.tablet .crm-jqm-slider-disabled.ui-slider {
+  padding-bottom: 20px;
+}
+.tablet .crm-jqm-slider.ui-slider .ui-slider-bg::after {
+  background-color: white;
+}
+.crm-jqm-slider.ui-slider {
+  -ms-touch-action: pan-y pinch-zoom double-tap-zoom;
+}
+/* slider edit mode */
+.customControl .ui-slider {
+  margin: 0;
+}
+/* slider track */
+.customControl .ui-slider-track {
+  z-index: 0;
+  float: left;
+  border-width: 0;
+  height: 4px;
+  /* line thickness */
+  width: 100%;
+  background-color: transparent;
+  -ms-content-zooming: none;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+/* slider track read-only and disabled mode */
+.crm-jqm-slider-readonly .ui-slider-track,
+.crm-jqm-slider-disabled .ui-slider-track {
+  padding: 0px;
+  margin: 0;
+}
+/* slider track edit mode */
+.crm-jqm-slider .ui-slider-track {
+  margin: -5px 0 0 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+/* slider track background */
+.customControl .ui-slider-bg::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+/* slider track background edit mode */
+.crm-jqm-slider-readonly .ui-slider-bg::after,
+.crm-jqm-slider-disabled .ui-slider-bg::after {
+  background-color: #CCCCCC;
+}
+/* knob */
+.customControl .ui-btn.ui-slider-handle {
+  position: absolute;
+  border-width: 0;
+  top: auto;
+}
+/* knob read/disabled mode */
+.crm-jqm-slider-readonly .ui-btn.ui-slider-handle,
+.crm-jqm-slider-disabled .ui-btn.ui-slider-handle {
+  width: 8px;
+  height: 20px;
+  margin-top: -11px;
+  margin-left: -4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* knob edit mode */
+.crm-jqm-slider .ui-btn.ui-slider-handle {
+  width: 12px;
+  height: 36px;
+  margin-top: -19px;
+  margin-left: -6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+/* input field */
+.crm-jqm-slider-readonly .ui-slider-input,
+.crm-jqm-slider-disabled .ui-slider-input,
+.crm-jqm-slider .ui-slider-input {
+  display: block;
+  float: none;
+  margin-top: -5px;
+  margin-left: -4px;
+  text-align: left;
+  font-weight: normal;
+  width: 200px;
+  height: 30px;
+  padding-top: 1px;
+  padding-bottom: 0px;
+  line-height: 25px;
+  border-style: none;
+  outline: 0;
+  background-color: transparent;
+}
+.crm-jqm-slider .ui-corner-all,
+.crm-jqm-slider .ui-btn-corner-all,
+.crm-jqm-slider .ui-slider-track.ui-corner-all,
+.crm-jqm-slider-readonly .ui-corner-all,
+.crm-jqm-slider-readonly .ui-btn-corner-all,
+.crm-jqm-slider-readonly .ui-slider-track.ui-corner-all,
+.crm-jqm-slider-disabled .ui-corner-all,
+.crm-jqm-slider-disabled .ui-btn-corner-all,
+.crm-jqm-slider-disabled .ui-slider-track.ui-corner-all {
+  -webkit-border-radius: .0;
+  /*{global-radii-buttons}*/
+  border-radius: .0em;
+  /*{global-radii-buttons}*/
+}

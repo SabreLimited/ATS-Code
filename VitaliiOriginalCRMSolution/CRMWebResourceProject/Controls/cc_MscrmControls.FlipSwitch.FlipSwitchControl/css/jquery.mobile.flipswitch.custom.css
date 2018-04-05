@@ -1,0 +1,167 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+/* Light Theme - Disabled (Inactive)*/
+.ui-bar-c.crm-jqm-flipswitch-wrapper.mobile-flipswitch-disabled {
+  -ms-opacity: 1.0;
+  opacity: 1.0;
+}
+/* Light Theme - Knob and On Text*/
+.ui-bar-c.crm-jqm-flipswitch-wrapper .ui-btn.ui-flipswitch-on {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-color: #000;
+  border-color: #000;
+  color: #000;
+  padding: 0;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+/* Light Theme - Pressed (Inactive) */
+.ui-bar-c.crm-jqm-flipswitch-wrapper:active {
+  background-color: #9E9E9E !important;
+  /* BaseMedium */
+  border-color: #9E9E9E !important;
+  /* BaseMedium */
+}
+.ui-bar-c.crm-jqm-flipswitch-wrapper:active .ui-btn.ui-flipswitch-on {
+  background-color: #FFF !important;
+  /* ChromeWhite */
+}
+/* Light Theme - Pressed (Active) */
+.ui-bar-c.crm-jqm-flipswitch-wrapper.ui-flipswitch-active:active {
+  background-color: #9E9E9E !important;
+  /* BaseMedium */
+}
+/* Light Theme - Off Flipswitch Text */
+.ui-bar-c.crm-jqm-flipswitch-wrapper .ui-flipswitch-off {
+  color: #000;
+  /* BaseHigh */
+  font-size: medium;
+  font-weight: normal;
+}
+/* Light Theme - Off Flipswitch */
+.ui-bar-c.crm-jqm-flipswitch-wrapper {
+  border-color: #333;
+  /* BaseMediumHigh */
+  background-color: #FFF;
+  /* ChromeWhite */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Light Theme - On Flipswitch Knob */
+.ui-bar-c.crm-jqm-flipswitch-wrapper.ui-flipswitch-active .ui-btn.ui-flipswitch-on {
+  border-color: transparent;
+  background-color: #FFF;
+  /* ChromeWhite */
+}
+/* Light Theme - On Flipswitch */
+.ui-bar-c.crm-jqm-flipswitch-wrapper.ui-flipswitch-active {
+  border-color: transparent;
+}
+/* Light Theme - Flipswitch Knob and On Text */
+.ui-bar-c.crm-jqm-flipswitch-wrapper .ui-btn.ui-flipswitch-on {
+  background-color: #333;
+  /* BaseMediumHigh */
+  font-size: medium;
+  font-weight: normal;
+}
+/* Flipswitch Knob and On Text */
+.crm-jqm-flipswitch-wrapper .ui-btn.ui-flipswitch-on {
+  text-indent: 21px;
+  overflow: hidden;
+  -ms-text-shadow: none;
+  text-shadow: none;
+  text-decoration: none;
+  line-height: 11px;
+}
+/* Off Flipswitch Text */
+.crm-jqm-flipswitch-wrapper .ui-flipswitch-off {
+  text-indent: 32px;
+  color: #000;
+  -ms-text-shadow: none;
+  text-shadow: none;
+  text-decoration: none;
+  position: absolute;
+  line-height: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+/* Flipswitch (Active) */
+.crm-jqm-flipswitch-wrapper.ui-flipswitch-active {
+  border-width: 0px;
+  padding-left: 30px;
+  width: 44px;
+  height: 20px;
+}
+/* Flipswitch Knob and On Text (Active) */
+.crm-jqm-flipswitch-wrapper.ui-flipswitch-active .ui-btn.ui-flipswitch-on {
+  margin: 5px 0px 5px 0px;
+  overflow: visible;
+}
+/* Flipswitch Off Text (Active) */
+.crm-jqm-flipswitch-wrapper.ui-flipswitch-active .ui-flipswitch-off {
+  visibility: hidden;
+}
+/* Flipswitch (Inactive) */
+.crm-jqm-flipswitch-wrapper {
+  border-width: 2px;
+  -ms-border-radius: 10px !important;
+  border-radius: 10px !important;
+  width: 44px;
+  height: 20px;
+  overflow: visible;
+  margin: 0px;
+}
+/* Flipswitch Knob and On Text (Inactive) */
+.crm-jqm-flipswitch-wrapper .ui-btn.ui-flipswitch-on {
+  border-width: 0px;
+  height: 10px;
+  width: 10px;
+  margin: 3px 3px 3px 3px;
+  border: 0;
+}
+/* Flipswitch Knob Focus Event */
+.crm-jqm-flipswitch-wrapper .ui-btn:focus {
+  -ms-box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* Flipswitch Shadow Inset */
+.ui-shadow-inset.crm-jqm-flipswitch-wrapper {
+  -ms-box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* Flipswitch Shadow */
+.crm-jqm-flipswitch-wrapper .ui-shadow {
+  -ms-box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* Contained Flipswitch (JQM page layout) */
+@media (min-width: 28em) {
+  /* Repeated from ui-flipswitch rule above */
+  .ui-field-contain > label + .ui-flipswitch.crm-jqm-flipswitch-wrapper {
+    width: 14px;
+    height: 20px;
+  }
+}
+/* Entire Control Container */
+.crm-jqm-flipswitch {
+  width: 100%;
+  overflow: hidden;
+  line-height: 1;
+  position: relative;
+}
+.tablet .crm-jqm-flipswitch {
+  padding: 6px 0px 7px;
+}
+.phone .crm-jqm-flipswitch {
+  padding: 0px;
+}

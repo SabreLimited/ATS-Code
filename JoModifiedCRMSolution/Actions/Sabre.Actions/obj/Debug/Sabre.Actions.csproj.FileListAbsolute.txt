@@ -1,0 +1,16 @@
+D:\Work\Donaldson & James\CRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.dll
+D:\Work\Donaldson & James\CRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.dll
+D:\Work\Donaldson & James\CRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.pdb
+D:\Work\Donaldson & James\CRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.pdb
+D:\Work\Donaldson & James\CRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.csprojResolveAssemblyReference.cache
+C:\Users\josiah\Documents\Documents\Agency CRM\JoModifiedCRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.dll
+C:\Users\josiah\Documents\Documents\Agency CRM\JoModifiedCRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.pdb
+C:\Users\josiah\Documents\Documents\Agency CRM\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.csprojResolveAssemblyReference.cache
+C:\Users\josiah\Documents\Documents\Agency CRM\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.dll
+C:\Users\josiah\Documents\Documents\Agency CRM\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.pdb
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\bin\Debug\Sabre.Actions.pdb
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.csprojResolveAssemblyReference.cache
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.csproj.CoreCompileInputs.cache
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\Actions\Sabre.Actions\obj\Debug\Sabre.Actions.pdb

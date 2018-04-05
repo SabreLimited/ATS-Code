@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+                <meta charset="utf-8" />
+                <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+                <script>
+                                var myLink;
+ 
+                                document.onreadystatechange = function () {
+                                                if (document.readyState == "complete") {
+                                                                getDataParam();
+                                                }
+                                }
+ 
+                                function getDataParam() {
+                                                var recordId = parent.Xrm.Page.data.entity.getId();
+                                                recordId = recordId.replace("{", "");
+                                                recordId = recordId.replace("}", "");
+ 
+                                                var ObjectTypeCode = parent.Xrm.Page.context.getQueryStringParameters().etc
+                                                var RnNum = Math.floor(100000000 + Math.random() * 900000000);
+                                                var baseURL = parent.Xrm.Page.context.getClientUrl();
+                                                myLink = baseURL + "/main.aspx?etc=3234&extraqs=%3fetc%3d3234%26pId%3d%257b" + recordId + "%257d%26pType%3d" + ObjectTypeCode + "&histKey=" + RnNum.toString() + "&newWindow=true&pagetype=entityrecord";
+                                }
+ 
+                                function openWindow() {
+                                                getDataParam();
+                                                var popupWindow = window.open(myLink, 'popupWindow', 'height=500,width=750,left=250,top=250,location=no,menubar=no,scrollbars=yes,status=no,titlebar=no');
+                                                var timer = setInterval(function () {
+                                                                if (popupWindow.closed) {
+                                                                                clearInterval(timer);
+                                                                                var subgrid = parent.Xrm.Page.ui.controls.get("Connections");
+                                                                                subgrid.refresh();
+                                                                }
+                                                })
+                                }
+								function changeIcon() {
+								document.getElementById("pButtonImg").src="../WebResources/sabre_bluePlus"
+								}
+								function normalIcon() {
+								document.getElementById("pButtonImg").src="../WebResources/sabre_greyPlus";
+								}
+                </script>
+	<style type="text/css">
+		#pButtonImg {display:inline-block;}
+	</style>
+</head>
+<body onload="">
+	<div class="container">
+        <input id="pButtonImg" type="image" src="../WebResources/sabre_greyPlus" onmouseover="javascript: changeIcon();" onmouseout="javascript: normalIcon();" onclick="javascript: openWindow();"/>
+	</div>
+</body>
+</html>

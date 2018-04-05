@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+                <meta charset="utf-8" />
+                <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+				<script type="text/javascript" src="/WebResources/sabre_SDKREST"></script>
+                <script>
+				
+function archiveRecords(){
+	var today = new Date().toISOString().substr(0,10);
+	var options = "$select=*&$filter=sabre_EndDate lt datetime'" + today + "'"; 
+    alert(options);
+	SDK.REST.retrieveMultipleRecords("sabre_position", options, retrieveRecordsCallback, errorFunction, recordsReturned);
+}
+
+function retrieveRecordsCallback(retrievedRecords){
+	var today = new Date().toISOString().substr(0,10);
+	alert(retrievedRecords.length);
+    for (var i = 0; i < retrievedRecords.length; i++) {
+		var position = retrievedRecords[i];
+
+		if(position.sabre_EndDate != null){
+		    alert("attempting to update");
+			upDatePos = new Object();
+			upDatePos.sabre_archivalstatus = 1;
+			SDK.REST.updateRecord(position.sabre_positionId, upDatePos, "Position", updateRecordCallback, errorFunction);
+		}
+	}
+}
+
+function updateRecordCallback(){
+	alert("Record Updated");
+}
+
+function recordsReturned(){
+	alert("DONE!");
+}
+
+function errorFunction(error){
+	alert(error.message);
+}
+function changeIcon() {
+	document.getElementById("pButtonImg").src="../WebResources/sabre_bluePlus"
+}
+function normalIcon() {
+	document.getElementById("pButtonImg").src="../WebResources/sabre_greyPlus";
+}				
+				
+				</script>
+	<style type="text/css">
+		#pButtonImg {display:inline-block;}
+	</style>
+</head>
+<body onload="">
+	<div class="container">
+        <input id="pButtonImg" type="image" src="../WebResources/sabre_greyPlus" onmouseover="javascript: changeIcon();" onmouseout="javascript: normalIcon();" onclick="javascript: archiveRecords();"/>
+	</div>
+</body>
+</html>

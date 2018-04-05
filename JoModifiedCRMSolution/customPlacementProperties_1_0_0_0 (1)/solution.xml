@@ -1,0 +1,336 @@
+<ImportExportXml version="8.2.0001.0176" SolutionPackageVersion="8.2" languagecode="1033" generatedBy="OnPremise" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>customPlacementProperties</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="customPlacementProperties" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>DefaultPublishertheagencysdbx</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Default Publisher for theagency-sdbx" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Default publisher for this organization" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>sabre</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>83777</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode xsi:nil="true"></AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode xsi:nil="true"></ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode xsi:nil="true"></AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode xsi:nil="true"></ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="sabre_placement" behavior="1" />
+      <RootComponent type="60" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required key="0" type="1" schemaName="sabre_opening" displayName="Opening" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="1" schemaName="sabre_submission" displayName="Pipeline Candidate" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="3" type="1" schemaName="sabre_placement" displayName="Placement" solution="Active" />
+        <Dependent key="3" type="1" schemaName="sabre_placement" displayName="Placement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="2" schemaName="sabre_openingno" displayName="opno" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="2" schemaName="sabre_overtime2wages" displayName="Premium Pay Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="6" type="2" schemaName="sabre_businessunit" displayName="Business Unit" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="7" type="2" schemaName="sabre_splitpercent2" displayName="Split Percent 2" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="8" type="2" schemaName="sabre_posistion" displayName="Job Order" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="9" type="2" schemaName="sabre_submissionno" displayName="Pipeline No" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="10" type="2" schemaName="sabre_statutorychargerate" displayName="Statutory Bill Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="11" type="2" schemaName="sabre_overtime2chargerate" displayName="Premium Bill Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="12" type="2" schemaName="sabre_affiliate" displayName="Sales Rep" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="13" type="2" schemaName="sabre_regularwages" displayName="Pay Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="14" type="2" schemaName="sabre_overtimewages" displayName="Overtime Pay Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="15" type="2" schemaName="sabre_feecost" displayName="Fee" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="16" type="2" schemaName="sabre_candidate" displayName="Candidate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="17" type="2" schemaName="sabre_actualstartdate" displayName="Start Date" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="18" type="2" schemaName="sabre_name" displayName="Placement No" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="19" type="2" schemaName="sabre_bpflock" displayName="bpflock" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="20" type="2" schemaName="createdby" displayName="Created By" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="21" type="2" schemaName="sabre_vacationvalue" displayName="Vacation Payment" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="22" type="2" schemaName="sabre_details" displayName="Details" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="23" type="2" schemaName="sabre_fee" displayName="Fee Type" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="24" type="2" schemaName="sabre_sinno" displayName="SIN No." parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="25" type="2" schemaName="sabre_feevalue" displayName="Markup Value" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="26" type="2" schemaName="sabre_wagetype" displayName="Wage Type" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="27" type="2" schemaName="sabre_placementprocessstage" displayName="Placement Process Stage" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="28" type="2" schemaName="createdon" displayName="Created On" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="29" type="2" schemaName="sabre_enddate" displayName="End Date" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="30" type="2" schemaName="sabre_splitpercent" displayName="Split Percent" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="31" type="2" schemaName="ownerid" displayName="Account Manager" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="32" type="2" schemaName="sabre_contractapproved" displayName="Contract Approved" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="33" type="2" schemaName="sabre_hostingcompany" displayName="Client" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="34" type="2" schemaName="sabre_affiliate2" displayName="Recruiter" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="35" type="2" schemaName="sabre_hoursperweek" displayName="Hours Per Week" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="36" type="2" schemaName="sabre_vacationpay" displayName="Vacation Pay" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="37" type="2" schemaName="sabre_overtimechargerate" displayName="Overtime Bill Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="38" type="2" schemaName="sabre_employeetype" displayName="Employee Type" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="39" type="2" schemaName="sabre_regularchargerate" displayName="Bill Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="40" type="2" schemaName="statecode" displayName="Status" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="41" type="2" schemaName="sabre_statutorywages" displayName="Statutory Pay Rate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="42" type="10" schemaName="sabre_placement_SubmissionNo" displayName="sabre_placement_SubmissionNo" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="43" type="10" schemaName="sabre_placement_Candidate" displayName="sabre_placement_Candidate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="44" type="10" schemaName="sabre_submission_Candidate" displayName="sabre_submission_Candidate" parentSchemaName="sabre_submission" parentDisplayName="Pipeline Candidate" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="45" type="10" schemaName="sabre_opening_Position" displayName="sabre_opening_Position" parentSchemaName="sabre_opening" parentDisplayName="Opening" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="46" type="10" schemaName="sabre_systemuser_sabre_placement_Affiliate" displayName="sabre_systemuser_sabre_placement_Affiliate" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="47" type="10" schemaName="sabre_systemuser_sabre_placement_Affiliate2" displayName="sabre_systemuser_sabre_placement_Affiliate2" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="48" type="10" schemaName="sabre_placement_Posistion" displayName="sabre_placement_Posistion" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="49" type="10" schemaName="sabre_businessunit_sabre_placement_BusinessUnit" displayName="sabre_businessunit_sabre_placement_BusinessUnit" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="50" type="10" schemaName="sabre_account_sabre_placement_HostingCompany" displayName="sabre_account_sabre_placement_HostingCompany" parentSchemaName="sabre_placement" parentDisplayName="Placement" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="51" type="26" schemaName="Candidate Lookup View" displayName="Candidate Lookup View" parentSchemaName="sabre_candidate" parentDisplayName="Candidate" solution="Active" id="{4741c813-cbb2-48ab-af8a-8a59a4ca2cdd}" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="52" type="26" schemaName="Job Orders Lookup View" displayName="Job Orders Lookup View" parentSchemaName="sabre_position" parentDisplayName="Job Order" solution="Active" id="{e29e2d3e-0a7a-4baa-a8a0-8e8bfe64d5eb}" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="53" type="26" schemaName="Pipeline Candidate Lookup View" displayName="Pipeline Candidate Lookup View" parentSchemaName="sabre_submission" parentDisplayName="Pipeline Candidate" solution="Active" id="{f9e23350-6e9e-47d8-872f-5fb91f62b0c9}" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="54" type="61" schemaName="sabre_placementPriceCalc" displayName="sabre_placementPriceCalc" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="55" type="61" schemaName="sabre_SDKJQuery" displayName="sabre_SDKJQuery" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="56" type="61" schemaName="sabre_placementOnLoad" displayName="sabre_placementOnLoad" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="57" type="61" schemaName="sabre_placement32x32" displayName="sabre_placement32x32" solution="Active" />
+        <Dependent key="3" type="1" schemaName="sabre_placement" displayName="Placement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="58" type="61" schemaName="sabre_placement16x16" displayName="sabre_placement16x16" solution="Active" />
+        <Dependent key="3" type="1" schemaName="sabre_placement" displayName="Placement" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="59" type="61" schemaName="sabre_preFilterLookup" displayName="sabre_preFilterLookup" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="60" type="61" schemaName="sabre_jQuery" displayName="sabre_jQuery" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="61" type="61" schemaName="sabre_placementControl" displayName="sabre_placementControl" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="62" type="61" schemaName="sabre_fieldVisibilityControl" displayName="sabre_fieldVisibilityControl" solution="Active" />
+        <Dependent key="1" type="60" displayName="Information" parentDisplayName="Placement" id="{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

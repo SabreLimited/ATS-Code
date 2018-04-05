@@ -1,0 +1,27 @@
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\SamplePlugins.dll.config
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\SamplePlugins.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\SamplePlugins.XmlSerializers.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\SamplePlugins.pdb
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\Microsoft.IdentityModel.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\Microsoft.Xrm.Sdk.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\bin\Release\Microsoft.Xrm.Sdk.xml
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\obj\Release\Plug-ins.csprojResolveAssemblyReference.cache
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\obj\Release\SamplePlugins.dll
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\obj\Release\SamplePlugins.pdb
+C:\Users\josiah\Documents\Documents\CRM2016SDK\SDK\SampleCode\CS\Plug-ins\obj\Release\SamplePlugins.XmlSerializers.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\SamplePlugins.dll.config
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\SamplePlugins.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\SamplePlugins.XmlSerializers.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\SamplePlugins.pdb
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\Microsoft.IdentityModel.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\Microsoft.Xrm.Sdk.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\bin\Release\Microsoft.Xrm.Sdk.xml
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\obj\Release\Plug-ins.csprojResolveAssemblyReference.cache
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\obj\Release\Plug-ins.csproj.CoreCompileInputs.cache
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\obj\Release\SamplePlugins.dll
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\obj\Release\SamplePlugins.pdb
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\Plug-ins\obj\Release\SamplePlugins.XmlSerializers.dll

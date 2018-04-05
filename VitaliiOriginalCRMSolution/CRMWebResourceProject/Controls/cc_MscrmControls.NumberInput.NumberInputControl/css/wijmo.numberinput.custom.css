@@ -1,0 +1,57 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+.crm-wijmo-numberinput.wj-content {
+  display: block;
+  height: 50px;
+  border: none;
+  -ms-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -ms-opacity: 1;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+}
+.phone .crm-wijmo-numberinput.wj-content {
+  background-color: #F0F0F0;
+}
+.tablet .crm-wijmo-numberinput.wj-content {
+  background-color: white;
+}
+.crm-wijmo-numberinput .wj-numeric.wj-form-control {
+  text-align: center;
+}
+.crm-wijmo-numberinput .wj-btn {
+  padding: 4px 0px 6px 0px;
+  width: 100%;
+  border: none;
+  font-size: 26px;
+  line-height: 40px;
+  font-weight: bold;
+  color: white;
+}
+.crm-wijmo-numberinput-btn-enabled:active {
+  background-color: black;
+}
+.crm-wijmo-numberinput .wj-input-group-btn {
+  padding: 0;
+  width: 50px;
+}
+.crm-wijmo-numberinput .wj-input-group {
+  -ms-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.crm-wijmo-numberinput .wj-numeric {
+  padding: 0;
+  font-family: 'Segoe UI';
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center !important;
+  height: 50px !important;
+  -ms-touch-action: none;
+  touch-action: none;
+}

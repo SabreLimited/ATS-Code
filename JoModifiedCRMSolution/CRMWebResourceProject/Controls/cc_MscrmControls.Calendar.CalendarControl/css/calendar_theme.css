@@ -1,0 +1,547 @@
+﻿﻿ /**
+* @license Copyright (c) Microsoft Corporation.  All rights reserved.
+*/
+
+.dhx_cal_container,
+.dhx_body,
+.dhx_cal_today_button,
+.dhx_cal_navline,
+.dhx_cal_date,
+.dhx_cal_tab,
+.dhx_scale_hour,
+.dhx_cal_event,
+.dhx_title,
+.dhx_cal_event .dhx_body, .dhx_cal_event_line {
+  font-family: SegoeUI;
+}
+
+.dhx_cal_navline .dhx_cal_date,
+.dhx_cal_navline .dhx_cal_date .calendar_weekview_title > span {
+  font-size: 18px !important;
+  font-weight: normal !important;
+  font-family: SegoeUI;
+}
+
+.dhx_wa_day_data {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dhx_cal_tab {
+  width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dhx_cal_tab#day {
+  left: 14px;
+}
+
+.dhx_cal_tab#week {
+  left: 99px;
+}
+
+.dhx_cal_tab#month {
+  left: 184px;
+}
+
+.dhx_cal_tab.divider_week {
+  left: 94px;
+}
+
+.dhx_cal_tab.divider_month {
+  left: 179px;
+}
+
+.dhx_cal_tab.divider_week,
+.dhx_cal_tab.divider_month {
+  width: 5px;
+}
+
+.dhx_cal_event {
+  border-style: solid;
+  border-width: 1px 1px 1px 3px;
+  overflow: hidden;
+  margin-left: -1px;
+}
+
+.dhx_cal_event_line, 
+.dhx_cal_event .dhx_header, 
+.dhx_cal_event .dhx_footer, 
+.dhx_cal_event .dhx_body, 
+.dhx_cal_event .dhx_title {
+  background-color: #E5E5E5;
+  border-radius: 0;
+  border: 0;
+  color: black;
+  padding-left: 5px;
+}
+
+.dhx_cal_tab,
+.dhx_cal_tab.active,
+.dhx_cal_today_button, 
+.dhx_cal_prev_button, 
+.dhx_cal_next_button {
+  border: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: black;
+  font-weight: normal;
+}
+
+.dhx_cal_prev_button, 
+.dhx_cal_next_button {
+  background: none;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.dhx_cal_prev_button,
+.dhx_cal_next_button {
+  text-align: center;
+}
+
+.dhx_cal_prev_button.symbolFont.Collapsed-symbol.rotate180 {
+  right: 151px;
+}
+
+.dhx_cal_next_button.symbolFont.Collapsed-symbol {
+  right: 90px;
+}
+
+.dhx_cal_today_button {
+  right: 0;
+}
+
+.dhx_cal_event .dhx_header, 
+.dhx_cal_event .dhx_footer, 
+.dhx_cal_event .dhx_title {
+  border: none;
+}
+
+.dhx_cal_tab.active {
+  font-weight: bold;
+}
+
+.dhx_cal_event_clear {
+  height: 16px;
+  color: black;
+  padding-left: 2px;
+  font-family: SegoeUI;
+}
+
+.dhx_scale_bar {
+  text-transform: uppercase;
+  font-family: SegoeUI;
+}
+
+.dhx_scale_bar:first-child {
+  border-left: 0;
+}
+
+.dhx_scale_bar:last-child,
+.dhx_cal_header,
+.dhx_cal_container.dhx_scheduler_month .dhx_cal_data tr td:last-child div {
+  border-right: 0;
+}
+
+.dhx_month_head,
+.dhx_now > .dhx_month_head {
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 0;
+  text-align: left;
+  font-family: Segoe UI;
+}
+
+.dhx_month_link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Segoe UI;
+}
+
+.dhx_cal_event .dhx_body,
+.dhx_cal_event.dhx_cal_select_menu .dhx_body {
+  border-width: 0;
+  padding: 3px 0 0 0;
+  height: inherit;
+}
+
+.dhx_cal_event .dhx_body div#text {
+  padding-left: 3px;
+}
+
+.dhx_cal_event .dhx_title {
+  font-size: 10px;
+}
+
+td.dhx_before > .dhx_month_head,
+td.dhx_after > .dhx_month_head {
+  font-weight: normal;
+}
+
+.rotate180 {
+  transform: scale(-1,1);
+  -webkit-transform: scale(-1,1);
+}
+
+/* webix toolbar */
+
+.webix_all_segments {
+    padding-right: 10px;
+}
+
+.toolbar_today div,
+button[button_id="week"],
+button[button_id="day"],
+button[button_id="month"] {
+    font-size: 11px !important;
+    max-width: 60px;
+    width: auto !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase !important;
+}
+
+button[button_id="day"] {
+    padding-right: 10px;
+}
+
+button[button_id="week"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button[button_id="month"] {
+    padding-left: 10px;
+}
+
+.webix_segment_0,
+.webix_segment_1,
+.webix_segment_N,
+.toolbar_today div {
+    background: none;
+    border: none !important;
+    color: #959595;
+    font-size: 11px !important;
+    padding-right: 6px;
+}
+
+.webix_selected.webix_segment_0,
+.webix_selected.webix_segment_1,
+.webix_selected.webix_segment_N {
+    background: none !important;
+    color: black;
+}
+
+.webix_event_overall {
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-align: center; /* ensure center alignment on non-webkit browsers */
+}
+
+/* Dividers*/
+.divider_week,
+.divider_month {
+    top: 12px !important;
+}
+
+.divider_week {
+    left: 72px;
+}
+
+.divider_month {
+    left: 133px;
+}
+
+.webix_control div {
+    font-size: 14px;
+}
+
+.webix_control button,
+.toolbar_today div
+{
+    font-family: SegoeUI;
+    font-weight: bold;
+}
+
+.webix_el_box {
+    padding: 4px 5px;
+}
+
+/* webix month view */
+
+.phone .winPhone10 .webix_scrollview {
+    overflow-y:scroll;
+}
+
+/* disable month selector */
+.webix_cal_month_name {
+    pointer-events: none;
+    cursor: default;
+} 
+
+.webix_scheduler .webix_cal_body .webix_cal_day.webix_cal_today span,
+.webix_scheduler .webix_cal_body .webix_cal_day.webix_cal_select span {
+    height: 28px !important;
+    width: 28px !important;
+    line-height: 28px
+}
+
+.webix_scheduler .webix_cal_month_name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.webix_scheduler .webix_cal_month {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.webix_cal_select .cal_day_with_events {
+    color: white !important;
+}
+
+.webix_scheduler .webix_topbar,
+.webix_view {
+    background-color: #fff;
+}
+
+.webix_view {
+    border: 0 solid #fff;
+    font-family: SegoeUI;
+}
+
+.webix_cal_body .webix_cal_today {
+    background-color: #fff;
+}
+
+.webix_cal_body .webix_cal_select,
+.webix_cal_body .webix_cal_today.webix_cal_select,
+.webix_view.webix_list.events {
+    background: #fff !important;
+}
+
+.webix_view.webix_list.multi_day_events .webix_list_item,
+.webix_view.webix_list.day_events .webix_list_item,
+.webix_view.webix_list.events .webix_list_item {
+    height: 34px !important;
+}
+
+.webix_list_item {
+    background-color: #fff;
+    border-bottom: none;
+}
+
+.webix_dayevents {
+    border-top-color: #fff;
+}
+
+.webix_view > .webix_cal_header div {
+    border-bottom: none;
+    color: #959595;
+}
+
+.webix_dayevents_scale_item {
+    border-bottom-color: #d8d8d8;
+}
+
+/* webix day view */
+
+.webix_dayevents_scale_hour {
+    font-size: 11px;
+}
+
+.multi_day_events .webix_list_item {
+    border-top-color: #fff;
+    background-color: #e5e5e5;
+    color: black;
+}
+
+.webix_dayevents_event_item {
+    background-color: #e5e5e5;
+    color: black;
+}
+
+.webix_dayevents_event_item {
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    line-height: 20px;
+}
+
+.phone .winPhone10 .webix_dayevents {
+    overflow-y:scroll;
+}
+
+/* webix week view */
+
+.webix_view.webix_list.events {
+    background-color: #e5e5e5;
+}
+
+.webix_list .webix_unit_header {
+    border-bottom: 1px solid #fff;
+    padding: 0 3px;
+}
+
+.webix_scheduler .webix_unit_header_inner.today {
+    font-weight: bold;
+}
+
+.webix_scheduler .webix_unit_header_inner {
+    color: black;
+}
+
+.webix_unit_header.webix_unit_events_header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.webix_view.webix_list.events .webix_unit_header.webix_unit_events_header:first-child {
+    margin-top: 0px;
+}
+
+.webix_view.webix_list .webix_list_item .webix_event_time {
+    color: #333;
+    font-size: 11px !important;
+    text-align: left;
+    padding-left: 5px;
+    width: 60px;
+}
+
+.webix_event_text {
+    padding-left: 10px !important;
+    font-size: 13px;
+}
+
+.phone .winPhone10 .webix_list.events {
+    overflow-y:scroll;
+}
+
+/*This a rule for event texts except the day view.*/
+.webix_view.webix_list.multi_day_events .webix_list_item,
+.webix_view.webix_list .webix_list_item .webix_event_text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.webix_cal_prev_button,
+.webix_cal_next_button {
+    font-size: 17px !important;
+    font-weight: bold;
+}
+
+.webix_cal_prev_button {
+    transform: scale(-1,1);
+    -webkit-transform: scale(-1,1);
+    left: 0;
+}
+
+.webix_cal_next_button {
+    right: 0;
+}
+
+.webix_cal_prev_button,
+.webix_cal_next_button {
+    background-image: none;
+    font-family: 'Dyn CRM Symbol';
+    position: absolute !important;
+    top: 8px;
+    width: 35px !important;
+    height: auto !important;
+}
+
+.webix_cal_prev_button:before,
+.webix_cal_next_button:before {
+    content: "\E09F";
+}
+
+.webix_cal_prev_button:before,
+.webix_cal_next_button:before {
+    margin-left: 15px
+}
+
+.webix_unit_header_inner {
+    font-size: 13px;
+}
+
+/* calendar day view title */
+.webix_scroll_cont > .webix_view.webix_control.webix_el_label > div {
+    font-weight: bold;
+}
+
+/* calendar week view title */
+.calendar_weekview_title {
+    margin-right: 2px;
+}
+
+.calendar_weekview_title,
+.calendar_weekview_title > span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.webix_el_label {
+    padding-top: 2px;
+}
+
+/* event markers */
+.webix_event_marker_icon {
+    color: #FFFFFF;
+    font-size: 9px;
+    line-height: 12px;
+    float: left;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+
+.webix_event_marker_icon_container {
+    height: 20px;
+    width: 20px;
+    float: left;
+}
+
+.webix_event_marker_text {
+    padding-left: 6px;
+}
+
+.dhx_event_marker_icon {
+    color: #FFFFFF;
+    font-size: 9px;
+    padding-left: 2px;
+}
+
+.dhx_event_marker_icon_container {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.dhx_event_bar_date {
+    color: #333;
+    float: left;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.dhx_event_marker_text {
+    padding-left: 3px;
+}
+
+/* Error View */
+.error_view_container {
+    display: block;
+    font: normal normal normal 14px / 20px 'SegoeUI', 'Segoe UI';
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.error_view_message {
+    line-height: 18px;
+    color: #000000;
+}

@@ -1,0 +1,71 @@
+/*
+ * Copyright (C) Microsoft Corporation.  All rights reserved.
+ *
+ * AppMagic SeekBar control CSS
+ *
+ */
+.appmagic-seekbar-container-body {
+  width: 100%;
+  -ms-align-self: flex-end;
+  -webkit-align-self: flex-end;
+  -moz-align-self: flex-end;
+  align-self: flex-end;
+}
+.appmagic-seekbar-container {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  /* Older Safari - previous flex-box model */
+  width: 100%;
+  height: 8px;
+  /* Allows thumb to be positions absolutely inside the container. */
+  position: relative;
+}
+.appmagic-seekbar-filler {
+  /* A transparent div allows the empty space above and below seek bar to be clickable. */
+  background-color: rgba(0, 0, 0, 0);
+}
+.appmagic-seekbar-track {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  /*Steed*/
+}
+.appmagic-seekbar-fill {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /*Apparition*/
+}
+.appmagic-seekbar-scroller-thumb {
+  /* Allows overlapping with track. */
+  position: absolute;
+}
+.appmagic-seekbar-thumb {
+  height: 10px;
+  width: 10px;
+  float: right;
+  /* This translate moves the thumb's image half of its width so
+       that the tip of the thumb points to the current position of
+       the seekbar. */
+  -webkit-transform: translate(50%, -50%);
+  -moz-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+.appmagic-seekbar-thumb:hover,
+.appmagic-seekbar-thumb::selection {
+  height: 12px;
+  width: 12px;
+}

@@ -1,0 +1,97 @@
+/**
+* @license Copyright (c) Microsoft Corporation. All rights reserved.
+*/
+a.link-container {
+  display: block;
+  font-weight: normal;
+  cursor: pointer;
+  color: black;
+}
+a.link-container:hover {
+  color: #666666;
+}
+a.link-container:visited {
+  color: black;
+}
+a.link-container > span.link {
+  text-decoration: underline;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+.website-preview .content-container {
+  min-height: 90px;
+}
+.website-preview .content-container .image-text-container .thumbnail-container {
+  float: left;
+  height: 90px;
+  width: 90px;
+  position: relative;
+}
+.website-preview .content-container .image-text-container .thumbnail-container .thumbnail {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+.website-preview .content-container .image-text-container .text-container .title-container {
+  display: block;
+  line-height: 1em;
+}
+.website-preview .content-container .image-text-container .text-container .title-container .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.website-preview .content-container .image-text-container .text-container .description {
+  display: block;
+  line-height: 1em;
+  white-space: normal;
+  overflow: hidden;
+  max-height: 8em;
+}
+/* Platform specific classes */
+/* Tablet */
+.tablet .website-preview .content-container {
+  padding-top: 2px;
+  padding-bottom: 12px;
+  line-height: 20px;
+  display: block;
+}
+.tablet .website-preview .content-container .thumbnail-container {
+  margin-right: 70px;
+}
+.tablet .website-preview .content-container .title-container .title {
+  font-family: 'Segoe UI-Semibold', 'Segoe UI Semibold', 'SegoeUI', 'Segoe UI';
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+.tablet .website-preview .content-container .description {
+  font-family: 'SegoeUI', 'Segoe UI';
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+/* Phone */
+.phone .website-preview .content-container {
+  margin-top: 8px;
+  padding: 10px;
+  background-color: #E4E4E4;
+}
+.phone .website-preview .content-container .thumbnail-container {
+  margin-right: 10px;
+}
+.phone .website-preview .content-container .title-container .title {
+  font-family: 'Segoe UI-Semibold', 'Segoe UI Semibold', 'SegoeUI', 'Segoe UI';
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+}
+.phone .website-preview .content-container .description {
+  font-family: 'SegoeUI', 'Segoe UI';
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+}

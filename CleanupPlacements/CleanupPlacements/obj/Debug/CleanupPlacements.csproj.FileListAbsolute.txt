@@ -1,0 +1,9 @@
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\CleanupPlacements.dll
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\CleanupPlacements.pdb
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\obj\Debug\CleanupPlacements.dll
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\obj\Debug\CleanupPlacements.pdb
+C:\Users\josiah\Documents\Visual Studio 2015\Projects\CleanupPlacements\CleanupPlacements\obj\Debug\CleanupPlacements.csprojResolveAssemblyReference.cache

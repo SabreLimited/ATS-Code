@@ -1,0 +1,11 @@
+
+<!DOCTYPE html>
+<html>
+	<body>
+
+
+<label for="inputId">file dialog</label>
+<input id="inputId" type="file" style="position: fixed; top: -100em">
+
+	</body>
+</html>

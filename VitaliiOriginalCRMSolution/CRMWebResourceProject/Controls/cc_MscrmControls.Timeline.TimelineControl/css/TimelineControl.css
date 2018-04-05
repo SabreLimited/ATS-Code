@@ -1,0 +1,63 @@
+.cc-timeline-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-box-flex: 1 0 0px;
+  -moz-box-flex: 1 0 0px;
+  -webkit-flex: 1 0 0px;
+  -ms-flex: 1 0 0px;
+  flex: 1 0 0px;
+  width: calc(100% - 7px);
+  padding-left: 7px;
+}
+.cc-timeline-filters {
+  background-color: transparent;
+  border: 0;
+  width: 114px;
+}
+.cc-timeline-group-title {
+  font-weight: bold;
+  min-height: 37px;
+  padding-top: 10px;
+}
+.cc-timeline-group-actions {
+  padding-left: 50px;
+  background-size: 40px 40px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAACP3YV9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAA9dJREFUeF7t0c/rZmMch/H5P0giDJloIiI/ikZEI0QURRRFpiiKiRpiQVGjkFEoyo9QLEyhhjIWFBZ8iwUW1IzCAgs83ufpPqd7zlzPs7/0Wbw697nqvfpsWiwW/zsbGxuLFf4d0MYOo12O9c8af9PGDqNdjvVn/DX7jv6gjR1Guxzrt+Z38Ctt7DDa5Vi/xME40H0ntLHDaJdj/Rw/Nf17iTZ2GO1yrO/jx/ihGf6nN23sMNrlWN813xLa2GG0y7G+jm9W2KCNHUa73OrL+GpmbF/Qxg6jXY71efNZ953Qxg6jXY71SXwa+9u7/+6njR1Guxzro+bj2NcM76Hto40dRrsc68P4YOb98UsbO4x2OdZ7nb2z917a2GG0y7HenXmnRxs7jHY51tvxVrzZvQfLN23sMNrlWG/E681rzfB+dXjTxg6jXY71yszLzfKfNnYY7XKsF+KlZniPXhzQxg6jXY61p3mufZ/v2h7a2GG0y7Gejmfi2fY9BG3sMNrlWLvjqe7bv3fTxg6jXY71JHhifNPGDqNdjvVY83j3ntDGDqNdjvUoeGR808YOo12OtSse6jzcvXfRxg6jXY71YPNAZ2q0scNol2PdFzvjfrCTNnYY7XKse+LeVWhjh9Eux7q7uaszNdrYYbTLse6MHc3w7v930MYOo12OdUdze/ed0MYOo12OdVtza/ed3rSxw2iXY93S3NyM/8tGGzuMdjnWjXFT+46mf9rYYbTLsW6I6zvj//JLGzuMdjnWdStcO6CNHUa7HOua5uruO71pY4fRLse6Mq5q39H4fwVt7DDa5ViXN9vpSxs7jHY51mUrXDqgjR1Guxzrkubi2Xf5po0dRrsca1tc1L6HvWljh9Eux7owLpiZGm3sMNrlWOfHee17GNrYYbTLsc6Nc8Cy08YOo12OdXacNTO0ZaeNHUa7HOvM5ozO9E8bO4x2OdbpzWmz9/KfNnYY7XKsrevQxg6jXY51anMKoY0dRrsca0ucvApt7DDa5VgnrXDi8KWNHUa7HGtzc0L3HW2mjR1Guxzr+Diu+x7ypo0dRrsc69iZY3q0scNol2MdvQ5t7DDa5VhHrUMbO4x2OdaRaxxBGzuMxQdj8cFYfDAWH4zFB2PxwVh8MBYfjMUHY/HBWHwwFh+MxQdj8cFYfDAWH4zFB2PxwVh8MBYfjMUHY/HBWHwwFh+MxQdj8cFYfDAWH4zFB2PxwVh8MBYfjMUHY/HBWHwwFh+MxQdj8cFYfDAWH4zFB2PxwVh8MBYfjMUHY/HBWHwwFh+MxQdj8cFYfDAWH4zFB2OxWWz6D64G09J3wVvEAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  height: 29px;
+}
+.cc-timeline-items {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAYAAACP3YV9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAA0BJREFUeF7d0aENBEEUw9Dtv8Op5h+NIuu4Ax6JzPLd3Zz33v3T/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNT9Ahzt6LzU/QIc7ei81P0CHO3ovNS9330/rVGy/CC1veQAAAAASUVORK5CYII=);
+  background-repeat: repeat-y;
+  background-size: 40px 40px;
+}
+.cc-timeline-item {
+  padding-bottom: 10px;
+  clear: both;
+}
+.cc-timeline-item-thumbnail {
+  background-size: 40px 40px;
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+.cc-timeline-item-details {
+  margin-left: 50px;
+}
+.cc-timeline-item-title {
+  font: normal normal normal 15px / 20px 'SegoeUI-Semibold', 'Segoe UI SemiBold';
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cc-timeline-item-label {
+  font: normal normal normal 15px / 20px 'SegoeUI', 'Segoe UI';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cc-timeline-no-items {
+  color: black;
+  font: normal normal normal 14px / 20px 'SegoeUI', 'Segoe UI';
+}

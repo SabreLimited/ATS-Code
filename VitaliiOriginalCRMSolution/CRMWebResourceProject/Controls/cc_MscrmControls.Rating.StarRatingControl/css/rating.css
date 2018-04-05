@@ -1,0 +1,69 @@
+/*
+ * Copyright (C) Microsoft Corporation.  All rights reserved.
+ *
+ * rating.less
+ *
+ */
+.win-rating {
+  outline: none;
+  height: 100%;
+  width: 80%;
+  font-size: 24px;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: -o-inline-flex;
+  display: inline-flex;
+  -ms-content-zooming: none;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.android4_2 .win-rating,
+.android4_3 .win-rating {
+  display: -webkit-box;
+}
+.win-rating .win-star {
+  font-family: "Dyn CRM Symbol";
+  -ms-flex: 1 1 auto;
+  -moz-box-flex: 1 1 auto;
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.win-rating .win-star:before {
+  content: "\E113";
+}
+.win-rating .win-star.win-average {
+  display: none;
+}
+.win-rating .win-star.win-empty {
+  color: white;
+  text-shadow: #666666 0px 0px 1px, #666666 0px 0px 1px, #666666 0px 0px 1px, #666666 0px 0px 1px, #666666 0px 0px 1px, #666666 0px 0px 1px;
+}
+.win-rating .win-star.win-user.win-full {
+  color: #666666;
+  text-shadow: currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px;
+}
+.win-rating .win-star.win-tentative.win-full {
+  color: #333333;
+  text-shadow: currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px, currentColor 0px 0px 1px;
+}
+.win-rating.readmode {
+  font-size: 15px;
+}
+/****** Device specific ******/
+.phone .win-rating.readmode {
+  width: 50%;
+}
+.tablet .win-rating.readmode {
+  margin-top: 0px;
+  font-size: 20px;
+  width: 85%;
+}
+.tablet .win-rating {
+  margin-top: 10px;
+  width: 100%;
+}
+.tablet .win-rating .win-star {
+  padding-top: 4px;
+}

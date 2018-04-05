@@ -1,0 +1,29 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+.customControl.BulletGraph\.BulletGraphControl {
+  line-height: 1em;
+}
+.crm-wijmo-bulletgraph-container {
+  height: 27.5px;
+  width: 100%;
+}
+.crm-wijmo-bulletgraph-container .wj-face path {
+  fill: #bed7de !important;
+  stroke-width: 0 !important;
+}
+.crm-wijmo-bulletgraph-container.wj-gauge .wj-pointer {
+  fill: black;
+}
+.tablet .crm-wijmo-bulletgraph-container {
+  margin-top: -6px;
+  margin-bottom: 4px;
+}
+.crm-wijmo-bulletgraph-container[disabled] {
+  pointer-events: none;
+  background-color: transparent;
+}
+.tablet .customControl.BulletGraph\.BulletGraphControl {
+  padding-top: 6px;
+  padding-bottom: 7px;
+}

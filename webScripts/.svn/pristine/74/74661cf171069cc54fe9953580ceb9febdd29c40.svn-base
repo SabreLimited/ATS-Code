@@ -1,0 +1,19 @@
+//Calculates the Regular Charge rate given that two other fields are filled in.
+function calculateRegCharge(){
+  if (Xrm.Page.getControl("sabre_feetype") != null && Xrm.Page.getControl("sabre_feevalue") != null && Xrm.Page.getControl("sabre_regularwages") != null){
+    if(Xrm.Page.getAttribute("sabre_feetype").getValue() == 0){
+	   Xrm.Page.getControl("sabre_regularwages");
+	   var regCharge = Xrm.Page.getAttribute("sabre_regularwages").getValue() + Xrm.Page.getAttribute("sabre_feevalue").getValue();
+	}
+	else{
+	   Xrm.Page.getControl("sabre_regularwages");
+	   var regCharge = Xrm.Page.getAttribute("sabre_regularwages").getValue() * (((Xrm.Page.getAttribute("sabre_feevalue").getValue())/100) + 1);
+	}
+	Xrm.Page.getControl("sabre_regularchargerate");
+	Xrm.Page.getAttribute("sabre_regularchargerate").setValue(regCharge);
+	if(Xrm.Page.getControl("sabre_overtimechargerate") != null){
+		Xrm.Page.getAttribute("sabre_overtimechargerate").setValue(regCharge * 1.5);
+	}
+  }
+
+}

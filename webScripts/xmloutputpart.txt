@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resume xml:lang="en" xmlns="http://ns.hr-xml.org/2006-02-28" xmlns:sov="http://sovren.com/hr-xml/2006-02-28">
+	<ResumeId>
+		<IdValue />
+	</ResumeId>
+	<StructuredXMLResume>
+		<ContactInfo>
+			<PersonName>
+				<FormattedName>BONNIE POWERS</FormattedName>
+				<GivenName>BONNIE</GivenName>
+				<FamilyName>POWERS</FamilyName>
+			</PersonName>
+			<ContactMethod>
+				<WhenAvailable>anytime</WhenAvailable>
+				<PostalAddress>
+					<CountryCode>US</CountryCode>
+					<PostalCode>87501</PostalCode>
+					<Region>NM</Region>
+					<Municipality>Sometown</Municipality>
+					<DeliveryAddress>
+						<AddressLine>15 Sunshine Drive</AddressLine>
+					</DeliveryAddress>
+				</PostalAddress>
+			</ContactMethod>
+			<ContactMethod>
+				<Use>personal</Use>
+				<Location>onPerson</Location>
+				<WhenAvailable>anytime</WhenAvailable>
+				<InternetEmailAddress>bp@somedomain.com</InternetEmailAddress>
+			</ContactMethod>
+		</ContactInfo>
+	</StructuredXMLResume>
+	<NonXMLResume>
+	</NonXMLResume>
+	<UserArea>
+	</UserArea>
+</Resume>

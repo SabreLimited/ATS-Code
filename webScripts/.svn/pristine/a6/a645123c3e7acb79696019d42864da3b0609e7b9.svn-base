@@ -1,0 +1,38 @@
+function positionLock(){
+	if(Xrm.Page.getControl("sabre_positionno") != null && Xrm.Page.getAttribute("sabre_positionno").getValue() != null){
+		Xrm.Page.getControl("sabre_positionno").setDisabled(true);
+	}
+	
+}
+
+function candidateLock(){
+	if(Xrm.Page.getControl("sabre_candidate") != null && Xrm.Page.getAttribute("sabre_candidate").getValue() != null){
+		Xrm.Page.getControl("sabre_candidate").setDisabled(true);
+	}
+	
+}
+
+function onUpdateStage(){
+		var windowId = window.parent.Xrm.Page.data.entity.getId();
+		windowId = windowId.slice(1, -1);
+		//var filterValues = "$filter=Record1Id eq '" + skillResult[duplicate].sabre_skillsId + "' and Record2Id eq '" + windowId + "'";
+		var filterValues = "$filter=Record2Id/Id eq guid'" + windowId + "' and Record2RoleId/Id eq guid'{11ED094E-AF59-E611-80D0-000D3A013699}'";
+		
+		SDK.JQuery.retrieveMultipleRecords(
+			"Connection",
+			filterValues,
+			foundConnections,
+			errorFunction,
+			function(skillResult){
+
+			}
+		);
+}
+
+function errorFunction(error){
+	console.log(error);
+}
+
+function foundConnections(results){
+	console.log(results);
+}

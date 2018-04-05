@@ -1,0 +1,129 @@
+function onChangeCompany(){
+	//function changes sales rep to client/company/acct's owner when company is changed
+	if(Xrm.Page.getControl("sabre_hostingcompany") != null && Xrm.Page.getAttribute("sabre_hostingcompany").getValue() != null){
+		var tempCompany = Xrm.Page.getAttribute("sabre_hostingcompany").getValue();
+		SDK.JQuery.retrieveRecord(tempCompany[0].id,
+			"Account",
+			null, "",
+			changeCompanyRetrieved, errorCallback);
+	}
+}
+
+function changeCompanyRetrieved(result){
+	var lookupData = new Array();
+	var tempUser = new Object();
+	tempUser.entityType = result.OwnerId.LogicalName;
+	tempUser.id = result.OwnerId.Id;
+	tempUser.name = result.OwnerId.Name;
+	lookupData.push(tempUser);
+	if(Xrm.Page.getControl("sabre_affiliate") != null){
+		Xrm.Page.getAttribute("sabre_affiliate").setValue(lookupData);
+	}
+}
+
+function errorCallback(error){
+	console.log(error);
+}
+
+function statPayOnChange(){
+	if(Xrm.Page.getControl("sabre_statutorywages") != null && Xrm.Page.getControl("sabre_statutorychargerate") != null && Xrm.Page.getAttribute("sabre_statutorywages").getValue() != null){
+		if(Xrm.Page.getAttribute("sabre_statutorywages").getValue() < 768333333333333){
+			Xrm.Page.getAttribute("sabre_statutorychargerate").setValue(Xrm.Page.getAttribute("sabre_statutorywages").getValue() * 1.2);		
+		}
+	}
+}
+
+function normalPayOnChange(){
+	if(Xrm.Page.getControl("sabre_regularwages") != null && Xrm.Page.getControl("sabre_overtimewages") != null && Xrm.Page.getAttribute("sabre_regularwages").getValue() != null){
+		if(Xrm.Page.getAttribute("sabre_regularwages").getValue() < 768333333333333){
+			Xrm.Page.getAttribute("sabre_overtimewages").setValue(Xrm.Page.getAttribute("sabre_regularwages").getValue() * 1.5);		
+		}
+	}
+}
+
+function normalBillOnChange(){
+	if(Xrm.Page.getControl("sabre_regularchargerate") != null && Xrm.Page.getControl("sabre_overtimechargerate") != null && Xrm.Page.getAttribute("sabre_regularchargerate").getValue() != null){
+		if(Xrm.Page.getAttribute("sabre_regularchargerate").getValue() < 768333333333333){
+			Xrm.Page.getAttribute("sabre_overtimechargerate").setValue(Xrm.Page.getAttribute("sabre_regularchargerate").getValue() * 1.5);		
+		}
+	}
+}
+
+function preExportSetup(){
+	var earliestDate = new Date();
+	earliestDate.setDate(earliestDate.getDate() - 2);
+	earliestDate.toJSON();
+	var req = new XMLHttpRequest();
+	req.open("GET", Xrm.Page.context.getClientUrl() + "/XRMServices/2011/OrganizationData.svc/sabre_placementSet?$select=sabre_FirstTimeCandidate,sabre_FirstTimeExport,sabre_placementId,statecode,statuscode,sabre_placement_Posistion/sabre_PositionStatus&$expand=sabre_placement_Posistion&$filter=statuscode/Value eq 1 and ( sabre_FirstTimeExport eq null or  sabre_FirstTimeExport ge datetime'"+earliestDate.toJSON()/*2017-01-09T05:00:00.000Z*/+"')", false);
+	//req.open("GET", Xrm.Page.context.getClientUrl() + "/XRMServices/2011/OrganizationData.svc/sabre_placementSet?$select=sabre_FirstTimeCandidate,sabre_FirstTimeExport,sabre_placementId,statecode,statuscode&$expand=sabre_placement_Posistion&$filter=sabre_placement_Posistion/sabre_PositionStatus/Value ne 837770004 and statuscode/Value eq 1 and ( sabre_FirstTimeExport eq null or  sabre_FirstTimeExport ge datetime'"+earliestDate.toJSON()/*2017-01-09T05:00:00.000Z*/+"')", false);	
+	req.setRequestHeader("Accept", "application/json");
+	req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+	req.onreadystatechange = function() {
+		if (this.readyState === 4) {
+			this.onreadystatechange = null;
+			if (this.status === 200) {
+				var returned = JSON.parse(this.responseText).d;
+				var results = returned.results;
+				executeOnResults(results);
+				for (var i = 0; i < results.length; i++) {
+					var sabre_FirstTimeCandidate = results[i].sabre_FirstTimeCandidate;
+					var sabre_FirstTimeExport = results[i].sabre_FirstTimeExport;
+					var statecode = results[i].statecode;
+					var statuscode = results[i].statuscode;
+				}
+			} else {
+				Xrm.Utility.alertDialog(this.statusText);
+			}
+		}
+	};
+	req.send();
+	/*SDK.JQuery.retrieveMultipleRecords(
+		"sabre_placement",
+		"$filter=statuscode/Value eq 1 and ( sabre_FirstTimeExport eq null or  sabre_FirstTimeExport ge datetime'"+earliestDate+"')", 
+		returnFiltered,
+		errorHandler,
+		function(){
+			//nothing
+			console.log("final countdown");
+		}
+	);*/
+}
+
+function executeOnResults(results){
+	var earliestDate = new Date();
+	earliestDate.setDate(earliestDate.getDate());
+	var objUpdateCounter = 0;
+	if(results != null && results.length > 0){
+		for(var i  = 0; i<results.length; i++){
+			if(results[i].sabre_placement_Posistion != null && results[i].sabre_placement_Posistion.sabre_PositionStatus.Value != null && results[i].sabre_placement_Posistion.sabre_PositionStatus.Value != 837770004 ){
+				objUpdateCounter = objUpdateCounter + 1;
+				var entity = {};
+				entity.sabre_FirstTimeCandidate = false;
+				entity.sabre_FirstTimeExport = earliestDate;//new Date("01/09/2017").toLocaleString();
+
+				var req = new XMLHttpRequest();
+				req.open("POST", Xrm.Page.context.getClientUrl() + "/XRMServices/2011/OrganizationData.svc/sabre_placementSet(guid'"+results[i].sabre_placementId+"')", false);
+				req.setRequestHeader("Accept", "application/json");
+				req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+				req.setRequestHeader("X-HTTP-Method", "MERGE");
+				req.onreadystatechange = function() {
+					if (this.readyState === 4) {
+						this.onreadystatechange = null;
+						if (this.status === 204 || this.status === 1223) {
+							//Success - No Return Data - Do Something
+						} else {
+							Xrm.Utility.alertDialog(this.statusText);
+						}
+					}
+				};
+				req.send(JSON.stringify(entity));
+			}
+		}
+	}
+
+	window.parent.alert(objUpdateCounter+" Objects Updated");
+}
+
+function errorHandler(error){
+	console.log(error);
+}

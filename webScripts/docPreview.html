@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+	<script>
+		function setFileSource(){
+		var totalSrc = "data:application/pdf;base64," + getBase64Annotation();
+			document.getElementById("frame").src = totalSrc;
+		}
+	</script>
+	<body onload="javascript: setFileSource();">
+
+		<iframe id="frame" width=100% height=100% frameborder="0" src="about:blank"></iframe>
+	</body>
+</html>

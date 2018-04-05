@@ -1,0 +1,55 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+.crm-jqm-optionset.ui-controlgroup-horizontal .ui-radio input,
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-radio input {
+  display: none;
+}
+fieldset.ui-controlgroup.crm-jqm-optionset,
+fieldset.ui-controlgroup.crm-jqm-optionset-preview {
+  width: 100%;
+  padding: 0;
+  border-width: 0;
+  margin: 0;
+}
+.phone .crm-jqm-optionset .ui-controlgroup-controls,
+.crm-jqm-optionset-preview .ui-controlgroup-controls {
+  width: 100%;
+  margin: 0px 0px 15px 0px;
+}
+.tablet .crm-jqm-optionset .ui-controlgroup-controls,
+.crm-jqm-optionset-preview .ui-controlgroup-controls {
+  width: 100%;
+  margin: 0px 0px 8px 0px;
+}
+.crm-jqm-optionset.ui-controlgroup-horizontal .ui-btn,
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-btn {
+  line-height: 28px;
+  text-align: center;
+  display: block;
+  padding: 0 20px 0 20px;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-weight: normal;
+  border-radius: 0;
+  border-width: 0 0 0 1px;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.crm-jqm-optionset.ui-controlgroup-horizontal .ui-btn.ui-first-child,
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-btn.ui-first-child {
+  border-width: 0;
+}
+.crm-jqm-optionset.ui-controlgroup-horizontal .ui-btn.ui-last-child,
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-btn.ui-last-child {
+  border-width: 0 0 0 1px;
+}
+.crm-jqm-optionset.mobile-controlgroup-disabled .ui-radio {
+  opacity: 1;
+}
+/* To put the Option Set to Preview mode, it is set as disabled. As it should not look disabled, opacity is reset to 1*/
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-state-disabled,
+.crm-jqm-optionset-preview.ui-controlgroup-horizontal .ui-state-disabled {
+  opacity: 1;
+}
+/* Option set is set to disabled with the selector ".crm-jqm-optionset", hence in this case opacity is set to 0.3 */

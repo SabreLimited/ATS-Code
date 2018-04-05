@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+        <script>
+			function changeIcon() {
+				document.getElementById("pButtonImg").src="../WebResources/sabre_bluePlus"
+			}
+			function normalIcon() {
+				document.getElementById("pButtonImg").src="../WebResources/sabre_greyPlus";
+			}
+			function skillCreation(){
+			  window.parent.Xrm.Page.getControl("sabre_flowtoggle")
+			  var boolVal = window.parent.Xrm.Page.getAttribute("sabre_flowtoggle").getValue();
+			  if(boolVal == null){
+			    window.parent.Xrm.Page.getAttribute("sabre_flowtoggle").setValue(0);
+			    alert("Please press the button again.");
+			  }
+			  else{
+			  window.parent.Xrm.Page.getAttribute("sabre_flowtoggle").setValue(1);
+			  }
+			  window.parent.Xrm.Page.data.refresh(true);
+			}
+
+		</script>
+		<style type="text/css">
+			#pButtonImg {display:inline-block;}
+		</style>
+</head>
+<body onload="">
+	<div class="container">
+        <input id="pButtonImg" type="image" src="../WebResources/sabre_greyPlus" onmouseover="javascript: changeIcon();" onmouseout="javascript: normalIcon();" onclick="javascript: skillCreation();"/>
+	</div>
+</body>
+</html>

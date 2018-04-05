@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+        <script>
+			
+			function keyUpFunction(){
+				var v = SIN.value;
+				if (v.match(/^\d{3}$/) !== null) {
+					SIN.value = v + '-';
+				} else if (v.match(/^\d{3}\-\d{3}$/) !== null) {
+					SIN.value = v + '-';
+				}
+				else if (v.match(/^\d{3}\-\d{3}\-\d{3}$/) !== null || v.match(/^$/) !== null) {
+					if(window.parent.Xrm.Page.getControl("sabre_sin") != null){
+					    window.parent.Xrm.Page.getAttribute("sabre_sin").setValue(v);
+					}
+				}
+				else if(v.match(/[^\d-]+$/) !== null){
+				    SIN.value = v.slice(0, -1);
+				}
+			}
+
+		</script>
+		<style type="text/css">
+			#pButtonImg {display:inline-block;}
+		</style>
+</head>
+<body onload="">
+	<div class="container">
+		<label for="SIN">SIN #			</label>
+	    <input type="text" name="date" id="SIN" placeholder="000-000-000" onkeyup="javascript: keyUpFunction();" maxlength="11">
+		<script>
+			if(window.parent.Xrm.Page.getControl("sabre_sin") != null){
+				SIN.value = window.parent.Xrm.Page.getAttribute("sabre_sin").getValue();
+			}
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+.crm-jq-knob canvas {
+  /* The options below are needed for the knob to move properly on Windows devices */
+  overflow: hidden;
+  -ms-content-zooming: none;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.tablet .crm-jq-knob-disabled canvas,
+.tablet .crm-jq-knob-readonly canvas {
+  padding-top: 14px;
+  padding-bottom: 7px;
+}
+.tablet .crm-jq-knob canvas {
+  padding-top: 14px;
+  padding-bottom: 0px;
+  margin-bottom: -6px;
+  margin-left: -10px;
+}
+.phone .crm-jq-knob canvas,
+.phone .crm-jq-knob-disabled canvas,
+.phone .crm-jq-knob-readonly canvas {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.tablet.crm-jq-knob canvas {
+  padding-bottom: 20px;
+}
+.crm-jq-knob input {
+  padding-top: 12px !important;
+  font-size: 16px !important;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}
+.crm-jq-knob-disabled input,
+.crm-jq-knob-readonly input {
+  padding-top: 12px !important;
+  font-size: 14px !important;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}

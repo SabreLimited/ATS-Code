@@ -1,0 +1,138 @@
+/**
+* @license Copyright (c) Microsoft Corporation. All rights reserved.
+*/
+.signatureControl.editmode .inkControl {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* Prevent user's drawing actions from being interpreted as panning or other touch gestures. */
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.signatureControl.editmode .inkControl .canvasContainer {
+  width: 100%;
+}
+.signatureControl.editmode .inkControl .drawCanvas {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  touch-action: none;
+}
+.signatureControl.editmode .inkControl .inkControlHorizontalDelimiter {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #F0F0F0;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  padding: 5px 0px 5px 0px;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .clearButtonCaption {
+  text-decoration: underline;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .clearButton {
+  float: left;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .confirmButtonTick:before {
+  content: '\E10B';
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .confirmButton {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: black;
+  line-height: 30px;
+  width: 34px;
+  height: 34px;
+  border-color: black;
+  background-size: 34px 34px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .confirmButton:hover {
+  background-color: #cdcccc;
+  color: #757575;
+  border-color: #757575;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar .confirmButton:active {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+.signatureControl.editmode .inkControl .inkControlCommandBar.disabledInkControlCommandBar .clearButton,
+.signatureControl.editmode .inkControl .inkControlCommandBar.disabledInkControlCommandBar .confirmButton,
+.signatureControl.editmode .inkControl .inkControlCommandBar.disabledInkControlCommandBar .confirmButton:hover,
+.signatureControl.editmode .inkControl .inkControlCommandBar.disabledInkControlCommandBar .confirmButton:active {
+  opacity: 0.3;
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+.phone .signatureControl.editmode .canvasContainer {
+  height: 310px;
+}
+.phone .signatureControl.editmode .inkControlCommandBar .clearButton {
+  margin-left: 24px;
+  font-family: 'SegoeUI', 'Segoe UI';
+  font-size: 18px;
+  font-weight: normal;
+  color: black;
+}
+.phone .signatureControl.editmode .inkControlCommandBar .confirmButton {
+  margin-right: 24px;
+  font-size: 18px;
+}
+.phone .signatureControl.readmode {
+  padding-top: 3px;
+}
+.tablet .signatureControl.editmode .canvasContainer {
+  height: 180px;
+  box-sizing: border-box;
+}
+.tablet .signatureControl.editmode .inkControlCommandBar .clearButton {
+  margin-left: 10px;
+  font-family: 'SegoeUI', 'Segoe UI';
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+.tablet .signatureControl.editmode .inkControlCommandBar .confirmButton {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.tablet .signatureControl.readmode {
+  padding: 8px 0px 7px 5px;
+}
+.signatureControl.readmode .canvasContainer {
+  height: 80px;
+  width: 124px;
+}
+.signatureControl.readmode .canvasContainer .drawCanvas {
+  height: 100%;
+  width: 100%;
+}
+.signatureControl.readmode .inkControlHorizontalDelimiter,
+.signatureControl.readmode .inkControlCommandBar {
+  display: none;
+}

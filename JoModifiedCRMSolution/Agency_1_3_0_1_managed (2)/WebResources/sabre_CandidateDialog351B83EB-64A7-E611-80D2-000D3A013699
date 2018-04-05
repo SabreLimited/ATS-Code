@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+        <script>
+			//Pass the return Value to the parent window
+            function tryCloseWindow(){
+				Mscrm.Utilities.setReturnValue(oReturn);
+	 
+				try {
+					closeWindow(true);//Close the dialog box
+				}
+				catch (e) { }
+			}
+		</script>
+		<style type="text/css">
+		</style>
+</head>
+<body onload="">
+	<div class="container">
+        <input id="pButtonImg" type="image" src="../WebResources/sabre_greyPlus" onmouseover="javascript: changeIcon();" onmouseout="javascript: normalIcon();" onclick="javascript: tryCloseWindow();"/>
+	</div>
+</body>
+</html>

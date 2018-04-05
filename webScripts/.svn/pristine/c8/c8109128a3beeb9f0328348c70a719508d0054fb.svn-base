@@ -1,0 +1,64 @@
+function Form_Onload() {
+	var contextParams = Xrm.Page.context.getQueryStringParameters();
+
+	if (contextParams._CreateFromType != null && contextParams._CreateFromType == 112) {  //determines that Quick Create is being clled from Case Form.
+		var contactLookup = top.document.getElementById("new_contact_i_lookup_quickcreate"); //gets contactLookup
+		var customerLookup = top.document.getElementById("customerid_i_lookup_quickcreate"); //gets customerLookup
+		var contentFrame = top.document.getElementById("contentIFrame0");
+
+		if (contentFrame != null) {
+			var clientLookup = contentFrame.contentWindow.Xrm.Page.getAttribute("new_account");
+
+			if (clientLookup != null) {
+				var clientValue = clientLookup.getValue();
+
+				if (clientValue != null) {
+					Xrm.Page.getAttribute("parentcustomerid").setValue(clientValue);
+				}
+			}																					//above region retrieves data from main content frame window.
+
+			if (customerLookup != null) {
+				Xrm.Page.getAttribute("customertypecode").setValue(100000000); //Customer
+			}
+
+			if (contactLookup != null) {
+				Xrm.Page.getAttribute("customertypecode").setValue(100000001); //Contact
+			}
+		}
+	}
+}
+
+function testQuickCreate(){
+	console.log(Xrm.Page.context.getQueryStringParameters());
+}
+
+function pipelineChangeJO(){
+	//check whether or not pipeline would duplicate existing JO. If it would, prevent progress.
+	if(Xrm.Page.getControl("sabre_positionno") != null && Xrm.Page.getAttribute("sabre_positionno").getValue() != undefined && Xrm.Page.getControl("sabre_candidate") != null && Xrm.Page.getAttribute("sabre_candidate").getValue() != undefined){
+		var position = Xrm.Page.getAttribute("sabre_positionno").getValue();
+		var candidate = Xrm.Page.getAttribute("sabre_candidate").getValue();
+		SDK.JQuery.retrieveMultipleRecords(
+		"sabre_submission",
+		"$select=sabre_submissionId&$filter=(sabre_PositionNo/Id eq (Guid'" + position[0].id +"')) and (sabre_Candidate/Id eq (Guid'"+ candidate[0].id +"'))",
+		duplicatesFound,
+		errorCallback,
+		function(){
+		//OnComplete Handler
+		}
+	);
+	}
+}
+
+function duplicatesFound(results){
+	if (results.length > 0){
+		Xrm.Page.getAttribute("sabre_positionno").setValue(null);
+		Xrm.Page.ui.setFormNotification("This candidate has already been submitted to that Job Order.", "WARNING", '1');
+	}
+	else{
+		Xrm.Page.ui.clearFormNotification('1');
+	}
+}
+
+function errorCallback(error){
+	console.log(error);
+}

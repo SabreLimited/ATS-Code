@@ -1,0 +1,55 @@
+/**
+ * @license Copyright (c) Microsoft Corporation. All rights reserved.
+ */
+.crm-wijmo-inputmask.wj-content {
+  width: 100%;
+  font-size: 15px;
+}
+.crm-wijmo-inputmask.wj-content {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border-color: #888888;
+}
+.tablet .crm-wijmo-inputmask.wj-content {
+  height: 32px;
+}
+.phone .crm-wijmo-inputmask.wj-content {
+  height: 30px;
+  border: 2px #888888 solid;
+}
+.phone .crm-wijmo-inputmask.wj-content input {
+  padding-top: 2px;
+}
+.crm-wijmo-inputmask.wj-content input {
+  line-height: 22px;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+/* Read-mode styling. This is similar to MoCA's internal control for read-mode. */
+.crm-wijmo-inputmask.wj-content.readmode {
+  border: none;
+  background-color: inherit;
+  -webkit-opacity: 1;
+  opacity: 1;
+}
+.tablet .crm-wijmo-inputmask.wj-content.readmode input {
+  line-height: 20px;
+  padding: 6px 0px 7px 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.phone .crm-wijmo-inputmask.wj-content.readmode input {
+  line-height: normal;
+  padding: 0px;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 18px;
+}

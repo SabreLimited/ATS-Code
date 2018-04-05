@@ -1,0 +1,631 @@
+﻿<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <style>
+        .labelColumn {
+            width: 150px;
+        }
+
+        * {
+            font-family: Segoe UI;
+            font-size: 12px;
+        }
+
+        div.ms-crm-IL-MRU-Header, div.ms-crm-IL-Header, div.ms-crm-IL-MRU-Footer, .ms-crm-Inline-Value, .ms-crm-Inline-Edit input.ms-crm-InlineInput, .ms-crm-Inline-Edit input.ms-crm-Input, .processStep.emptyValue .bit .ms-crm-Inline-Value, .ms-crm-Inline-Validation {
+            font-family: Segoe UI, Arial, sans-serif;
+        }
+
+        .ms-crm-Inline-Value, .ms-crm-Inline-Edit input.ms-crm-InlineInput {
+            padding-top: 2px;
+            padding-bottom: 3px;
+            padding-right: 0;
+        }
+
+        .ms-crm-Inline-Value {
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: left;
+            margin-left: 23px;
+            padding-left: 0px;
+        }
+
+        .ms-crm-Inline-Value, .ms-crm-Inline-Edit input.ms-crm-InlineInput, .ms-crm-Inline-Edit input.ms-crm-Input {
+            font-weight: 500;
+            color: #000000;
+            font-size: 12px;
+            min-width: 20px;
+        }
+
+            .ms-crm-Inline-Value.ms-crm-Inline-Lookup {
+                color: #000000;
+            }
+
+        .ms-crm-Inline-Chrome {
+            width: 100%;
+            position: relative;
+        }
+
+        td {
+            font-size: 11px;
+        }
+
+        .ms-crm-Field-Data-Print {
+            color: #000000;
+        }
+
+        .ms-crm-Field-Data-Print {
+            word-wrap: break-word;
+            vertical-align: top;
+            font-weight: normal;
+        }
+
+        .refresh-form td, .refresh-form h3.ms-crm-Form {
+            font-size: 12px;
+        }
+
+        .refresh-form .ms-crm-Field-Data-Print, .refresh-form .ms-crm-Field-Data-Print-Bold {
+            word-wrap: normal;
+        }
+
+        table {
+            cursor: default;
+        }
+
+            table.ms-crm-FormSection {
+                margin-left: 11px;
+                width: 100%;
+            }
+
+        .refresh-form table.ms-crm-FormSection {
+            margin: 0;
+            margin-top: 11px;
+        }
+
+        .refresh-form table.ms-crm-FormSection {
+            border-collapse: separate;
+            border-spacing: 5px 0px;
+            background-color: #FFFFFF;
+            padding: 20px;
+        }
+
+        .refresh-form .ms-crm-FormBodyContainer table.ms-crm-FormSection {
+            padding: 15px;
+        }
+
+        .ms-crm-tabcolumn0 {
+            padding-left: 0px;
+        }
+
+        .ms-crm-tabcolumn0, .ms-crm-tabcolumn1, .ms-crm-tabcolumn2 {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .ms-crm-InlineTabBody-Read {
+            width: 100%;
+            table-layout: fixed;
+            padding-right: 12px;
+        }
+
+        .refresh-form div.ms-crm-InlineTabBody-Read {
+            overflow: hidden;
+            padding-right: 0px;
+        }
+
+        .refresh-form div.ms-crm-InlineTab-Read {
+            margin-bottom: 8px;
+        }
+
+        div.ms-crm-InlineTabContainer-Read {
+            background-color: #FFFFFF;
+            border-color: #EFEFEF;
+        }
+
+        div.ms-crm-Form-Area, div.ms-crm-Form-Area-Customize {
+            height: 100%;
+        }
+
+        .refresh-form div.ms-crm-Form-Container {
+            margin-top: 0px;
+        }
+
+        .stdTable .ms-crm-Setting-ContextHeader-Title, body.hideUserProfile, .stage, #dashboardListDiv, div.stdTable, div#crmRibbonManager, .ms-crm-control-SideStrip, div.ms-crm-InlineTabContainer-Read, div.ms-crm-InlineTabContainer-Read-SLAKpiQuickView, tr.ms-crm-Form-HeaderContainer, div.ms-crm-Form-Area.ms-crm-Form-Area-position, div.ms-crm-Form-FooterContainer, div.ms-crm-Form-AreaContainer, div.ms-crm-Form-AreaContainerQuick, div#rofContainer, div.ms-crm-Form-HeaderContainer, .refresh-form div.ms-crm-Form-HeaderContainer, .refresh-form-footer table, .ms-crm-List-Title, table.ms-crm-Grid-Control-Bar, div#rofContainer div.ms-crm-Form-Container, .ms-crm-Dashboard-Area div.ms-crm-InlineTab {
+            background-color: #FFFFFF;
+        }
+
+        div.ms-crm-InlineTabContainer-Read {
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .refresh-form div.ms-crm-InlineTabContainer-Read {
+            margin-top: 10px;
+        }
+
+        .ms-crm-Form-Area-position {
+            position: relative;
+        }
+
+        div.ms-crm-Form-Area.ms-crm-Form-Area-position {
+            min-width: 1024px;
+        }
+
+        .refresh-form div.ms-crm-Form-Area.ms-crm-Form-Area-position {
+            min-width: 400px;
+        }
+
+        .ms-crm-IE7-Height-Fix-Dummy-Container-ReadForm {
+            height: 100%;
+        }
+
+        div.ms-crm-Form-AreaContainer {
+            overflow: auto;
+            position: absolute;
+            width: 100%;
+            padding-bottom: 13px;
+        }
+
+        div.ms-crm-Form-AreaContainer {
+            position: relative;
+        }
+
+        .ms-crm-Form-Page {
+            background-color: #FFFFFF;
+            border-color: #EFEFEF;
+            background-image: url(/_imgs/theme/Outlook15White/FormHeaderGradientTop.png?ver=787354655);
+        }
+
+        .ms-crm-Form-Page {
+            background-image: none !important;
+        }
+
+        .ms-crm-readForm-Container, .ms-crm-appgridmenubar, table.ms-crm-control-strip-table, div#rofContainer div.ms-crm-Form-Container, div.dashboard-brdr, iframe.ms-crm-Custom, #dashboardSelector a.ms-crm-View-Name, #dashboardSelector a.ms-crm-View-Name-select, .homepage_table {
+            border-color: #FFFFFF !important;
+        }
+
+        ul.ms-crm-Nav-LeftBar, div.ms-crm-Form-Container, .ms-crm-FormLeftNav-TabLinksRow, .ms-crm-Form-LeftBar-Header, .ms-crm-Form-LeftBar {
+            background-color: #F3F3F3;
+        }
+
+        div.ms-crm-readForm-Container {
+            position: absolute;
+            left: 20px;
+            right: 8px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        div.ms-crm-Form-Container {
+            border-width: 1px;
+            border-style: solid;
+            margin-top: 5px;
+        }
+
+        div#rofContainer {
+            padding: 8px;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+        body, input, select, textarea, table.ms-crm-Loading, div.ms-crm-Grid-Title {
+            font-family: Segoe UI,Tahoma,Arial;
+            font-size: 11px;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            direction: ltr;
+            margin: 0px;
+            border: 0px;
+            cursor: default;
+        }
+
+            body.ms-crm-Setting-Context-top, body {
+                background-color: #FFFFFF;
+                scrollbar-3dlight-color: #f0f0f0;
+                scrollbar-arrow-color: #1e395b;
+                scrollbar-base-color: #cdcdcd;
+                scrollbar-darkshadow-color: #f0f0f0;
+                scrollbar-face-color: #cdcdcd;
+                scrollbar-highlight-color: #cdcdcd;
+                scrollbar-shadow-color: #cdcdcd;
+                scrollbar-track-color: #f0f0f0;
+            }
+
+        body {
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        html {
+            overflow: auto;
+        }
+
+        body, html, form {
+            height: 100%;
+            direction: ltr;
+        }
+
+        body {
+            font-style: normal;
+            font-family: Segoe UI;
+            font-size: 12px;
+            color: #000000;
+            background: #fff;
+            min-width: 800px;
+        }
+
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: "Segoe UI",Arial,Sans-Serif;
+            font-size: 12px;
+            margin: 0px !important;
+            padding: 0px !important;
+            border: 0px !important;
+            color: #000000;
+            direction: ltr;
+            background: #ffffff;
+            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        html {
+            margin: 0px !important;
+            padding: 0px !important;
+            border: 0px !important;
+            scrollbar-3dlight-color: #f0f0f0;
+            scrollbar-arrow-color: #1e395b;
+            scrollbar-base-color: #cdcdcd;
+            scrollbar-darkshadow-color: #f0f0f0;
+            scrollbar-face-color: #cdcdcd;
+            scrollbar-highlight-color: #cdcdcd;
+            scrollbar-shadow-color: #cdcdcd;
+            scrollbar-track-color: #f0f0f0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ms-crm-Inline-EmptyValue {
+            font-size: 12px;
+            color: #000000;
+        }
+
+        .ms-crm-Inline-Value a, .ms-crm-Inline-Value span {
+            display: inline-block;
+        }
+
+        .ms-crm-Inline-EmptyValue {
+            font-weight: 500;
+        }
+
+        div.ms-crm-Inline-EditIcon, .ms-crm-RefreshDialog-Main-MDD .ms-crm-Inline-Value {
+            border-color: #8C8C8C;
+        }
+
+        div.ms-crm-Inline-EditIcon, div.recalculate {
+            position: absolute;
+            z-index: 2;
+            bottom: 0px;
+            top: 0px;
+            display: none;
+            right: 0px;
+            border-width: 1px;
+            border-style: solid;
+            background-color: #FFFFFF;
+        }
+
+        .ms-crm-Inline-Value div.ms-crm-Inline-GradientMask {
+            right: 1px;
+        }
+
+        .ms-crm-InlineEditLabel div.ms-crm-Inline-GradientMask, .ms-crm-Inline-Value div.ms-crm-Inline-GradientMask {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            z-index: 1;
+            top: 1px;
+            background: rgba(255, 255, 255, 0.25);
+            background: -moz-linear-gradient( right, rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0) 100%);
+            /*background: -webkit-gradient( linear, right, left, color-stop(25%, rgb(255, 255, 255)), color-stop(100%, rgba(255, 255, 255, 0)));*/
+            background: -webkit-linear-gradient( right, rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0) 100%);
+            background: -o-linear-gradient( right, rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0) 100%);
+            background: -ms-linear-gradient( right, rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40FFFFFF', endColorstr='#FFFFFF', GradientType=1);
+            background: linear-gradient( right, rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        img {
+            border: 0;
+        }
+
+        .ms-crm-ImageStrip-search_normal {
+            background: transparent url(/_imgs/imagestrips/control_imgs.png?ver=787354655) no-repeat scroll -53px -183px;
+            width: 20px;
+            height: 18px;
+            overflow: hidden;
+        }
+
+        img.ms-crm-InlineLookupEdit {
+            cursor: pointer;
+            vertical-align: middle;
+            border-top: #c6c6c6 1px solid;
+            border-bottom: #c6c6c6 1px solid;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            height: 18px !important;
+            border-right: #c6c6c6 1px solid;
+        }
+
+        img.ms-crm-EditLookup-Image {
+            border-width: 0;
+            vertical-align: middle;
+            margin-top: 1px;
+        }
+
+        .ms-crm-div-NotVisible {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #E9EDF1;
+            margin: 0;
+            height: 97%;
+        }
+
+        #header {
+            background-color: white;
+            padding: 15px 10px 6px 10px;
+        }
+
+        #title {
+            font-weight: bold;
+            font-size: 13px;
+            font-family: Segoe UI, Tahoma, Arial;
+        }
+
+        #description {
+            line-height: 16px;
+            padding-top: 4px;
+            font-size: 11px;
+            font-family: Segoe UI, Tahoma, Arial;
+        }
+
+        #notificationsDiv {
+            margin-top: 15px;
+        }
+
+        #content {
+            height: 100%;
+            margin-bottom: -52px;
+        }
+
+        #poolstatus1Div > label {
+            padding: 6px 10px 6px 10px;
+        }
+
+        .choise-title {
+            padding-left: 6px;
+            font-size: 13px;
+            font-family: Segoe UI, Tahoma, Arial;
+        }
+
+        #footer {
+            background-color: #E9EDF1;
+            width: 100%;
+            bottom: 10px;
+            position: fixed;
+        }
+
+        #buttons {
+            float: right;
+            width: 182px;
+        }
+
+        button {
+            line-height: 16px;
+            height: 20px;
+            width: 84px;
+            text-align: center;
+            cursor: pointer;
+            border-width: 1px;
+            border-style: solid;
+            background-image: url(/_imgs/theme/Outlook14Silver/ButtonNormalGradient.png);
+            background-repeat: repeat-x;
+            margin-right: 5px;
+            font-size: 11px;
+            font-family: Segoe UI, Tahoma, Arial;
+            border: 1px solid #666666;
+        }
+
+            button:disabled {
+                color: graytext;
+            }
+
+            button:hover:enabled {
+                background-image: url(/_imgs/theme/Outlook14Silver/ButtonSelectedGradient.png);
+            }
+    </style>
+    <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+    <script type="text/javascript" src="/webresources/sabre_jquery3.2.1.min.js"></script>
+    <script type="text/javascript" src="/webresources/sabre_jquery.ui.min.js"></script>
+    <script type="text/javascript" src="../../../_static/_controls/lookup/lookup.js"></script>
+
+    <link rel="stylesheet" href="/webresources/sabre_jquery.ui.1.11.4.css">
+
+    <script>
+
+        $(function () {
+            $("#startdate").datepicker({
+                selectOtherMonths: false, changeYear: true, changeMonth: true, minDate: new Date('1990, 01, 01'), maxDate: new Date('9990, 12, 31'),
+                yearRange: "1970:2050"
+            });
+            $("#enddate").datepicker({
+                selectOtherMonths: false, changeYear: true, changeMonth: true, minDate: new Date('1990, 01, 01'), maxDate: new Date('9990, 12, 31'),
+                yearRange: "1970:2050"
+            });
+        });
+
+        var jobOrdersGuids = [];
+
+        function onSelectJobOrderClick() {
+            openLookup(function (response) {
+
+                for (var i = 0; i < response.length; i++) {
+                    jobOrdersGuids.push(response[i].id.replace("{", "").replace("}", ""));
+                }
+
+                $("#totalSelectedJobOrders").text(jobOrdersGuids.length.toString());
+            });
+        }
+
+        function onOkClick() {
+            try {
+                var startdate = document.getElementById("startdate");
+                if (startdate != null && startdate.value != null) {
+                    startdate = startdate.value;
+                } else {
+                    alert("Please select Start Date");
+                    return;
+                }
+
+                var enddate = document.getElementById("enddate");
+                if (enddate != null && enddate.value != null) {
+                    enddate = enddate.value;
+                } else {
+                    alert("Please select End Date");
+                    return;
+                }
+
+                if (jobOrdersGuids.length == 0) {
+                    alert("Please select Job Orders to continue");
+                }
+
+                var data = {};
+                data.StartDate = new Date(startdate);
+                data.EndDate = new Date(enddate);
+                data.JobOrders = jobOrdersGuids;
+
+                Mscrm.Utilities.setReturnValue(data);
+
+                closeWindow(true);
+
+            } catch (e) {
+                console.log(e.message);
+            }
+        }
+
+        function openLookup(callBack) {
+            try {
+
+                jobOrdersGuids = [];
+                $("#totalSelectedJobOrders").text(jobOrdersGuids.length.toString());
+
+                Mscrm.Utilities.returnLookupItems = function (lookupItems) {
+                    callBack(lookupItems.items);
+                }
+
+                var callbackFunction = Mscrm.Utilities.createCallbackFunctionObject("returnLookupItems", Mscrm.Utilities, null, false);
+
+                LookupObjectsWithCallback(callbackFunction, null, "multi", 10006, 0, null, null, 1, 1, false, "", "", "", "", "", null, null, null, null, null, null, "", null,
+                    // filter
+                    encodeURIComponent('<filter type="and" ><condition attribute="sabre_positionstatus" operator="not-in" ><value>837770004</value><value>837770003</value></condition></filter>')
+                    , "");
+
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+    </script>
+    <title>Candidate Placements</title>
+    <meta>
+    <style type="text/css"></style>
+</head>
+<body id="bodyId" style="word-wrap: break-word">
+    <div id="content" style="width: 500px">
+        <div id="header">
+            <div id="titleDiv">
+                <span id="title">Select Job Orders, Start Date and End Date</span>
+            </div>
+            <div id="description"></div>
+        </div>
+        <div id="body">
+            <div id="notificationsDiv">
+                <div id="poolstatus1Div">
+                    <table>
+                        <tr height="24">
+                            <td title="Start Date" class="labelColumn">
+                                <label for="startdate">Start Date</label>
+                            </td>
+                            <td data-height="24">
+                                <input type="text" id="startdate">
+                            </td>
+                        </tr>
+                        <tr height="24">
+                            <td title="End Date" class="labelColumn">
+                                <label for="enddate">End Date</label>
+                            </td>
+                            <td data-height="24">
+                                <input type="text" id="enddate">
+                            </td>
+                        </tr>
+                        <tr height="24">
+                            <td class="labelColumn">
+                                <label>
+                                    Select Job Orders
+                                </label>
+                            </td>
+                            <td>
+                                <button id="select_btn" onclick="onSelectJobOrderClick()">Select</button>
+                            </td>
+                        </tr>
+                        <tr height="24">
+                            <td class="labelColumn" />
+                            <td />
+                        </tr>
+
+                        <tr height="15">
+                            <td class="labelColumn">
+                                <label>
+                                    Total selected Job Orders:
+                                </label>
+                            </td>
+                            <td>
+                                <label id="totalSelectedJobOrders">0</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <hr>
+            <div id="buttons">
+                <button id="ok_btn" onclick="onOkClick();">Ok</button>
+                <button id="cancel_btn" onclick="closeWindow(true);">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

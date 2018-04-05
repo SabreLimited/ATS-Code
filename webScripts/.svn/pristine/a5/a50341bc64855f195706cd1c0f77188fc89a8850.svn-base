@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .area{
+	position:relative;
+    width: 100%;
+	height: 120px; 
+	background-color: grey;
+    }   
+    .bubble{
+	  display: table;
+	  width: 100%;
+	  height: 120px;
+	}
+	.bubble p{
+	  display: table-cell; 
+      vertical-align: middle; 
+	  text-align: center;
+	}
+  </style>
+</head>
+<body>
+<div class="area">
+  <div class="bubble" id="dropZone">
+    <p>Drop files here!</p>
+  </div>
+</div>
+<script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+<script type="text/javascript" src="../webresources/sabre_jQuery"></script>
+<script type="text/javascript" src="../webresources/sabre_SDKJQuery"></script>
+<script type="text/javascript" src="../webresources/sabre_mimeDict"></script>
+<script type="text/javascript" src="../webresources/sabre_testPlugin"></script>
+<script type="text/javascript" src="../webresources/sabre_SDKREST"></script>
+<script type="text/javascript" src="../webresources/sabre_AnnotationControl"></script>
+<script>
+    var dropZone = document.getElementById('dropZone');
+
+    // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
+    dropZone.addEventListener('dragover', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'copy';
+    });
+
+	
+	dropZone.addEventListener('click', function (e){
+		e.stopPropagation();
+        e.preventDefault();
+		createDocument();
+		//window.parent.Xrm.Page.data.entity.save(); //just added
+		////DOCUMENT INPUT
+		
+	});
+    // Get file data on drop
+	//dropZone.addEventListener('dragover', handleDragOver, false) //idk what this is for
+    dropZone.addEventListener('drop', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var files = e.dataTransfer.files; // Array of all files
+        for (var i=0, file; file=files[i]; i++) {
+            /*if (confirm("Do you wish to upload this file as a resume?")) {*/
+                var reader = new FileReader();
+                reader.onload = function(e2) { // finished reading file data.
+					var answer = reader.result;
+					var mType = answer.substring(answer.indexOf(":")+1, answer.indexOf(";"));
+					answer = answer.substring(answer.indexOf(",") + 1);
+
+					
+					//Getting the date and formatting it nicely
+					var today = new Date();
+					var dd = today.getDate();
+					var mm = today.getMonth()+1; //January is 0!
+					var yyyy = today.getFullYear();
+
+					if(dd<10) {
+						dd='0'+dd
+					} 
+
+					if(mm<10) {
+						mm='0'+mm
+					} 
+					window.parent.Xrm.Page.data.entity.save(); //just added
+					
+					var object = new Object();
+					var uploadType = 0;
+
+					object.Subject = "Document Upload";
+					objectId = window.parent.Xrm.Page.data.entity.getId();
+	  
+					//refObject is defining which object the Note will be attached to.
+					var refObject = new Object();
+					refObject.LogicalName = "sabre_candidate";
+					refObject.Id = objectId;
+					object.ObjectId = refObject;
+					object.ObjectTypeCode = refObject.LogicalName;
+					
+					object.DocumentBody = answer;
+					object.IsDocument = true;
+					//object.FileSize = answer.length * 4 / 3;
+					object.FileName =  "Document Upload on: " + dd+'/'+mm+'/'+yyyy;
+					object.FileName = object.FileName + getExtension(mType);
+
+					object.MimeType = mType;//if needed, more research required.
+					if (confirm("Do you wish to upload this file as a resume?")){
+						uploadType = 1;
+						object.Subject = "Resume Upload";
+						object.FileName =  "Resume Upload on: " + dd+'/'+mm+'/'+yyyy;
+					    object.FileName = object.FileName + getExtension(mType);
+						SDK.JQuery.createRecord(
+						  object,
+						  "Annotation",
+						  function (object) {
+							console.log(object);
+							//calls plugin resume parsing function
+							testPluginPass(object.AnnotationId);
+						  },
+						  function(error){
+							console.log(error);
+						  }
+						);
+					} else {
+
+						SDK.JQuery.createRecord(
+						  object,
+						  "Annotation",
+						  function (object) {
+							//console.log(object);
+					  
+						  },
+						  function(error){
+							console.log(error);
+						  }
+						);
+					}		
+
+                }
+                reader.readAsDataURL(file); // start reading the file data.
+
+    /*}*/   }   });
+	
+	
+</script>
+</body>
+</html>

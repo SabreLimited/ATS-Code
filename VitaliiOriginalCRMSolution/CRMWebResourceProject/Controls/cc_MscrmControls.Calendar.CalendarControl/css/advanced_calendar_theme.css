@@ -1,0 +1,37 @@
+/**
+ * @license Copyright (c) Microsoft Corporation.  All rights reserved.
+ */
+/**
+ * Hide the start date from DHTMLX month view when DisplayMode is StackedWithoutTimeline
+ */
+.cc-adv-cal-stacked-without-timeline.dhx_scheduler_month .dhx_event_bar_date,
+.cc-adv-cal-stacked-without-timeline.dhx_scheduler_month .dhx_scale_hour {
+  display: none;
+}
+/**
+ * Hide the start date from Webix week and month views when DisplayMode is StackedWithoutTimeline
+ */
+.cc-adv-cal-stacked-without-timeline .webix_list_item .webix_event_time,
+.cc-adv-cal-stacked-without-timeline .webix_dayevents_scale_hour {
+  display: none;
+}
+/**
+ * Always show the Description field and make it display inline to avoid layout issues on single line views (e.g. DHTMLX month)
+ */
+.cc-adv-cal-description-0 {
+  display: inline;
+}
+/**
+ * If we are in a single line view (e.g. DHTMLX month, Webix week & month), don't display the extra description fields.
+ */
+.dhx_scheduler_month .cc-adv-cal-description:not(.cc-adv-cal-description-0),
+.webix_list_item .cc-adv-cal-description:not(.cc-adv-cal-description-0) {
+  display: none;
+}
+/**
+ * Reduce the line height of webix extra descriptions to accomodate 6 lines in total for a 120 minute block.
+ * 1 main line plus 5 extra. Skip the first two lines to avoid misalignments with the icon.
+ */
+.webix_day_event_text .cc-adv-cal-description:not(.cc-adv-cal-description-0):not(.cc-adv-cal-description-1) {
+  line-height: 18px;
+}

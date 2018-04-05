@@ -1,0 +1,28 @@
+<html><head></head><body id="bodyId" style="word-wrap: break-word">﻿
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <script type="text/javascript" src="/webresources/ClientGlobalContext.js.aspx"></script>
+    <script type="text/javascript" src="/webresources/sabre_jquery3.2.1.min.js"></script>
+    <script type="text/javascript" src="/webresources/sabre_jquery.ui.min.js"></script>
+    <script type="text/javascript" src="../../../_static/_controls/lookup/lookup.js"></script>
+	<script type="text/javascript" src="/webresources/sabre_SDKJQuery"></script>
+    <link rel="stylesheet" href="/webresources/sabre_jquery.ui.1.11.4.css">
+    <script>
+        function lookupContacts() {
+            //CODE FOR FUNCTION
+			var callbackFunctionObject = Mscrm.Utilities.createCallbackFunctionObject('returnLookupItems', Mscrm.Utilities, [null, null], false);
+			//Sab-Jo 15/05/2017								//single or multi
+			LookupObjectsWithCallback(callbackFunctionObject, null, "single", 2, 0, null, null, 1, 1, false, "", "", "", "", "", null, null, null, null, null, null, "", null,
+				// filter
+				//encodeURIComponent('<filter type="and" ><condition attribute="sabre_positionstatus" operator="not-in" ><value>837770004</value><value>837770003</value></condition></filter>')
+				null, "");
+				
+			window.parent.console.log(callbackFunctionObject);
+        }
+	
+	</script>
+	<body>
+        <input onclick="lookupContacts()" type="button" value="Find Contacts">
+    </body>
+</html>

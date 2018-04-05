@@ -1,0 +1,4 @@
+function forceSave(){
+  setTimeout(function() {},3000);
+  Xrm.Page.data.save(true);
+}

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68670149-40FE-4EA9-A624-572B2C595F69}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CRMWebResourceProject</RootNamespace>
+    <AssemblyName>CRMWebResourceProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\AutoCompleteControl.js" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\css\crm.wijmo.autocomplete.css" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\css\wijmo.css" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\libs\wijmo.input.js" />
+    <Content Include="Controls\cc_MscrmControls.AutoComplete.AutoCompleteControl\libs\wijmo.js" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\BulletGraphControl.js" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\css\crm.wijmo.bulletgraph.css" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\css\wijmo.css" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\libs\wijmo.gauge.js" />
+    <Content Include="Controls\cc_MscrmControls.BulletGraph.BulletGraphControl\libs\wijmo.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\Calendar.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\css\advanced_calendar_theme.css" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\css\calendar_theme.css" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\dhtmlx\dhtmlxscheduler.css" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\dhtmlx\dhtmlxscheduler.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\dhtmlx\ext\dhtmlxscheduler_limit.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\webix\scheduler\scheduler.css" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\webix\scheduler\scheduler.js" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\webix\skins\touch.css" />
+    <Content Include="Controls\cc_MscrmControls.Calendar.CalendarControl\libs\webix\webix.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\css\jquery.mobile.flipswitch.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\css\jquery.mobile.flipswitch.structure.css" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\FlipSwitchControl.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\libs\jquery.mobile.flipswitch.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\libs\jquery.mobile.flipswitch.patch.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\libs\jquerymobile.init.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.FlipSwitch.FlipSwitchControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\css\wijmo.css" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\css\wijmo.inputmask.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\InputMaskControl.js" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\libs\wijmo.input.js" />
+    <Content Include="Controls\cc_MscrmControls.InputMask.InputMaskControl\libs\wijmo.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\ArcKnobControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\css\jquery.knobgauge.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\libs\jquery.knob_1.2.11.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.ArcKnobControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\css\jquery.knob.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\libs\jquery.knob_1.2.11.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Knob.RadialKnobControl\RadialKnobControl.js" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\css\wijmo.css" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\css\wijmo.lineargauge.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\libs\wijmo.gauge.js" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\libs\wijmo.js" />
+    <Content Include="Controls\cc_MscrmControls.LinearGauge.LinearGaugeControl\LinearGaugeControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\css\playback.css" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\css\seekBar.css" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\css\videoPlayback.css" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\amp\azuremediaplayer.min.css" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\amp\azuremediaplayer.min.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\appmagiccommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\base.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\knockout_3.2.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\MultimediaPlayerControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Multimedia.MultimediaPlayerControl\multimediaplayerlib.js" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\css\wijmo.css" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\css\wijmo.numberinput.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\libs\wijmo.input.js" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\libs\wijmo.js" />
+    <Content Include="Controls\cc_MscrmControls.NumberInput.NumberInputControl\NumberInputControl.js" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\css\jquery.mobile.optionset.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\css\jquery.mobile.optionset.structure.css" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\css\jquery.mobile.optionset.theme.css" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\libs\jquery.mobile.optionset.js" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\libs\jquerymobile.init.js" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.OptionSet.OptionSetControl\OptionSetControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\css\rating.css" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\libs\base.js" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\libs\ui.js" />
+    <Content Include="Controls\cc_MscrmControls.Rating.StarRatingControl\StarRatingControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\css\Ink.css" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\libs\appmagiccommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Signature.SignatureControl\Signature.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\css\jquery.mobile.slider.custom.css" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\css\jquery.mobile.slider.structure.css" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\libs\jquery.mobile.slider.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\libs\jquery.mobile.slider.patch.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\libs\jquerymobile.init.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Slider.LinearSliderControl\LinearSliderControl.js" />
+    <Content Include="Controls\cc_MscrmControls.Timeline.TimelineControl\css\TimelineControl.css" />
+    <Content Include="Controls\cc_MscrmControls.Timeline.TimelineControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.Timeline.TimelineControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.Timeline.TimelineControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.Timeline.TimelineControl\TimelineControl.js" />
+    <Content Include="Controls\cc_MscrmControls.WebsitePreview.PreviewControl\css\WebsitePreviewControl.css" />
+    <Content Include="Controls\cc_MscrmControls.WebsitePreview.PreviewControl\img\preview.png" />
+    <Content Include="Controls\cc_MscrmControls.WebsitePreview.PreviewControl\libs\jquery_2.1.1.js" />
+    <Content Include="Controls\cc_MscrmControls.WebsitePreview.PreviewControl\libs\mscommonlib_1.0.0.js" />
+    <Content Include="Controls\cc_MscrmControls.WebsitePreview.PreviewControl\WebsitePreviewControl.js" />
+    <Content Include="Controls\rwb_\css\images\btn_lookup_resolving.gif" />
+    <Content Include="Controls\rwb_\css\images\control_imgs.png" />
+    <Content Include="Controls\rwb_\css\images\grid_ctrl_imgs.png" />
+    <Content Include="Controls\rwb_\css\images\inlineedit_images.png" />
+    <Content Include="Controls\rwb_\css\images\progress.gif" />
+    <Content Include="Controls\rwb_\css\images\transparent_spacer.gif" />
+    <Content Include="Controls\rwb_\css\images\ui_icons_222222_256x240.png" />
+    <Content Include="Controls\rwb_\css\images\ui_icons_3f5ac6_256x240.png" />
+    <Content Include="Controls\rwb_\css\images\ui_icons_888888_256x240.png" />
+    <Content Include="Controls\rwb_\css\rwb.css" />
+    <Content Include="Controls\rwb_\css\sparkle.css" />
+    <Content Include="Controls\rwb_\css\sparkle_jquery_ui.css" />
+    <Content Include="Controls\rwb_\html\EditCommandBar.htm" />
+    <Content Include="Controls\rwb_\html\templates.htm" />
+    <Content Include="Controls\rwb_\images\rwb2016.png" />
+    <Content Include="Controls\rwb_\js\ClientUI.js" />
+    <Content Include="css\sabre_jquery.ui.1.11.4.css" />
+    <Content Include="html\sabre_JobOrdersSelectionDialog.html" />
+    <Content Include="scripts\sabre_jquery.ui.min.js" />
+    <Content Include="scripts\sabre_jquery3.2.1.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\typings\xrm\parature.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\xrm\xrm-6.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\xrm\xrm-7.0.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\xrm\xrm-7.1.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\xrm\xrm.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\sabre_candidate16x16" />
+    <Content Include="images\sabre_candidate32x32" />
+    <Content Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="scripts\sabre_candidateControl.js" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15480</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15480/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

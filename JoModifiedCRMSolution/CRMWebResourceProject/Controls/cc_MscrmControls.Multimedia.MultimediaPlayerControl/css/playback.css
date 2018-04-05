@@ -1,0 +1,228 @@
+/*
+ * Copyright (C) Microsoft Corporation.  All rights reserved.
+ *
+ * playback.less
+ *
+ */
+input[type=range] {
+  width: 280px;
+  height: 32px;
+  padding: 17px 0px 32px 0px;
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-ms-track {
+  padding: 0px;
+  width: auto;
+  height: 12px;
+  border-style: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 12px;
+}
+input[type=range]::-moz-range-track {
+  height: 12px;
+  border: none;
+}
+input[type=range]::-ms-thumb {
+  width: 12px;
+  height: 32px;
+  border-style: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 32px;
+  width: 12px;
+  margin-top: -10px;
+}
+input[type=range]::-moz-range-thumb {
+  width: 12px;
+  height: 32px;
+  border-radius: 0;
+  border: none;
+}
+input[type=range]::-ms-ticks-before,
+input[type=range]::-ms-ticks-after {
+  width: 100%;
+  height: 5px;
+  display: none;
+}
+input[type=range]:disabled::-ms-fill-lower {
+  margin-right: 5px;
+}
+input[type=range]:disabled::-ms-fill-upper {
+  margin-left: 6px;
+}
+input[type=range]:disabled:lang(ar)::-ms-fill-lower,
+input[type=range]:disabled:lang(dv)::-ms-fill-lower,
+input[type=range]:disabled:lang(fa)::-ms-fill-lower,
+input[type=range]:disabled:lang(he)::-ms-fill-lower,
+input[type=range]:disabled:lang(ku-Arab)::-ms-fill-lower,
+input[type=range]:disabled:lang(pa-Arab)::-ms-fill-lower,
+input[type=range]:disabled:lang(prs)::-ms-fill-lower,
+input[type=range]:disabled:lang(ps)::-ms-fill-lower,
+input[type=range]:disabled:lang(sd-Arab)::-ms-fill-lower,
+input[type=range]:disabled:lang(syr)::-ms-fill-lower,
+input[type=range]:disabled:lang(ug)::-ms-fill-lower,
+input[type=range]:disabled:lang(ur)::-ms-fill-lower,
+input[type=range]:disabled:lang(qps-plocm)::-ms-fill-lower {
+  margin-right: 0;
+  margin-left: 5px;
+}
+input[type=range]:disabled:lang(ar)::-ms-fill-upper,
+input[type=range]:disabled:lang(dv)::-ms-fill-upper,
+input[type=range]:disabled:lang(fa)::-ms-fill-upper,
+input[type=range]:disabled:lang(he)::-ms-fill-upper,
+input[type=range]:disabled:lang(ku-Arab)::-ms-fill-upper,
+input[type=range]:disabled:lang(pa-Arab)::-ms-fill-upper,
+input[type=range]:disabled:lang(prs)::-ms-fill-upper,
+input[type=range]:disabled:lang(ps)::-ms-fill-upper,
+input[type=range]:disabled:lang(sd-Arab)::-ms-fill-upper,
+input[type=range]:disabled:lang(syr)::-ms-fill-upper,
+input[type=range]:disabled:lang(ug)::-ms-fill-upper,
+input[type=range]:disabled:lang(ur)::-ms-fill-upper,
+input[type=range]:disabled:lang(qps-plocm)::-ms-fill-upper {
+  margin-left: 0;
+  margin-right: 6px;
+}
+input[type=range].win-vertical {
+  width: 32px;
+  height: 191px;
+  padding: 0px 17px;
+  writing-mode: bt-lr;
+}
+input[type=range].win-vertical::-ms-track {
+  width: 12px;
+  height: auto;
+}
+input[type=range].win-vertical::-ms-thumb {
+  width: 32px;
+  height: 11px;
+  border-style: none;
+}
+input[type=range].win-vertical:disabled::-ms-fill-lower {
+  margin-right: 0;
+  margin-top: 6px;
+}
+input[type=range].win-vertical:disabled::-ms-fill-upper {
+  margin-left: 0;
+  margin-bottom: 5px;
+}
+input[type=range].win-vertical::-ms-ticks-before,
+input[type=range].win-vertical::-ms-ticks-after {
+  width: 5px;
+  height: 100%;
+  display: none;
+}
+input[type=range].win-vertical:disabled:lang(ar)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(dv)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(fa)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(he)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(ku-Arab)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(pa-Arab)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(prs)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(ps)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(sd-Arab)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(syr)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(ug)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(ur)::-ms-fill-lower,
+input[type=range].win-vertical:disabled:lang(qps-plocm)::-ms-fill-lower {
+  margin-left: 0;
+}
+input[type=range].win-vertical:disabled:lang(ar)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(dv)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(fa)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(he)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(ku-Arab)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(pa-Arab)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(prs)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(ps)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(sd-Arab)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(syr)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(ug)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(ur)::-ms-fill-upper,
+input[type=range].win-vertical:disabled:lang(qps-plocm)::-ms-fill-upper {
+  margin-right: 0;
+}
+input[type=range].win-vertical:lang(ar),
+input[type=range].win-vertical:lang(dv),
+input[type=range].win-vertical:lang(fa),
+input[type=range].win-vertical:lang(he),
+input[type=range].win-vertical:lang(ku-Arab),
+input[type=range].win-vertical:lang(pa-Arab),
+input[type=range].win-vertical:lang(prs),
+input[type=range].win-vertical:lang(ps),
+input[type=range].win-vertical:lang(sd-Arab),
+input[type=range].win-vertical:lang(syr),
+input[type=range].win-vertical:lang(ug),
+input[type=range].win-vertical:lang(ur),
+input[type=range].win-vertical:lang(qps-plocm) {
+  writing-mode: bt-rl;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-webkit-slider-runnable-track,
+input[type=range].appmagic-video-playback-slider-volume::-webkit-slider-runnable-track {
+  background-color: transparent;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-track,
+input[type=range].appmagic-video-playback-slider-volume::-ms-track {
+  background-color: transparent;
+  color: transparent;
+  /* Hide tick marks in IE */
+}
+input[type=range].appmagic-audio-playback-slider-volume::-moz-range-track,
+input[type=range].appmagic-video-playback-slider-volume::-moz-range-track {
+  background-color: transparent;
+  border: 0;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-webkit-slider-thumb,
+input[type=range].appmagic-video-playback-slider-volume::-webkit-slider-thumb {
+  width: 10px;
+  height: 10px;
+  margin-top: 0px;
+  /* required to align the slider handle in ipad. */
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-thumb,
+input[type=range].appmagic-video-playback-slider-volume::-ms-thumb {
+  background-color: #333333;
+  border: 0;
+  height: 10px;
+  width: 10px;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-moz-range-thumb,
+input[type=range].appmagic-video-playback-slider-volume::-moz-range-thumb {
+  background: #333333;
+  border: 0;
+  border-radius: 0;
+  /* Firefox renders the thumb circular, render it as a square instead */
+  height: 10px;
+  width: 10px;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-track,
+input[type=range].appmagic-video-playback-slider-volume::-ms-track {
+  background-color: transparent;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-fill-lower,
+input[type=range].appmagic-video-playback-slider-volume::-ms-fill-lower {
+  background-color: #00b0f0;
+}
+input[type=range].appmagic-audio-playback-slider-volume.muted::-ms-fill-lower,
+input[type=range].appmagic-video-playback-slider-volume.muted::-ms-fill-lower {
+  background-color: #777777;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-fill-upper,
+input[type=range].appmagic-video-playback-slider-volume::-ms-fill-upper {
+  background-color: #cccccc;
+}
+input[type=range].appmagic-audio-playback-slider-volume::-ms-thumb,
+input[type=range].appmagic-video-playback-slider-volume::-ms-thumb {
+  background-color: #333333;
+}
+.appmagic-url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.iOS .appmagic-video-playback-button-volume-container,
+.iOS .appmagic-audio-playback-button-volume-container {
+  display: none;
+}

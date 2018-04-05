@@ -1,0 +1,2 @@
+D:\Work\Donaldson & James\CRMSolution\CRMWebResourceProject\obj\Debug\CRMWebResourceProject.csprojResolveAssemblyReference.cache
+C:\Users\josiah\OneDrive - Sabre Limited\Agency D&J\Jo Working Folder\JoModifiedCRMSolution\CRMWebResourceProject\obj\Debug\CRMWebResourceProject.csprojResolveAssemblyReference.cache

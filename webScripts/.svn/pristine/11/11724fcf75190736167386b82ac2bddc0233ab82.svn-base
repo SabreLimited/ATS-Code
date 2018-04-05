@@ -1,0 +1,9 @@
+.ms-crm-Inline-Value, .ms-crm-Inline-Edit input.ms-crm-InlineInput, .ms-crm-Inline-Edit input.ms-crm-Input {
+    font-weight: 700;
+    color: #FF00FF !important;
+    font-size: 12px;
+    min-width: 20px;
+}
+body {
+    background-color: lightblue;
+}

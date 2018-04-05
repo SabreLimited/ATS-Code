@@ -1,0 +1,468 @@
+/*
+ * Copyright (C) Microsoft Corporation.  All rights reserved.
+ *
+ * VideoPlayback control CSS
+ *
+ */
+.tablet .appmagic-video-playback {
+  margin-bottom: 7px;
+}
+.appmagic-video-collapse {
+  display: none;
+}
+.appmagic-video-playback {
+  box-sizing: border-box;
+  color: #FFFFFF;
+  /*Steed*/
+  background-color: #000000;
+}
+.appmagic-video-playback img {
+  margin-top: 0px !important;
+}
+.appmagic-video-playback iframe {
+  width: 100%;
+  height: auto;
+}
+.appmagic-video-playback,
+.appmagic-video-playback-grid {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.appmagic-video-playback-controls-container {
+  width: 100%;
+  height: 100%;
+}
+.appmagic-video-playback-grid {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+}
+.fullscreen-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+}
+.fullscreen-grid-edge {
+  position: relative !important;
+}
+.appmagic-video-playback-grid .icon {
+  background-size: 44%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.appmagic-video-playback-grid .icon:hover {
+  background-color: #00869C;
+}
+.appmagic-video-playback-grid input {
+  height: 10px;
+  padding: 0px;
+}
+.appmagic-video-playback-video {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  min-height: 200px;
+}
+.appmagic-video-playback-video::-full-screen {
+  width: 100%;
+  height: 100%;
+}
+::-moz-full-screen .appmagic-video-playback-video {
+  width: 100%;
+  height: 100%;
+}
+.appmagic-video-playback-video::-moz-full-screen {
+  width: 100%;
+  height: 100%;
+}
+.appmagic-video-playback-video::-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+.appmagic-video-playback-controls-container {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  /* Older Safari - previous flex-box model */
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.appmagic-video-playback-controls-container.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Cloak */
+}
+.appmagic-video-playback-controls {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  /* Older Safari - previous flex-box model */
+  width: 95%;
+  height: 58px;
+}
+.appmagic-video-playback-controls,
+.appmagic-video-playback-volume-container {
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity;
+  transition-duration: 0.75s;
+}
+.appmagic-video-playback-grid-hover .appmagic-video-playback-controls,
+.appmagic-video-playback-volume-container-click,
+.appmagic-video-playback-grid-hover .appmagic-video-playback-button-play-pause {
+  opacity: 1;
+  visibility: visible;
+}
+.appmagic-video-playback-seekbar {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-align-self: flex-start;
+  -webkit-align-self: flex-start;
+  -moz-align-self: flex-start;
+  align-self: flex-start;
+  width: 100%;
+}
+.appmagic-video-playback-seekbar-controls {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  -ms-align-self: flex-start;
+  -webkit-align-self: flex-start;
+  -moz-align-self: flex-start;
+  align-self: flex-start;
+  width: 100%;
+  height: 50px;
+}
+.appmagic-video-playback-button-play-pause-container {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-pack: center;
+  /* Older Safari - previous flex box model */
+  -ms-flex: 5;
+  -moz-box-flex: 5;
+  -webkit-box-flex: 5;
+  -webkit-flex: 5;
+  flex: 5;
+  -webkit-flex-grow: 5;
+  -moz-flex-grow: 5;
+  flex-grow: 5;
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  width: 100%;
+}
+.appmagic-video-playback-button-play-pause {
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.25s;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjEyNXB4IiBoZWlnaHQ9IjEyNXB4IiB2aWV3Qm94PSIwIDAgMTI1IDEyNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTI1IDEyNSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+CTxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iODQuNDQzLDYyLjI0NiA0OS4xODUsODkuMTE4IDQ5LjE4NSwzNS42MTQgCSIvPjwvZz48L3N2Zz4=);
+  background-size: 100%;
+  height: 50px;
+  width: 50px;
+  border: 3px solid white;
+  border-radius: 50%;
+  /* Added to cover up the clipped border around arrow when resizing. */
+  box-sizing: border-box;
+}
+.appmagic-video-playback-button-play-pause:hover {
+  background-color: #00869C;
+  /* Token */
+}
+.appmagic-video-playback-button-play-pause.largeIcon {
+  height: 125px !important;
+  width: 125px !important;
+  border-width: 7px;
+}
+.appmagic-video-playback-button-play-pause.playing {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIJIHdpZHRoPSIxMjVweCIgaGVpZ2h0PSIxMjVweCIgdmlld0JveD0iMCAwIDEyNSAxMjUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyNSAxMjUiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgk8Zz4JCTxyZWN0IHg9IjQ0Ljk3MyIgeT0iMzcuMjA2IiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMTAuMzE3IiBoZWlnaHQ9IjUwLjU5MyIvPgk8L2c+CTxnPgkJPHJlY3QgeD0iNjkuNzEiIHk9IjM3LjIwNiIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEwLjMxNyIgaGVpZ2h0PSI1MC41OTMiLz4JPC9nPjwvZz48L3N2Zz4=);
+}
+.appmagic-video-playback-timer-label {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  font-family: "Segoe UI", "sans-serif";
+  font-size: 13pt;
+}
+.appmagic-video-playback-seekbar-current-time,
+.appmagic-video-playback-seekbar-duration-seprator,
+.appmagic-video-playback-seekbar-duration {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  line-height: 30px;
+}
+.appmagic-video-playback-seekbar-duration {
+  -ms-flex: 1 1 auto;
+  -moz-box-flex: 1 1 auto;
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.appmagic-video-playback-button-volume-container {
+  -ms-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: end;
+  /* IE10 - previous flex box model */
+  -webkit-box-pack: end;
+  /* Older Safari - previous flex box model */
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  height: 50px;
+}
+.appmagic-video-playback-button-volume {
+  width: 50px;
+  height: 50px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJhdWRpb194NUZfaWNvbiIgCSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTQuMzYsNS4xdjUuNzlsMC4wMiwwLjAzTDkuNDUsMTZWMEw0LjM4LDUuMDdMNC4zNiw1LjF6CQkgTTIuOTIsNC4zN2MwLDAtMC4wMS0wLjAxLTAuMDItMC4wMUgwLjAyQzAsNC4zNiwwLDQuMzcsMCw0LjM3djcuMjZjMCwwLjAxLDAuMDEsMC4wMSwwLjAyLDAuMDFIMi45bDAuMDItMC4wMVY0LjM3eiBNMTIuODksMi41MwkJbC0wLjUzLDEuMTFjMC4zNiwwLjIzLDAuNywwLjUxLDEsMC44M2MwLjMsMC4zMSwwLjU2LDAuNjUsMC43OCwxLjAyYzAuMjIsMC4zOCwwLjM5LDAuNzcsMC41MSwxLjE5YzAuMTIsMC40MiwwLjE3LDAuODUsMC4xNywxLjI5CQljMCwwLjQ2LTAuMDUsMC45Mi0wLjE3LDEuMzVjLTAuMTIsMC40NC0wLjI5LDAuODUtMC41MSwxLjIyYy0wLjIyLDAuMzktMC40OCwwLjc0LTAuNzgsMS4wNWMtMC4zLDAuMzItMC42NCwwLjU4LTEsMC44MmwwLjUzLDEuMDUJCWMwLjQ2LTAuMjgsMC44OC0wLjYxLDEuMjYtMS4wMWMwLjM4LTAuMzksMC43MS0wLjgyLDAuOTktMS4yOWMwLjI3LTAuNDcsMC40OC0wLjk3LDAuNjMtMS41QzE1LjkyLDkuMTIsMTYsOC41NSwxNiw3Ljk3CQljMC0wLjU5LTAuMDgtMS4xNC0wLjIzLTEuNjdjLTAuMTUtMC41NC0wLjM2LTEuMDMtMC42My0xLjVjLTAuMjgtMC40Ni0wLjYxLTAuODgtMC45OS0xLjI3QzEzLjc3LDMuMTUsMTMuMzUsMi44MSwxMi44OSwyLjUzegkJIE0xMS40NCw1LjA3TDEwLjksNi4xMWMwLjE3LDAuMTIsMC4zMSwwLjI2LDAuNDMsMC40MWMwLjEzLDAuMTUsMC4yNCwwLjMxLDAuMzMsMC40OGMwLjA5LDAuMTYsMC4xNiwwLjM0LDAuMjEsMC41CQljMC4wNSwwLjE2LDAuMDgsMC4zMywwLjA4LDAuNDdjMCwwLjQtMC4xLDAuNzgtMC4yOSwxLjExYy0wLjE5LDAuMzUtMC40NCwwLjYzLTAuNzYsMC44N2wwLjU0LDAuOTdjMC41LTAuMzMsMC44OS0wLjc1LDEuMi0xLjI2CQljMC4zLTAuNTIsMC40NS0xLjA4LDAuNDUtMS42OWMwLTAuNjEtMC4xNS0xLjE2LTAuNDUtMS42NUMxMi4zMyw1LjgzLDExLjk0LDUuNDEsMTEuNDQsNS4wN3oiLz48L2c+PC9zdmc+);
+}
+.appmagic-video-playback-button-volume.muted {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJhdWRpb194NUZfbXV0ZWRfeDVGX2ljb24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz4JPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xMi4yNTMsNy42MzRMMTAsMTAuMDg4bDAuNzQ3LDAuODIzTDEzLDguNDU3bDIuMjEzLDIuNDIzCQlMMTYsMTAuMDg4bC0yLjI0LTIuNDU0TDE2LDUuMTgxbC0wLjc2LTAuODIzTDEzLDYuODEybC0yLjI1My0yLjQ1NEwxMCw1LjE4MUwxMi4yNTMsNy42MzR6IE00LDUuMTA1djUuNzlsMC4wMTMsMC4wMTZMOC42NjcsMTZWMAkJTDQuMDEzLDUuMDc0TDQsNS4xMDV6IE0yLjY4LDQuMzc0TDIuNjY3LDQuMzU4aC0yLjY0QzAsNC4zNTgsMCw0LjM3NCwwLDQuMzc0djcuMjUzYzAsMC4wMTYsMC4wMTMsMC4wMTYsMC4wMjcsMC4wMTZoMi42NAkJbDAuMDEzLTAuMDE2VjQuMzc0eiIvPjwvZz48L3N2Zz4=);
+}
+.appmagic-video-playback-volume-container {
+  display: -ms-flexbox;
+  /* Internet Explorer 10 */
+  display: -moz-box;
+  /* FireFox */
+  display: -webkit-box;
+  /* Safari */
+  display: -webkit-flex;
+  /* -flex is the current specification for Safari */
+  display: flex;
+  /* W3C */
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  /* Older Safari - previous flex-box model */
+  /* Place the volume container div right above the volume button. */
+  position: absolute;
+  bottom: 68px;
+  background-color: #f2f2f2;
+  /*Wisp*/
+  height: 163px;
+  width: 50px;
+}
+.appmagic-video-playback-volume-top {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+  -webkit-align-items: center;
+  /* keep all items centered in the axis perpendicular to the flex direction */
+  -moz-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  /* IE10 - previous flex box model */
+  -webkit-box-align: center;
+  /* Older Safari - previous flex box model */
+  padding: 0;
+  margin: 6px 0px;
+  width: 100%;
+  height: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJhdWRpb194NUZfaWNvbiIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIAkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzMzMzMzMyIgZD0iTTQuMzYsNS4xdjUuNzlsMC4wMiwwLjAzTDkuNDUsMTZWMEw0LjM4LDUuMDdMNC4zNiw1LjF6CQkgTTIuOTIsNC4zN2MwLDAtMC4wMS0wLjAxLTAuMDItMC4wMUgwLjAyQzAsNC4zNiwwLDQuMzcsMCw0LjM3djcuMjZjMCwwLjAxLDAuMDEsMC4wMSwwLjAyLDAuMDFIMi45bDAuMDItMC4wMVY0LjM3eiBNMTIuODksMi41MwkJbC0wLjUzLDEuMTFjMC4zNiwwLjIzLDAuNywwLjUxLDEsMC44M2MwLjMsMC4zMSwwLjU2LDAuNjUsMC43OCwxLjAyYzAuMjIsMC4zOCwwLjM5LDAuNzcsMC41MSwxLjE5YzAuMTIsMC40MiwwLjE3LDAuODUsMC4xNywxLjI5CQljMCwwLjQ2LTAuMDUsMC45Mi0wLjE3LDEuMzVjLTAuMTIsMC40NC0wLjI5LDAuODUtMC41MSwxLjIyYy0wLjIyLDAuMzktMC40OCwwLjc0LTAuNzgsMS4wNWMtMC4zLDAuMzItMC42NCwwLjU4LTEsMC44MmwwLjUzLDEuMDUJCWMwLjQ2LTAuMjgsMC44OC0wLjYxLDEuMjYtMS4wMWMwLjM4LTAuMzksMC43MS0wLjgyLDAuOTktMS4yOWMwLjI3LTAuNDcsMC40OC0wLjk3LDAuNjMtMS41QzE1LjkyLDkuMTIsMTYsOC41NSwxNiw3Ljk3CQljMC0wLjU5LTAuMDgtMS4xNC0wLjIzLTEuNjdjLTAuMTUtMC41NC0wLjM2LTEuMDMtMC42My0xLjVjLTAuMjgtMC40Ni0wLjYxLTAuODgtMC45OS0xLjI3QzEzLjc3LDMuMTUsMTMuMzUsMi44MSwxMi44OSwyLjUzegkJIE0xMS40NCw1LjA3TDEwLjksNi4xMWMwLjE3LDAuMTIsMC4zMSwwLjI2LDAuNDMsMC40MWMwLjEzLDAuMTUsMC4yNCwwLjMxLDAuMzMsMC40OGMwLjA5LDAuMTYsMC4xNiwwLjM0LDAuMjEsMC41CQljMC4wNSwwLjE2LDAuMDgsMC4zMywwLjA4LDAuNDdjMCwwLjQtMC4xLDAuNzgtMC4yOSwxLjExYy0wLjE5LDAuMzUtMC40NCwwLjYzLTAuNzYsMC44N2wwLjU0LDAuOTdjMC41LTAuMzMsMC44OS0wLjc1LDEuMi0xLjI2CQljMC4zLTAuNTIsMC40NS0xLjA4LDAuNDUtMS42OWMwLTAuNjEtMC4xNS0xLjE2LTAuNDUtMS42NUMxMi4zMyw1LjgzLDExLjk0LDUuNDEsMTEuNDQsNS4wN3oiLz48L2c+PC9zdmc+);
+}
+.appmagic-video-playback-volume-top.muted {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJhdWRpb194NUZfbXV0ZWRfeDVGX2ljb24iIAkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgCSB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNiAxNiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+CTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjMzMzMzMzIiBkPSJNMTIuMjUzLDcuNjM0TDEwLDEwLjA4OGwwLjc0NywwLjgyM0wxMyw4LjQ1N2wyLjIxMywyLjQyMwkJTDE2LDEwLjA4OGwtMi4yNC0yLjQ1NEwxNiw1LjE4MWwtMC43Ni0wLjgyM0wxMyw2LjgxMmwtMi4yNTMtMi40NTRMMTAsNS4xODFMMTIuMjUzLDcuNjM0eiBNNCw1LjEwNXY1Ljc5bDAuMDEzLDAuMDE2TDguNjY3LDE2VjAJCUw0LjAxMyw1LjA3NEw0LDUuMTA1eiBNMi42OCw0LjM3NEwyLjY2Nyw0LjM1OGgtMi42NEMwLDQuMzU4LDAsNC4zNzQsMCw0LjM3NHY3LjI1M2MwLDAuMDE2LDAuMDEzLDAuMDE2LDAuMDI3LDAuMDE2aDIuNjQJCWwwLjAxMy0wLjAxNlY0LjM3NHoiLz48L2c+PC9zdmc+);
+}
+.appmagic-video-volume-slider-divider {
+  margin-left: 8px;
+  margin-right: 8px;
+  border-bottom: 1px solid #d9d9d9;
+}
+input[type=range].appmagic-video-playback-slider-volume {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  -webkit-appearance: slider-vertical;
+  /* show vertical slider in chrome and safari */
+  height: 110px;
+  width: 10px;
+  margin: 10px 0 0 0;
+  /* overriding the winjs css style */
+}
+input[type=range].appmagic-video-playback-slider-volume::-webkit-slider-runnable-track {
+  padding: 0px;
+}
+.appmagic-video-playback-button-fullscreen {
+  -ms-align-self: center;
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJmdWxsc2NyZWVuX3g1Rl9pY29uIiAJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIAkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgk8cG9seWdvbiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI3LjE3NiwwLjc0NyAwLDAuMzEzIDAuNDQyLDcuNDc5IDMuMDYsNC44NjEgNS41MTksNy4yNjYgCQk3LjAxNyw1Ljc2OSA0LjU1OCwzLjM2NSAJIi8+CTxwb2x5Z29uIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjcuMTc2LDE1LjU2NSAwLDE2IDAuNDQyLDguODMzIDMuMDYsMTEuNDUxIDUuNTE5LDkuMDQ3IAkJNy4wMTcsMTAuNTQ1IDQuNTU4LDEyLjk0NyAJIi8+CTxwb2x5Z29uIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjguODI0LDAuNzQ3IDE2LDAuMzEzIDE1LjU1OCw3LjQ3OSAxMi45NCw0Ljg2MSAJCTEwLjQ4MSw3LjI2NiA4Ljk4Myw1Ljc2OSAxMS40NDIsMy4zNjUgCSIvPgk8cG9seWdvbiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSI4LjgyNCwxNS41NjUgMTYsMTYgMTUuNTU4LDguODMzIDEyLjk0LDExLjQ1MSAJCTEwLjQ4MSw5LjA0NyA4Ljk4MywxMC41NDUgMTEuNDQyLDEyLjk0NyAJIi8+PC9nPjwvc3ZnPg==);
+}
+.appmagic-video-playback-button-fullscreen.fullscreen-collapsed-icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJjb2xsYXBzZV94NUZfaWNvbiIgCSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiAJIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE2IDE2IiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz4JPHBvbHlnb24gZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iMCw3LjA0NiA3LjE3Niw3LjQ4IDYuNzM0LDAuMzEzIDQuMTE2LDIuOTMyIDEuNjU3LDAuNTI3IAkJMC4xNTksMi4wMjQgMi42MTgsNC40MjggCSIvPgk8cG9seWdvbiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSIwLDkuMjY3IDcuMTc2LDguODMyIDYuNzM0LDE1Ljk5OSA0LjExNiwxMy4zODEgCQkxLjY1NywxNS43ODUgMC4xNTksMTQuMjg3IDIuNjE4LDExLjg4NSAJIi8+CTxwb2x5Z29uIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjE2LDcuMDQ2IDguODI0LDcuNDggOS4yNjYsMC4zMTMgMTEuODg0LDIuOTMyIAkJMTQuMzQzLDAuNTI3IDE1Ljg0MSwyLjAyNCAxMy4zODIsNC40MjggCSIvPgk8cG9seWdvbiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgcG9pbnRzPSIxNiw5LjI2NyA4LjgyNCw4LjgzMiA5LjI2NiwxNS45OTkgMTEuODg0LDEzLjM4MSAJCTE0LjM0MywxNS43ODUgMTUuODQxLDE0LjI4NyAxMy4zODIsMTEuODg1IAkiLz48L2c+PC9zdmc+);
+}
+.appmagic-video-playback-controls-hide {
+  display: none;
+  transition: all 0.75s;
+}
+.appmagic-video-playback-youtube-video,
+.appmagic-video-playback-iframe-disabled {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.appmagic-video-playback-iframe-disabled {
+  display: none;
+}
+.appmagic-video-playback-iframe-disabled.active {
+  /* Give it some alpha so that IE treats it as clickable. */
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.01);
+  display: block;
+}
+.youtube-video {
+  background-color: transparent;
+}

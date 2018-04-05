@@ -1,0 +1,822 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entities>
+    <Entity>
+      <Name LocalizedName="Placement" OriginalName="Placement">sabre_placement</Name>
+      <ObjectTypeCode>10009</ObjectTypeCode>
+      <EntityInfo>
+        <entity Name="sabre_placement">
+          <LocalizedNames>
+            <LocalizedName description="Placement" languagecode="1033" />
+          </LocalizedNames>
+          <LocalizedCollectionNames>
+            <LocalizedCollectionName description="Placements" languagecode="1033" />
+          </LocalizedCollectionNames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+          <attributes />
+          <EntitySetName>sabre_placements</EntitySetName>
+          <IsDuplicateCheckSupported>1</IsDuplicateCheckSupported>
+          <IsBusinessProcessEnabled>1</IsBusinessProcessEnabled>
+          <IsRequiredOffline>0</IsRequiredOffline>
+          <IsInteractionCentricEnabled>0</IsInteractionCentricEnabled>
+          <IsCollaboration>0</IsCollaboration>
+          <AutoRouteToOwnerQueue>0</AutoRouteToOwnerQueue>
+          <IsConnectionsEnabled>0</IsConnectionsEnabled>
+          <EntityColor></EntityColor>
+          <IsDocumentManagementEnabled>0</IsDocumentManagementEnabled>
+          <IsOneNoteIntegrationEnabled>0</IsOneNoteIntegrationEnabled>
+          <IsKnowledgeManagementEnabled>0</IsKnowledgeManagementEnabled>
+          <IsSLAEnabled>0</IsSLAEnabled>
+          <IsDocumentRecommendationsEnabled>0</IsDocumentRecommendationsEnabled>
+          <IsBPFEntity>0</IsBPFEntity>
+          <OwnershipTypeMask>UserOwned</OwnershipTypeMask>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsActivity>0</IsActivity>
+          <ActivityTypeMask></ActivityTypeMask>
+          <IsActivityParty>0</IsActivityParty>
+          <IsReplicated>0</IsReplicated>
+          <IsReplicationUserFiltered>0</IsReplicationUserFiltered>
+          <IsMailMergeEnabled>1</IsMailMergeEnabled>
+          <IsVisibleInMobile>0</IsVisibleInMobile>
+          <IsVisibleInMobileClient>0</IsVisibleInMobileClient>
+          <IsReadOnlyInMobileClient>0</IsReadOnlyInMobileClient>
+          <IsOfflineInMobileClient>0</IsOfflineInMobileClient>
+          <DaysSinceRecordLastModified>0</DaysSinceRecordLastModified>
+          <MobileOfflineFilters></MobileOfflineFilters>
+          <IsMapiGridEnabled>1</IsMapiGridEnabled>
+          <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
+          <IsQuickCreateEnabled>1</IsQuickCreateEnabled>
+          <SyncToExternalSearchIndex>0</SyncToExternalSearchIndex>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <IsMappable>1</IsMappable>
+          <CanModifyAuditSettings>1</CanModifyAuditSettings>
+          <CanModifyMobileVisibility>1</CanModifyMobileVisibility>
+          <CanModifyMobileClientVisibility>1</CanModifyMobileClientVisibility>
+          <CanModifyMobileClientReadOnly>1</CanModifyMobileClientReadOnly>
+          <CanModifyMobileClientOffline>1</CanModifyMobileClientOffline>
+          <CanModifyConnectionSettings>1</CanModifyConnectionSettings>
+          <CanModifyDuplicateDetectionSettings>1</CanModifyDuplicateDetectionSettings>
+          <CanModifyMailMergeSettings>1</CanModifyMailMergeSettings>
+          <CanModifyQueueSettings>1</CanModifyQueueSettings>
+          <CanCreateAttributes>1</CanCreateAttributes>
+          <CanCreateForms>1</CanCreateForms>
+          <CanCreateCharts>1</CanCreateCharts>
+          <CanCreateViews>1</CanCreateViews>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <CanEnableSyncToExternalSearchIndex>1</CanEnableSyncToExternalSearchIndex>
+          <IconMediumName>sabre_placement32x32</IconMediumName>
+          <IconSmallName>sabre_placement16x16</IconSmallName>
+          <EnforceStateTransitions>0</EnforceStateTransitions>
+          <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
+          <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>
+          <EntityHelpUrl></EntityHelpUrl>
+          <ChangeTrackingEnabled>0</ChangeTrackingEnabled>
+          <CanChangeTrackingBeEnabled>1</CanChangeTrackingBeEnabled>
+          <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
+          <HasRelatedNotes>True</HasRelatedNotes>
+        </entity>
+      </EntityInfo>
+      <FormXml>
+        <forms type="main">
+          <systemform>
+            <formid>{80ffe58e-eb0e-4d6b-84a6-44e7825207cd}</formid>
+            <IntroducedVersion>1.0.0.0</IntroducedVersion>
+            <FormPresentation>1</FormPresentation>
+            <FormActivationState>1</FormActivationState>
+            <form shownavigationbar="true" showImage="false" maxWidth="1900">
+              <tabs>
+                <tab verticallayout="true" id="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}" IsUserDefined="1" expanded="true" name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}" locklevel="0" showlabel="true">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <columns>
+                    <column width="67%">
+                      <sections>
+                        <section id="{1d6a642b-348d-458c-827b-f72e5b4c3b52}" name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}_column_1_section_1" columns="11" showlabel="false" showbar="false" IsUserDefined="0">
+                          <labels>
+                            <label description="section" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{b92b53cc-2106-1e6e-3b24-e05b66dad94c}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Job Order" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_posistion" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_posistion" disabled="false" uniqueid="{12227538-3391-77b3-436b-d583466d0018}">
+                                  <parameters>
+                                    <AutoResolve>true</AutoResolve>
+                                    <DisableMru>false</DisableMru>
+                                    <DisableQuickFind>false</DisableQuickFind>
+                                    <DisableViewPicker>false</DisableViewPicker>
+                                    <DefaultViewId>{E29E2D3E-0A7A-4BAA-A8A0-8E8BFE64D5EB}</DefaultViewId>
+                                    <FilterRelationshipName>sabre_opening_Position</FilterRelationshipName>
+                                    <DependentAttributeName>sabre_placement.sabre_openingno</DependentAttributeName>
+                                    <DependentAttributeType>sabre_opening</DependentAttributeType>
+                                    <AllowFilterOff>true</AllowFilterOff>
+                                  </parameters>
+                                </control>
+                              </cell>
+                              <cell id="{cb32964a-5c5a-198a-9951-4ba78a28b48d}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Hours Per Week" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_hoursperweek" classid="{0D2C745A-E5A8-4c8f-BA63-C6D3BB604660}" datafieldname="sabre_hoursperweek" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{e26e6700-726a-ac77-1a5c-dd5507342099}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Pipeline No" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_submissionno" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_submissionno" disabled="false" uniqueid="{c57cb09a-1852-c67c-69b0-28749b965c61}">
+                                  <parameters>
+                                    <AutoResolve>true</AutoResolve>
+                                    <DisableMru>false</DisableMru>
+                                    <DisableQuickFind>false</DisableQuickFind>
+                                    <DisableViewPicker>false</DisableViewPicker>
+                                    <DefaultViewId>{F9E23350-6E9E-47D8-872F-5FB91F62B0C9}</DefaultViewId>
+                                    <AllowFilterOff>false</AllowFilterOff>
+                                  </parameters>
+                                </control>
+                              </cell>
+                              <cell id="{aeec3562-5979-c3b8-6e21-dcbec551a034}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Wage Type" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_wagetype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sabre_wagetype" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{713ed2fc-244c-4dc1-9546-29607b258eb5}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Placement No" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sabre_name" uniqueid="{a1251d34-cc47-a5a5-5993-db2507942e25}" disabled="true" />
+                              </cell>
+                              <cell id="{360574ca-a914-63ee-d2b7-686e2789b98a}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Pay Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_regularwages" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_regularwages" disabled="false" uniqueid="{248459b8-2c3c-7804-757b-ca010ec4ed99}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{b6691b93-57a9-0a6a-52e8-be6bdaab6e9d}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Candidate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_candidate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_candidate" disabled="false" uniqueid="{d03dec01-d05c-b424-0757-aca5bd2d2613}">
+                                  <parameters>
+                                    <AutoResolve>true</AutoResolve>
+                                    <DisableMru>false</DisableMru>
+                                    <DisableQuickFind>false</DisableQuickFind>
+                                    <DisableViewPicker>false</DisableViewPicker>
+                                    <DefaultViewId>{4741C813-CBB2-48AB-AF8A-8A59A4CA2CDD}</DefaultViewId>
+                                    <FilterRelationshipName>sabre_submission_Candidate</FilterRelationshipName>
+                                    <DependentAttributeName>sabre_placement.sabre_submissionno</DependentAttributeName>
+                                    <DependentAttributeType>sabre_submission</DependentAttributeType>
+                                    <AllowFilterOff>true</AllowFilterOff>
+                                  </parameters>
+                                </control>
+                              </cell>
+                              <cell id="{d93685c6-c065-d69d-9c5e-0a1897e9eb57}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Bill Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_regularchargerate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_regularchargerate" disabled="false" uniqueid="{091ec206-2eb7-9599-24ee-056491c72401}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{4225c22b-18a1-8610-7186-dbdcea975226}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Employee Type" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_employeetype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sabre_employeetype" disabled="false" />
+                              </cell>
+                              <cell id="{9885094d-6beb-7790-11a4-a2d362415c7c}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Overtime Pay Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_overtimewages" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_overtimewages" disabled="false" uniqueid="{e2792016-8b05-a3bc-6ab1-b2e51ba005b5}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{e0e988c9-1aa2-0dc1-a3c9-86d1a9d74366}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Start Date" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_actualstartdate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sabre_actualstartdate" disabled="false" uniqueid="{c8e9251d-6bd6-da93-aed7-c533e3973461}" />
+                              </cell>
+                              <cell id="{053cc4db-2801-570a-2605-a4220b60c33a}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Overtime Bill Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_overtimechargerate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_overtimechargerate" disabled="false" uniqueid="{90dceb5e-e958-8d1a-075e-3a05b911dc6a}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{46695937-cda3-9ba9-c190-ccc1711d72da}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="End Date" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_enddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="sabre_enddate" disabled="false" uniqueid="{8a66c9a8-ea2a-4130-6222-9840b4b085b2}" />
+                              </cell>
+                              <cell id="{cb0e32ba-7d8e-9db3-2149-b895da1854da}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Premium Pay Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_overtime2wages" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_overtime2wages" disabled="false" uniqueid="{b9114c63-7468-c339-7280-865b333d32b9}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{0a48402c-c286-c80d-26e2-361002189e99}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Client" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_hostingcompany" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_hostingcompany" disabled="false" uniqueid="{69ad816c-b1a1-61b9-1299-85ee38edc420}">
+                                  <parameters>
+                                    <AutoResolve>true</AutoResolve>
+                                    <DisableMru>false</DisableMru>
+                                    <DisableQuickFind>false</DisableQuickFind>
+                                    <DisableViewPicker>false</DisableViewPicker>
+                                    <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                                    <AllowFilterOff>false</AllowFilterOff>
+                                  </parameters>
+                                </control>
+                              </cell>
+                              <cell id="{5014401e-bc90-bb05-6956-323480c2e083}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Premium Bill Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_overtime2chargerate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_overtime2chargerate" disabled="false" uniqueid="{b6ade0b7-a1b0-3551-167b-ad5ca1ddc615}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{214ad0bb-bd80-53e2-31dc-6d102b93724b}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Created On" languagecode="1033" />
+                                </labels>
+                                <control id="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                              </cell>
+                              <cell id="{d3a7eab7-3e6e-5ea4-17c2-36cbd912bcd4}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Statutory Pay Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_statutorywages" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_statutorywages" disabled="false" uniqueid="{3d657c4d-29a9-2953-c87c-01521cd13069}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{cc57e32e-a40d-1761-b8d3-ee4e3d232b9c}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Created By" languagecode="1033" />
+                                </labels>
+                                <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                              </cell>
+                              <cell id="{4ad713e1-8856-d6ec-3dd6-d336a4779d1d}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Statutory Bill Rate" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_statutorychargerate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_statutorychargerate" disabled="false" uniqueid="{731e9537-b93d-9a71-5ca0-c110e2418909}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{96956e99-d4b7-293b-8e30-c59ddc94cecc}" showlabel="false" userspacer="true">
+                                <labels>
+                                  <label description="" languagecode="1033" />
+                                </labels>
+                              </cell>
+                              <cell id="{2c2e5aae-9231-963e-6629-5cecb57813a0}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Vacation Pay" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_vacationpay" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sabre_vacationpay" disabled="false" uniqueid="{5202e2be-867b-3842-111b-60682534d34e}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{436b6a60-4d2a-4627-b101-d23c1494e967}" showlabel="false" userspacer="true">
+                                <labels>
+                                  <label description="" languagecode="1033" />
+                                </labels>
+                              </cell>
+                              <cell id="{7d6e5b95-b53c-dbcd-8692-aee00b5c7396}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Vacation Payment" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_vacationvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="sabre_vacationvalue" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{366773e6-1b01-dcdc-55c7-8e9edea586a9}" showlabel="false" locklevel="0" visible="false">
+                                <labels>
+                                  <label description="bpflock" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_bpflock" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sabre_bpflock" disabled="false" uniqueid="{9e4ca6d1-e645-365e-8e8d-9db0d30d54a7}" />
+                              </cell>
+                              <cell id="{35c4a43e-b03b-0c88-d111-b6ca82e4e16a}" showlabel="false" locklevel="0" visible="false">
+                                <labels>
+                                  <label description="Placement Process Stage" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_placementprocessstage" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sabre_placementprocessstage" disabled="false" uniqueid="{60148d57-5e0e-8397-3baa-b77094010ba0}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{c71947d9-6e39-5d2e-e16a-b239a289dc48}" showlabel="false" locklevel="0" visible="false">
+                                <labels>
+                                  <label description="SIN No." languagecode="1033" />
+                                </labels>
+                                <control id="sabre_sinno" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="sabre_sinno" disabled="false" uniqueid="{a7906d7a-0e1b-0d76-88a3-752c97d381e8}" />
+                              </cell>
+                              <cell id="{44c10c15-24d3-a8dd-96ed-b0149e586a48}" showlabel="false">
+                                <labels>
+                                  <label description="" languagecode="1033" />
+                                </labels>
+                              </cell>
+                            </row>
+                          </rows>
+                        </section>
+                        <section name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}_section_4" showlabel="true" showbar="true" locklevel="0" id="{a756cbde-5ae6-cb5d-1a3a-4906028cea48}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" height="auto">
+                          <labels>
+                            <label description="Details" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{0e50742a-540e-c7e4-75e7-b96d75781a34}" showlabel="false" locklevel="0" auto="true" rowspan="3">
+                                <labels>
+                                  <label description="Details" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_details" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="sabre_details" disabled="false" uniqueid="{553c1c6d-2a67-1aca-ec56-57bdd2721824}" />
+                              </cell>
+                            </row>
+                            <row />
+                            <row height="auto" />
+                          </rows>
+                        </section>
+                      </sections>
+                    </column>
+                    <column width="33%">
+                      <sections>
+                        <section name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}_section_3" showlabel="true" showbar="false" locklevel="0" id="{3c30c862-040a-ab49-19c8-962636d6145a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                          <labels>
+                            <label description="Split Information" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{b4537459-cd2b-8aae-3699-4ae54e557302}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Sales Rep" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_affiliate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_affiliate" disabled="false" uniqueid="{028120d4-31cd-a92a-0197-e3522170334b}">
+                                  <parameters>
+                                    <AutoResolve>true</AutoResolve>
+                                    <DisableMru>false</DisableMru>
+                                    <DisableQuickFind>false</DisableQuickFind>
+                                    <DisableViewPicker>false</DisableViewPicker>
+                                    <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                                    <AllowFilterOff>false</AllowFilterOff>
+                                  </parameters>
+                                </control>
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{2d21ac92-5c5d-40a3-5741-038ad6ad1be8}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Split Percent" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_splitpercent" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sabre_splitpercent" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{11e45810-81db-9db4-2ad2-c1de61836e33}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Recruiter" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_affiliate2" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_affiliate2" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{ac1a60b7-eb95-4c3c-c928-70ade7440a37}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Split Percent 2" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_splitpercent2" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sabre_splitpercent2" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{e94ab3db-52b2-bec8-7aa2-2baac73819d5}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Contract Approved" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_contractapproved" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="sabre_contractapproved" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{b6575ff9-e060-484d-9f38-68bc134ea0a8}">
+                                <labels>
+                                  <label description="Account Manager" languagecode="1033" />
+                                </labels>
+                                <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                              </cell>
+                            </row>
+                          </rows>
+                        </section>
+                        <section name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}_section_6" showlabel="true" showbar="false" locklevel="0" id="{32d3bb8a-6190-32b0-c94e-b9d030c6d1b4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                          <labels>
+                            <label description="Markups" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{2645b31e-8a69-d152-cb2c-1657a597ab4b}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Fee Type" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_fee" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="sabre_fee" disabled="false" uniqueid="{c024a868-e1a5-729a-959b-d2c7d5eb0e38}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{b1ab245b-c026-14d0-5aa2-61c2bd46b637}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Fee" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_feecost" classid="{0D2C745A-E5A8-4c8f-BA63-C6D3BB604660}" datafieldname="sabre_feecost" disabled="false" uniqueid="{d17bd191-1da6-8e3b-4ad8-487310b0e153}" />
+                              </cell>
+                            </row>
+                            <row>
+                              <cell id="{51608058-6802-7437-c4ce-33e57d76ceac}" showlabel="true" locklevel="0">
+                                <labels>
+                                  <label description="Markup Value" languagecode="1033" />
+                                </labels>
+                                <control id="sabre_feevalue" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" datafieldname="sabre_feevalue" disabled="false" uniqueid="{70e0244b-9b72-38c0-7e73-87b466931dcb}" />
+                              </cell>
+                            </row>
+                          </rows>
+                        </section>
+                        <section name="{3e62462e-16a3-4d1f-92a9-8ef8215d514e}_section_5" showlabel="false" showbar="false" locklevel="0" id="{742e5ce1-9641-3a38-5a9e-293492ab69ce}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                          <labels>
+                            <label description="Section" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{bc31848b-0886-8aa8-9b66-19a3368b2c3e}" showlabel="false" locklevel="1" visible="false">
+                                <labels>
+                                  <label description="Status" languagecode="1033" />
+                                </labels>
+                                <control id="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" uniqueid="{a2a7322b-0e6b-31b9-3d39-d446302a64c4}" />
+                              </cell>
+                            </row>
+                          </rows>
+                        </section>
+                      </sections>
+                    </column>
+                  </columns>
+                </tab>
+                <tab name="tab_2" id="{3a58ddb1-d536-0089-b3ed-3de9acb82d79}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <columns>
+                    <column width="100%">
+                      <sections>
+                        <section name="tab_2_section_1" showlabel="false" showbar="false" locklevel="0" id="{9eb7e717-47c5-ed79-d381-67e874a935ed}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                          <labels>
+                            <label description="Section" languagecode="1033" />
+                          </labels>
+                          <rows>
+                            <row>
+                              <cell id="{0c9ed9b1-0424-3e9e-15ac-3c77ba6e353c}" showlabel="false" rowspan="15" auto="false" colspan="1" locklevel="0">
+                                <labels>
+                                  <label description="Note Text" languagecode="1033" />
+                                </labels>
+                                <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" uniqueid="{986516d2-3051-d1c8-607a-edb7ec47ace0}" disabled="false">
+                                  <parameters>
+                                    <DefaultTabId>ActivitiesTab</DefaultTabId>
+                                    <ShowArticleTab>false</ShowArticleTab>
+                                    <SelectDefaultLanguage>00000000-0000-0000-0000-000000000000</SelectDefaultLanguage>
+                                  </parameters>
+                                </control>
+                              </cell>
+                            </row>
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                            <row />
+                          </rows>
+                        </section>
+                      </sections>
+                    </column>
+                  </columns>
+                </tab>
+              </tabs>
+              <header id="{724a401a-7651-42a4-b293-6d1312d84848}" columns="111">
+                <rows>
+                  <row>
+                    <cell id="{9773fc63-4dc2-4b8c-8d6a-3049370b2bd2}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{7861767d-8089-425a-ba47-a6892fd2e97c}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{3319cb91-55d9-5743-30cb-6e016caaa16d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Business Unit" languagecode="1033" />
+                      </labels>
+                      <control id="header_sabre_businessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="sabre_businessunit" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </header>
+              <Navigation>
+                <NavBar>
+                  <NavBarByRelationshipItem RelationshipName="sabre_sabre_placement_sabre_candidate_Placement" Sequence="10000" Area="Info" Id="nav_sabre_sabre_placement_sabre_candidate_Placement" Show="false">
+                    <Titles>
+                      <Title LCID="1033" Text="Candidates" />
+                    </Titles>
+                  </NavBarByRelationshipItem>
+                  <NavBarByRelationshipItem RelationshipName="bpf_sabre_placement_sabre_bpf_14c6c6c85bd643fa8dda84d0e3e405f9" Sequence="10001" Area="Info" Id="nav_bpf_sabre_placement_sabre_bpf_14c6c6c85bd643fa8dda84d0e3e405f9" Show="false">
+                    <Titles>
+                      <Title LCID="1033" Text="sabre_placement" />
+                    </Titles>
+                  </NavBarByRelationshipItem>
+                </NavBar>
+                <NavBarAreas>
+                  <NavBarArea Id="Info">
+                    <Titles>
+                      <Title LCID="1033" Text="Common" />
+                    </Titles>
+                  </NavBarArea>
+                  <NavBarArea Id="Sales">
+                    <Titles>
+                      <Title LCID="1033" Text="Sales" />
+                    </Titles>
+                  </NavBarArea>
+                  <NavBarArea Id="Service">
+                    <Titles>
+                      <Title LCID="1033" Text="Service" />
+                    </Titles>
+                  </NavBarArea>
+                  <NavBarArea Id="Marketing">
+                    <Titles>
+                      <Title LCID="1033" Text="Marketing" />
+                    </Titles>
+                  </NavBarArea>
+                  <NavBarArea Id="ProcessCenter">
+                    <Titles>
+                      <Title LCID="1033" Text="Process Sessions" />
+                    </Titles>
+                  </NavBarArea>
+                </NavBarAreas>
+              </Navigation>
+              <controlDescriptions />
+              <formLibraries>
+                <Library name="sabre_jQuery" libraryUniqueId="{0e6e6c3a-a719-2698-9a1b-66d96d567b28}" />
+                <Library name="sabre_SDKJQuery" libraryUniqueId="{89c6392a-16ab-ba7c-b98c-a8077dc12a69}" />
+                <Library name="sabre_preFilterLookup" libraryUniqueId="{cc9de607-b676-ab9c-da55-b2952009e548}" />
+                <Library name="sabre_placementOnLoad" libraryUniqueId="{424a8cd0-3a3d-729a-9ae1-ade094578082}" />
+                <Library name="sabre_placementPriceCalc" libraryUniqueId="{74b21318-6d8c-b5d2-cc10-aecc45506800}" />
+                <Library name="sabre_fieldVisibilityControl" libraryUniqueId="{5990b371-ce2d-9dab-9ced-021d2c2cd56c}" />
+                <Library name="sabre_placementControl" libraryUniqueId="{cb267a06-0836-b044-11be-d59eb01a31ba}" />
+              </formLibraries>
+              <events>
+                <event name="onchange" application="false" active="false" attribute="sabre_posistion">
+                  <Handlers>
+                    <Handler functionName="processControl" libraryName="sabre_placementOnLoad" handlerUniqueId="{0c305e3e-8b04-5295-8441-1bd2c937e129}" enabled="false" parameters="" passExecutionContext="false" />
+                    <Handler functionName="onChangeJobOrder" libraryName="sabre_placementControl" handlerUniqueId="{8b3990ad-eba0-0966-3dab-24b7deea253c}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onload" application="false" active="false" BehaviorInBulkEditForm="Enabled">
+                  <Handlers>
+                    <Handler functionName="stageControl" libraryName="sabre_placementOnLoad" handlerUniqueId="{6c2049c6-8e71-b4ab-3a68-19510b307a7e}" enabled="true" parameters="" passExecutionContext="false" />
+                    <Handler functionName="hideByPlacementType" libraryName="sabre_fieldVisibilityControl" handlerUniqueId="{8e33bb22-eab6-0e70-c4e2-07375016527e}" enabled="true" parameters="" passExecutionContext="false" />
+                    <Handler functionName="processControl" libraryName="sabre_placementOnLoad" handlerUniqueId="{00b4ee37-89b4-a151-6e2a-c4a4944e804c}" enabled="false" parameters="" passExecutionContext="false" />
+                    <Handler functionName="hideByVacationPay" libraryName="sabre_fieldVisibilityControl" handlerUniqueId="{551a4ed8-d520-b780-234e-ea6aa1545ae5}" enabled="true" parameters="" passExecutionContext="false" />
+                    <Handler functionName="hideSecondAffiliate" libraryName="sabre_fieldVisibilityControl" handlerUniqueId="{ab31bb6d-ed7a-05ca-1c69-a7b5b7b23e8b}" enabled="true" parameters="" passExecutionContext="false" />
+                    <Handler functionName="placementProcessStageUpdate" libraryName="sabre_placementOnLoad" handlerUniqueId="{1a9a1239-282a-a56a-79d2-8d8cbd53645d}" enabled="true" parameters="" passExecutionContext="false" />
+                    <Handler functionName="onBulkEdit" libraryName="sabre_placementOnLoad" handlerUniqueId="{2c03c838-6759-99b7-801b-55b99448a31d}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_candidate">
+                  <Handlers>
+                    <Handler functionName="onCandidateChange" libraryName="sabre_preFilterLookup" handlerUniqueId="{7e866b61-0c5d-2a60-208c-0a3b2e7e7865}" enabled="false" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onsave" application="false" active="false">
+                  <Handlers>
+                    <Handler functionName="placementProcessStageUpdate" libraryName="sabre_placementOnLoad" handlerUniqueId="{aca19b46-9d9d-1db5-ac31-09521ed6ea53}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_vacationpay">
+                  <Handlers>
+                    <Handler functionName="hideByVacationPay" libraryName="sabre_fieldVisibilityControl" handlerUniqueId="{2d7c20c0-c49e-ba56-6c37-5153d6d9ec33}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_statutorywages">
+                  <Handlers>
+                    <Handler functionName="statPayOnChange" libraryName="sabre_placementControl" handlerUniqueId="{ebd8a5a0-6de7-900e-d90e-a215ed90466d}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_regularchargerate">
+                  <Handlers>
+                    <Handler functionName="normalBillOnChange" libraryName="sabre_placementControl" handlerUniqueId="{775dd423-99a2-e403-e732-546773db3112}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_feevalue">
+                  <Handlers>
+                    <Handler functionName="calculateRegCharge" libraryName="sabre_placementPriceCalc" handlerUniqueId="{cb5778e8-edc6-a2e6-211a-5d11720c5523}" enabled="false" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_submissionno">
+                  <Handlers>
+                    <Handler functionName="fillCandidate" libraryName="sabre_preFilterLookup" handlerUniqueId="{cd6ae8ee-ede1-d3eb-63c0-d2ceb7b5071b}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_actualstartdate">
+                  <Handlers>
+                    <Handler functionName="quickCreateChangeDate" libraryName="sabre_placementControl" handlerUniqueId="{e7cba1d0-9273-aa73-8740-5982b3c4d347}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_enddate">
+                  <Handlers>
+                    <Handler functionName="quickCreateChangeDate" libraryName="sabre_placementControl" handlerUniqueId="{561c76d0-3851-9bea-c092-7c3689239c55}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_hostingcompany">
+                  <Handlers>
+                    <Handler functionName="onChangeCompany" libraryName="sabre_placementControl" handlerUniqueId="{32156c8d-2c44-9bdd-8723-8796da2a8b59}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_affiliate">
+                  <Handlers>
+                    <Handler functionName="hideSecondAffiliate" libraryName="sabre_fieldVisibilityControl" handlerUniqueId="{8eae44b3-ec8e-8977-bc51-ce78e9259887}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_sinno">
+                  <Handlers>
+                    <Handler functionName="sinVerification" libraryName="sabre_placementOnLoad" handlerUniqueId="{ee30ca81-16c6-4bc0-9339-811276bb8115}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_fee">
+                  <Handlers>
+                    <Handler functionName="calculateRegChargeRework" libraryName="sabre_placementPriceCalc" handlerUniqueId="{05c1890a-c45d-4b39-9e41-582dc933637a}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+                <event name="onchange" application="false" active="false" attribute="sabre_feecost">
+                  <Handlers>
+                    <Handler functionName="calculateRegChargeRework" libraryName="sabre_placementPriceCalc" handlerUniqueId="{964c0713-0edb-c433-2b33-68db8d2453eb}" enabled="true" parameters="" passExecutionContext="false" />
+                  </Handlers>
+                </event>
+              </events>
+            </form>
+            <IsCustomizable>1</IsCustomizable>
+            <CanBeDeleted>1</CanBeDeleted>
+            <LocalizedNames>
+              <LocalizedName description="Information" languagecode="1033" />
+            </LocalizedNames>
+            <Descriptions>
+              <Description description="A form for this entity." languagecode="1033" />
+            </Descriptions>
+          </systemform>
+        </forms>
+      </FormXml>
+      <RibbonDiffXml>
+        <CustomActions>
+          <CustomAction Id="sabre.Mscrm.Form.sabre_placement.Activate.CustomAction" Location="Mscrm.Form.sabre_placement.MainTab.Save.Controls._children" Sequence="50">
+            <CommandUIDefinition>
+              <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.Form.Activate" Id="Mscrm.Form.sabre_placement.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:Mscrm.Form.sabre_placement.Activate.LabelText" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+            </CommandUIDefinition>
+          </CustomAction>
+          <CustomAction Id="sabre.Mscrm.Form.sabre_placement.Deactivate.CustomAction" Location="Mscrm.Form.sabre_placement.MainTab.Save.Controls._children" Sequence="60">
+            <CommandUIDefinition>
+              <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Command="Mscrm.Form.Deactivate" Id="Mscrm.Form.sabre_placement.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$LocLabels:Mscrm.Form.sabre_placement.Deactivate.LabelText" Sequence="60" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Deactivate" ModernImage="DeActivate" />
+            </CommandUIDefinition>
+          </CustomAction>
+          <CustomAction Id="sabre.Mscrm.HomepageGrid.sabre_placement.Activate.CustomAction" Location="Mscrm.HomepageGrid.sabre_placement.MainTab.Management.Controls._children" Sequence="30">
+            <CommandUIDefinition>
+              <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.HomepageGrid.Activate" Id="Mscrm.HomepageGrid.sabre_placement.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$LocLabels:Mscrm.HomepageGrid.sabre_placement.Activate.LabelText" Sequence="30" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+            </CommandUIDefinition>
+          </CustomAction>
+          <CustomAction Id="sabre.Mscrm.HomepageGrid.sabre_placement.Deactivate.CustomAction" Location="Mscrm.HomepageGrid.sabre_placement.MainTab.Management.Controls._children" Sequence="40">
+            <CommandUIDefinition>
+              <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" Command="Mscrm.HomepageGrid.Deactivate" Id="Mscrm.HomepageGrid.sabre_placement.Deactivate" Image32by32="/_imgs/ribbon/Deactivate_32.png" Image16by16="/_imgs/ribbon/Deactivate_16.png" LabelText="$LocLabels:Mscrm.HomepageGrid.sabre_placement.Deactivate.LabelText" Sequence="40" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Deactivate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Deactivate" ModernImage="DeActivate" />
+            </CommandUIDefinition>
+          </CustomAction>
+        </CustomActions>
+        <Templates>
+          <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+        </Templates>
+        <CommandDefinitions>
+          <CommandDefinition Id="Mscrm.ExportToExcel">
+            <EnableRules>
+              <EnableRule Id="Mscrm.ExportToExcel" />
+              <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+              <EnableRule Id="Mscrm.IsNotIos" />
+            </EnableRules>
+            <DisplayRules>
+              <DisplayRule Id="Mscrm.ExportToExcelPrivilege" />
+              <DisplayRule Id="Mscrm.HideOnModern" />
+              <DisplayRule Id="Mscrm.HideForTabletExperience" />
+            </DisplayRules>
+            <Actions>
+              <JavaScriptFunction FunctionName="preExportSetup" Library="$webresource:sabre_placementControl" />
+              <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.exportToXlsx" Library="/_static/_common/scripts/RibbonActions.js">
+                <CrmParameter Value="SelectedControl" />
+                <CrmParameter Value="SelectedEntityTypeCode" />
+                <IntParameter Value="5" />
+              </JavaScriptFunction>
+            </Actions>
+          </CommandDefinition>
+        </CommandDefinitions>
+        <RuleDefinitions>
+          <TabDisplayRules />
+          <DisplayRules>
+            <DisplayRule Id="Mscrm.ExportToExcelPrivilege">
+              <MiscellaneousPrivilegeRule PrivilegeName="ExportToExcel" />
+            </DisplayRule>
+            <DisplayRule Id="Mscrm.HideForTabletExperience">
+              <HideForTabletExperienceRule />
+            </DisplayRule>
+            <DisplayRule Id="Mscrm.HideOnModern">
+              <CommandClientTypeRule Type="Modern" InvertResult="true" />
+            </DisplayRule>
+          </DisplayRules>
+          <EnableRules>
+            <EnableRule Id="Mscrm.ExportToExcel">
+              <CustomRule FunctionName="Mscrm.RibbonActions.enableExportToExcel" Library="/_static/_common/scripts/RibbonActions.js" />
+            </EnableRule>
+            <EnableRule Id="Mscrm.IsNotIos">
+              <CustomRule FunctionName="Mscrm.IsIos_0" Library="$Webresource:Ribbon_main_system_library.js" InvertResult="true" />
+            </EnableRule>
+            <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+              <OrRule>
+                <Or>
+                  <CommandClientTypeRule Type="Modern" />
+                </Or>
+                <Or>
+                  <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+                    <CrmParameter Value="SelectedControl" />
+                  </CustomRule>
+                </Or>
+              </OrRule>
+            </EnableRule>
+          </EnableRules>
+        </RuleDefinitions>
+        <LocLabels>
+          <LocLabel Id="Mscrm.Form.sabre_placement.Activate.LabelText">
+            <Titles>
+              <Title description="Activate" languagecode="1033" />
+            </Titles>
+          </LocLabel>
+          <LocLabel Id="Mscrm.Form.sabre_placement.Deactivate.LabelText">
+            <Titles>
+              <Title description="Deactivate" languagecode="1033" />
+            </Titles>
+          </LocLabel>
+          <LocLabel Id="Mscrm.HomepageGrid.sabre_placement.Activate.LabelText">
+            <Titles>
+              <Title description="Activate" languagecode="1033" />
+            </Titles>
+          </LocLabel>
+          <LocLabel Id="Mscrm.HomepageGrid.sabre_placement.Deactivate.LabelText">
+            <Titles>
+              <Title description="Deactivate" languagecode="1033" />
+            </Titles>
+          </LocLabel>
+        </LocLabels>
+      </RibbonDiffXml>
+      <CustomControlDefaultConfigs>
+        <CustomControlDefaultConfig>
+          <PrimaryEntityTypeCode>10009</PrimaryEntityTypeCode>
+          <CustomControlDefaultConfigId>{b139cc3c-9bfc-e511-80cd-000d3a013699}</CustomControlDefaultConfigId>
+          <ControlDescriptionXML><controlDescriptions /></ControlDescriptionXML>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+        </CustomControlDefaultConfig>
+      </CustomControlDefaultConfigs>
+    </Entity>
+  </Entities>
+  <Roles></Roles>
+  <Workflows></Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

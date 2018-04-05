@@ -1,0 +1,185 @@
+function positionSetWageType(){
+    if(Xrm.Page.getControl("sabre_type") != null && Xrm.Page.getAttribute("sabre_type").getValue() != null){
+	    Xrm.Page.getControl("sabre_wagetype");
+		if(Xrm.Page.getAttribute("sabre_type").getValue() == 837770001){
+		    var setVal = 837770000;
+		}
+		else{
+		    var setVal = 837770001;
+		}
+		Xrm.Page.getAttribute("sabre_wagetype").setValue(setVal);
+	}
+}
+
+//function called in the onchange event of Internally Reviewed
+function internallyReviewed(){
+	//if it's been signed, set the signee to the current user
+	if(Xrm.Page.getControl("sabre_internallyreviewed") != null && Xrm.Page.getAttribute("sabre_internallyreviewed").getValue() == 1){
+		Xrm.Page.getControl("sabre_internalreviewsignee");
+
+		var userArray = new Array();
+		userArray[0] = new Object();
+		userArray[0].id = Xrm.Page.context.getUserId().slice(1, -1);
+		userArray[0].name = Xrm.Page.context.getUserName();
+		userArray[0].entityType = "systemuser";
+
+		Xrm.Page.getControl("sabre_internalreviewsignee").setDisabled(false);
+		Xrm.Page.getAttribute("sabre_internalreviewsignee").setValue(userArray);
+		Xrm.Page.getControl("sabre_internalreviewsignee").setVisible(true);
+		Xrm.Page.getControl("sabre_internalreviewsignee").setDisabled(true);
+		
+		var currentDateTime = new Date();
+		
+		Xrm.Page.getControl("sabre_revieweddatetime").setDisabled(false);
+		Xrm.Page.getAttribute("sabre_revieweddatetime").setValue(currentDateTime);
+		Xrm.Page.getControl("sabre_revieweddatetime").setVisible(true);
+		Xrm.Page.getControl("sabre_revieweddatetime").setDisabled(true);
+		
+	}
+	
+}
+
+function accountChangeBFSH(){
+	//function to change Bill For Stat Hours field in Job Order/Position when the Account or something else is changed or set.
+	if(Xrm.Page.getControl("sabre_billforstathours") != null){
+			var account = Xrm.Page.getAttribute("sabre_account").getValue();
+			account.id = account.id
+			SDK.JQuery.retrieveRecord(account[0].id,
+				"Account",
+				null, "",
+				acctRetrieved, errorCallback);
+	}
+}
+
+function acctRetrieved(result){
+	if (result != null && result.sabre_BillforStatHours != null){
+			Xrm.Page.getAttribute("sabre_billforstathours").setValue(result.sabre_BillforStatHours);
+	}
+}
+
+function fillJobOrder(){
+	if(Xrm.Page.getControl("sabre_availableopenings") != null && Xrm.Page.getAttribute("sabre_availableopenings").getValue() > 0){
+	//actual functionality
+	var obj = new Object();
+	var id = Xrm.Page.data.entity.getId();
+	id = id.slice(1, -1);
+	obj.id = id;
+	obj.name = Xrm.Page.getAttribute("sabre_name").getValue();
+	obj.entityType = "sabre_position";
+	Xrm.Utility.openQuickCreate("sabre_submission", obj).then(successSubmissionCreate, errorCallback);
+
+	//actual functionality
+	}
+	else{
+		alert("Insufficient Openings to perform action");
+	}
+}
+
+function successSubmissionCreate(object){
+	newObject = new Object();
+	//console.log(object);
+	newObject.sabre_submissionstatus = 837770000;
+	positionObject = new Object();
+	positionObject.Id = Xrm.Page.data.entity.getId();
+	positionObject.LogicalName = "sabre_position";
+	newObject.sabre_PositionNo = positionObject;
+	SDK.JQuery.retrieveRecord(object.savedEntityReference.id,
+		object.savedEntityReference.entityType,
+		null, "",
+		submissionRetrieved, errorCallback);
+}
+
+function submissionRetrieved(record){
+	console.log(record);
+	//record.sabre_Candidate = newObject.sabre_Candidate; //dunno why we need this.
+	newObject.sabre_Candidate = record.sabre_Candidate;
+	record.sabre_SubmissionStatus.Value = 837770000;
+	SDK.JQuery.updateRecord(
+		record.sabre_submissionId,
+	    record,
+		"sabre_submission",
+		successUpdate,
+		errorCallback
+	);
+	var newPlacement = new Object();
+	submissionObject = new Object();
+	submissionObject.Id = record.sabre_submissionId;
+	submissionObject.LogicalName = "sabre_submission";
+	newPlacement.sabre_SubmissionNo = submissionObject;
+	newPlacement.sabre_Posistion = record.sabre_PositionNo;
+	newPlacement.sabre_Candidate = record.sabre_Candidate;
+	SDK.JQuery.createRecord(
+	  newPlacement,
+	  "sabre_placement",
+	  placementCreated,
+	  errorCallback
+	);
+}
+
+function successUpdate(){
+	
+}
+
+function placementCreated(object){
+	//console.log(object);
+	thePlacement = new Object();
+	thePlacement = object;
+	SDK.JQuery.retrieveMultipleRecords(
+				"sabre_opening",
+				"$select=*&$filter=sabre_PositionNo/Id eq (Guid'" + thePlacement.sabre_Posistion.Id +"') and (sabre_OpeningStatus/Value eq 837770001)",
+				retrievedOpenings,
+				errorCallback,
+				function(){
+				//OnComplete Handler
+				}											
+	); 
+	
+}
+
+function retrievedOpenings(openings){
+	if(openings.length > 0){
+		//console.log(openings[0]);
+		//update openings[0], thePlacement
+		var tempObject = new Object();
+		tempObject.Id = thePlacement.sabre_placementId;
+		tempObject.LogicalName = "sabre_placement";
+		openings[0].sabre_Placement = tempObject;
+		SDK.JQuery.updateRecord(
+			openings[0].sabre_openingId,
+			openings[0],
+			"sabre_opening",
+			function(){
+			},
+			errorCallback
+	    );
+		tempObject = new Object();
+		tempObject.Id = openings[0].sabre_openingId;
+		tempObject.LogicalName = "sabre_opening";
+		thePlacement.sabre_Opening = tempObject;
+		SDK.JQuery.updateRecord(
+			thePlacement.sabre_placementId,
+			thePlacement,
+			"sabre_placement",
+			function(){
+			},
+			errorCallback
+	    );
+        alert("Candidate Placed.");
+		window.parent.Xrm.Page.data.refresh();
+	}
+	else{
+		alert("Error: insufficient openings to correctly place.");
+	}
+}
+
+//default function for error output to console.
+function errorCallback(error){
+	console.log(error);
+}
+
+function hideBusinessProcessFlow()
+{
+	if(Xrm.Page.ui.process != null && Xrm.Page.ui.process.getVisible() != null){
+        Xrm.Page.ui.process.setVisible(false);
+	}
+}

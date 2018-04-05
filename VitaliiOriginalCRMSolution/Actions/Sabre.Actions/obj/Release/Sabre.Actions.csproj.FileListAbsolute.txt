@@ -1,0 +1,5 @@
+C:\Users\josiah\Documents\Documents\Agency CRM\CRMSolution\Actions\Sabre.Actions\bin\Release\Sabre.Actions.dll
+C:\Users\josiah\Documents\Documents\Agency CRM\CRMSolution\Actions\Sabre.Actions\bin\Release\Sabre.Actions.pdb
+C:\Users\josiah\Documents\Documents\Agency CRM\CRMSolution\Actions\Sabre.Actions\obj\Release\Sabre.Actions.csprojResolveAssemblyReference.cache
+C:\Users\josiah\Documents\Documents\Agency CRM\CRMSolution\Actions\Sabre.Actions\obj\Release\Sabre.Actions.dll
+C:\Users\josiah\Documents\Documents\Agency CRM\CRMSolution\Actions\Sabre.Actions\obj\Release\Sabre.Actions.pdb
