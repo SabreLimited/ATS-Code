@@ -241,6 +241,24 @@ namespace ATSExtensions
             } else if (preEndDate != entityEndDate && entityEndDate < DateTime.Now && entityEndDate.Year > 2000 && entity.Contains("sabre_candidate")) {
                 updateRelatedCandidates(service, entity, pluginContext);
             }
+            //if date is changed and valid, mark dirty
+            if (preEndDate != entityEndDate)
+            {
+                var myEntity = new Entity("sabre_placement");
+                myEntity.Attributes["sabre_dirty"] = true;
+                myEntity.LogicalName = "sabre_placement";
+                var tempField = new Object();
+                entity.Attributes.TryGetValue("sabre_placementid", out tempField);
+                if (tempField != null)
+                {
+                    myEntity.Id = (Guid)tempField;
+                    if (pluginContext.Depth <= 1)
+                    {
+                        service.Update(myEntity);
+                    }
+                }
+
+            }
         }
 
         public void updateRelatedCandidates(IOrganizationService service, Entity entity, IPluginExecutionContext pluginContext) {
@@ -1178,4 +1196,138 @@ namespace ATSExtensions
         }
 
     }
+
+    public class onUpdateJobOrderStage {
+        public void Execute(IServiceProvider serviceProvider)
+        {
+            var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(pluginContext.UserId);
+            var preImage = (Entity)pluginContext.PreEntityImages["PreUpdateImage"];
+            var entity = (Entity)pluginContext.InputParameters["Target"];
+
+            //first verify that stageid is being changed
+            if (entity.Contains("stageid")){
+                //then verify that it is being changed to 'active'
+                var stageid = (string)entity.Attributes["stageid"];
+                var tempVar = new Object();
+                if (entity.Contains("processid"))
+                {
+                    tempVar = entity.Attributes["processid"];
+                }
+                else {
+                    tempVar = preImage.Attributes["processid"];
+                }
+                var processid = (string)tempVar;
+
+            }
+            
+            //if both of the above are true determine whether account is 'active'
+            //if account is inactive, revert changes to stageid
+            //only update if depth <= 1
+        }
+
+
+    }
+
+    /// <summary>
+    /// Sab-Jo March 27 Started work on this plugin
+    /// Will Update related placements' blockexport field
+    /// </summary>
+    public class onUpdateAccountExclusive : IPlugin
+    {
+        IOrganizationService svc;
+        IPluginExecutionContext ctxt;
+        public void Execute(IServiceProvider serviceProvider) {
+            var pluginContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(pluginContext.UserId);
+            svc = service; //defining global version of service
+            ctxt = pluginContext;
+            var entity = (Entity)pluginContext.PostEntityImages["PostUpdateImage"];
+            var preEntity = (Entity)pluginContext.PreEntityImages["PreUpdateImage"];
+            if (pluginContext.Depth <= 1 && entity.Contains("sabre_blockexport") && preEntity.Contains("accountid"))
+            {
+                //get all related placements
+                var placementQuery = new QueryExpression("sabre_placement");
+                placementQuery.ColumnSet = new ColumnSet("sabre_blockexport", "sabre_hostingcompany", "sabre_posistion", "sabre_placementid");
+                placementQuery.Criteria.AddCondition("sabre_hostingcompany", ConditionOperator.Equal, (Guid)preEntity["accountid"]);
+                object[] tempObjectArray = generateJobOrderObjectArray((Guid)preEntity["accountid"]);
+                if (tempObjectArray != null && tempObjectArray.Length > 0)
+                {
+                    placementQuery.Criteria.AddCondition("sabre_posistion", ConditionOperator.In, tempObjectArray);
+                }
+                var placementRecords = service.RetrieveMultiple(placementQuery);
+
+                //TODO: update all related placements
+                for (int i = 0; i < placementRecords.Entities.Count; i++)
+                {
+                    if (placementRecords.Entities[i].Contains("sabre_placementid"))
+                    {
+                        //define record, update record
+                        var myEntity = new Entity("sabre_placement");
+                        myEntity.Id = (Guid)placementRecords.Entities[i]["sabre_placementid"];
+                        myEntity.LogicalName = "sabre_placement";
+                        myEntity.Attributes["sabre_blockexport"] = entity["sabre_blockexport"];
+                        if (pluginContext.Depth <= 1)
+                        {
+                            service.Update(myEntity);
+                        }
+                        service.Update(myEntity);
+                    }
+                }
+            }
+        }
+
+        //takes account id, returns formatted object array for use with ConditionOperator.In
+        private object[] generateJobOrderObjectArray(Guid accountid) {
+            if (accountid != null)
+            {
+                List<object> jobList = new List<object>();
+                jobList = generateJobOrderList(accountid, jobList);
+
+                if (jobList != null && jobList.Count > 0) {
+                //generate/populate array
+                object[] objArray = new object[jobList.Count];
+                int i = 0;
+                foreach (object obj in jobList)
+                {
+                    objArray[i] = obj;
+                    i++;
+                }
+
+                return objArray;
+                }
+            }
+            return null;
+        }
+
+
+        private List<object> generateJobOrderList(Guid accountid, List<object> objArray) {
+            var query = new QueryExpression("sabre_position");
+            query.ColumnSet = new ColumnSet("sabre_positionid");
+            query.Criteria.AddCondition("sabre_account", ConditionOperator.Equal, accountid);
+            EntityCollection ec = new EntityCollection();
+            if (ctxt.Depth <= 1)
+            {
+
+                ec = svc.RetrieveMultiple(query);
+            }
+            if (ec.Entities.Count > 0)
+            {
+                List<object> objList = new List<object>();
+                for (int i = 0; i < ec.Entities.Count; i++) {
+                    if (ec.Entities[i].Contains("sabre_positionid")) {
+                        objList.Add(ec.Entities[i]["sabre_positionid"]);
+                    }
+                }
+                return objList;
+            }
+            else
+            {
+                return objArray;
+            }
+        }
+    }
+
 }
